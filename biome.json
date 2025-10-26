@@ -7,19 +7,44 @@
   },
   "files": {
     "ignoreUnknown": true,
-    "includes": ["**", "!node_modules", "!.next", "!dist", "!build"]
+    "includes": ["**", "!node_modules", "!.next", "!dist", "!build", "!out"]
   },
   "formatter": {
     "enabled": true,
+    "formatWithErrors": true,
     "indentStyle": "space",
-    "indentWidth": 2
+    "indentWidth": 2,
+    "lineEnding": "lf",
+    "lineWidth": 80,
+    "attributePosition": "auto",
+    "bracketSameLine": false,
+    "bracketSpacing": true,
+    "expand": "auto"
   },
   "linter": {
     "enabled": true,
     "rules": {
       "recommended": true,
       "suspicious": {
+        "noCommentText": "error",
+        "noDuplicateJsxProps": "error",
         "noUnknownAtRules": "off"
+      },
+      "correctness": {
+        "noUnusedVariables": "error",
+        "useJsxKeyInIterable": "error",
+        "noChildrenProp": "error",
+        "noInvalidUseBeforeDeclaration": "error",
+        "noUndeclaredDependencies": "error"
+      },
+      "style": {
+        "noNestedTernary": "error",
+        "useImportType": "error",
+        "useNodejsImportProtocol": {
+          "level": "error",
+          "fix": "safe",
+          "options": {}
+        }
       }
     },
     "domains": {
@@ -27,6 +52,22 @@
       "react": "recommended"
     }
   },
+  "javascript": {
+    "formatter": {
+      "jsxQuoteStyle": "double",
+      "quoteProperties": "asNeeded",
+      "trailingCommas": "all",
+      "semicolons": "always",
+      "arrowParentheses": "always",
+      "bracketSameLine": false,
+      "quoteStyle": "single",
+      "attributePosition": "auto",
+      "bracketSpacing": true,
+      "lineEnding": "lf",
+      "lineWidth": 80
+    }
+  },
+  "html": { "formatter": { "selfCloseVoidElements": "always" } },
   "assist": {
     "actions": {
       "source": {
