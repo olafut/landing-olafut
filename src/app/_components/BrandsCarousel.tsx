@@ -27,9 +27,8 @@ export const BrandsCarousel: FC<BrandsCarouselProps> = ({ brands }) => {
               alt={brand.name}
               className="object-contain"
               fill
-              priority
-              decoding="sync"
-              loading="eager"
+              decoding="async"
+              loading="lazy"
             />
           </li>
         ))}

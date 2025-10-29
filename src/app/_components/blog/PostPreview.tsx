@@ -1,32 +1,37 @@
 import Link from 'next/link';
 import type { FC } from 'react';
-import type { Author } from '@/interfaces/author';
+import type { Post } from '@/interfaces/post';
 import { DateFormatter } from '../DateFormatter';
 import { Title } from '../ui';
 import { Avatar } from './Avatar';
 import { CoverImage } from './CoverImage';
 
 type PostPreviewProps = {
-  title: string;
-  coverImage: string;
-  date: string;
-  excerpt: string;
-  author: Author;
-  slug: string;
+  post: Post;
 };
 
-export const PostPreview: FC<PostPreviewProps> = ({
-  title,
-  coverImage,
-  date,
-  excerpt,
-  author,
-  slug,
-}) => {
+export const PostPreview: FC<PostPreviewProps> = ({ post }) => {
+  const {
+    title,
+    date,
+    excerpt,
+    author,
+    slug,
+    coverImageMobile,
+    coverImageTablet,
+    coverImageDesktop,
+  } = post;
+
   return (
     <div>
       <div className="mb-5">
-        <CoverImage slug={slug} title={title} src={coverImage} />
+        <CoverImage
+          slug={slug}
+          title={title}
+          srcMobile={coverImageMobile}
+          srcTablet={coverImageTablet}
+          srcDesktop={coverImageDesktop}
+        />
       </div>
       <Title level="h4" className="mb-4">
         <Link href={`/blog/${slug}`} className="hover:underline">

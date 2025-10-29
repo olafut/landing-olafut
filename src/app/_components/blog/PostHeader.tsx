@@ -1,24 +1,24 @@
 import type { FC } from 'react';
-import type { Author } from '@/interfaces/author';
+import type { Post } from '@/interfaces/post';
 import { DateFormatter } from '../DateFormatter';
 import { Avatar } from './Avatar';
 import { CoverImage } from './CoverImage';
 import { PostTitle } from './PostTitle';
 
 interface PostHeaderProps {
-  title: string;
-  coverImage: string;
-  date: string;
-  author: Author;
+  post: Post;
 }
 
-export const PostHeader: FC<PostHeaderProps> = ({
-  title,
-  coverImage,
-  date,
-  author,
-}) => {
-  console.log('PostHeader props:', { title, coverImage, date, author });
+export const PostHeader: FC<PostHeaderProps> = ({ post }) => {
+  const {
+    title,
+    date,
+    author,
+    coverImageMobile,
+    coverImageTablet,
+    coverImageDesktop,
+  } = post;
+
   return (
     <>
       <PostTitle>{title}</PostTitle>
@@ -26,7 +26,12 @@ export const PostHeader: FC<PostHeaderProps> = ({
         <Avatar name={author.name} picture={author.picture} />
       </div>
       <div className="mb-8 md:mb-16 sm:mx-0">
-        <CoverImage title={title} src={coverImage} />
+        <CoverImage
+          title={title}
+          srcMobile={coverImageMobile}
+          srcTablet={coverImageTablet}
+          srcDesktop={coverImageDesktop}
+        />
       </div>
       <div className="max-w-2xl mx-auto">
         <div className="block md:hidden mb-6">

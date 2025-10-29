@@ -11,7 +11,7 @@ export const DateFormatter: FC<DateFormatterProps> = ({
 }) => {
   const date = parseISO(dateString);
   return (
-    <time dateTime={dateString}>
+    <time dateTime={dateString} className="font-alt font-bold">
       {format(date, 'LLLL	d, yyyy', { locale: es })}
     </time>
   );

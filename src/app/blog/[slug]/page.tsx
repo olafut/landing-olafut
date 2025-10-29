@@ -28,12 +28,7 @@ export default async function PostPage({
   return (
     <main>
       <PostContainer>
-        <PostHeader
-          author={post.author}
-          coverImage={post.coverImage}
-          date={post.date}
-          title={post.title}
-        />
+        <PostHeader post={post} />
         <article className="mb-32">
           <PostBody content={content} />
         </article>

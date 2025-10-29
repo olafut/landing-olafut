@@ -23,14 +23,7 @@ export default async function Blog() {
           </Title>
         </section>
 
-        <HeroPost
-          title={heroPost.title}
-          coverImage={heroPost.coverImage}
-          date={heroPost.date}
-          author={heroPost.author}
-          slug={heroPost.slug}
-          excerpt={heroPost.excerpt}
-        />
+        <HeroPost post={heroPost} />
 
         {morePosts.length > 0 && <MoreStories posts={morePosts} />}
       </PostContainer>
