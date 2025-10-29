@@ -28,7 +28,7 @@ export const CoverImage: FC<CoverImageProps> = ({ title, src, slug }) => {
   return (
     <div className="sm:mx-0">
       {slug ? (
-        <Link href={`/posts/${slug}`} aria-label={title}>
+        <Link href={`/blog/${slug}`} aria-label={title}>
           {image}
         </Link>
       ) : (
