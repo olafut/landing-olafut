@@ -6,24 +6,25 @@
 }
 
 @theme inline {
+  --color-primary: #6f00ff;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-uxum);
+  --font-sans: var(--font-bricolage-grotesque);
   --font-alt: var(--font-space-grotesk);
   --radius-5xl: 2.5rem;
   --animate-infinite-scroll: infinite-scroll 35s linear infinite;
-
-  @keyframes infinite-scroll {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(-100%);
-    }
-  }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
+}
+
+@keyframes infinite-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
 }
