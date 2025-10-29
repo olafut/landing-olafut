@@ -1,13 +1,15 @@
 ---
 title: "Más allá del marcador: el impacto social del fútbol femenil"
 excerpt: "El fútbol femenil no solo se juega en la cancha. Su crecimiento representa un movimiento social que redefine el papel de las mujeres en el deporte, la visibilidad mediática y la igualdad de oportunidades."
-coverImage: "/assets/blog/futbol-femenil-impacto/cover.jpg"
+coverImageMobile: "/assets/blog/futbol-femenil-impacto/cover-mobile.webp"
+coverImageTablet: "/assets/blog/futbol-femenil-impacto/cover-tablet.webp"
+coverImageDesktop: "/assets/blog/futbol-femenil-impacto/cover-desktop.webp"
 date: "2025-10-16T05:35:07.322Z"
 author:
   name: Patricio Mariscal C.
-  picture: "/assets/blog/authors/patricio.jpeg"
+  picture: "/assets/blog/authors/patricio.webp"
 ogImage:
-  url: "/assets/blog/futbol-femenil-impacto/cover.jpg"
+  url: "/assets/blog/futbol-femenil-impacto/cover-dektop.webp"
 ---
 
 Durante décadas, el fútbol fue un terreno exclusivo para los hombres. Pero en los últimos años, el fútbol femenil ha transformado esa narrativa. Ya no es solo un deporte: es una declaración de identidad, una lucha por la igualdad y un motor de inspiración para nuevas generaciones.

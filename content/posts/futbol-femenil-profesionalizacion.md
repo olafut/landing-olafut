@@ -1,13 +1,15 @@
 ---
 title: "El reto invisible: profesionalizar el fútbol femenil"
 excerpt: "Más allá del espectáculo y los aplausos, las futbolistas enfrentan una lucha constante por condiciones dignas, salarios justos y reconocimiento profesional."
-coverImage: "/assets/blog/futbol-femenil-profesionalizacion/cover.jpg"
+coverImageMobile: "/assets/blog/futbol-femenil-profesionalizacion/cover-mobile.webp"
+coverImageTablet: "/assets/blog/futbol-femenil-profesionalizacion/cover-tablet.webp"
+coverImageDesktop: "/assets/blog/futbol-femenil-profesionalizacion/cover-desktop.webp"
 date: "2025-10-16T05:35:07.322Z"
 author:
   name: Patricio Mariscal C.
-  picture: "/assets/blog/authors/patricio.jpeg"
+  picture: "/assets/blog/authors/patricio.webp"
 ogImage:
-  url: "/assets/blog/futbol-femenil-profesionalizacion/cover.jpg"
+  url: "/assets/blog/futbol-femenil-profesionalizacion/cover-desktop.webp"
 ---
 
 La profesionalización del fútbol femenil no se mide solo en contratos o premios. Es una batalla diaria por visibilidad, derechos laborales y estructuras que garanticen un futuro sostenible para las jugadoras.
