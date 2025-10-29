@@ -1,36 +1,34 @@
 import Image from 'next/image';
 import { FaArrowRight } from 'react-icons/fa6';
+import { Button, Subtitle, Title } from './ui';
 
 export const HeroSection = () => {
   return (
-    <div className="relative pt-10 px-10 flex flex-col items-center">
-      <div className="absolute content-[''] w-full h-1/2 md:h-4/5 lg:h-full bottom-0 md:-bottom-10 lg:top-40 bg-radial from-white via-indigo-800 via-70% md:via-60% lg:via-50% to-background to-90% blur-xl -z-50 opacity-80" />
+    <div className="relative pt-10 px-10 flex flex-col items-center container mx-auto">
+      <div className="absolute content-[''] w-full h-1/2 md:h-4/5 lg:h-full bottom-0 md:-bottom-10 lg:top-40 bg-radial from-white from-30% via-primary via-70% md:via-60% lg:via-50% to-background to-90% blur-xl -z-50 opacity-100" />
 
-      <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-center max-w-3xl mx-auto">
-        Powerful Landing Pages That Convert
-      </h1>
+      <Title className="text-center max-w-5xl lg:max-w-4xl mx-auto" level="h1">
+        El fútbol solo necesita una comunidad dispuesta a todo
+      </Title>
 
-      <p className="mt-6 text-lg text-center px-4 font-alt max-w-2xl mx-auto font-thin">
-        Launch high-converting landing pages faster, generate qualified leads,
-        and optimize your marketing efforts—all with one simple solution.
-      </p>
+      <Subtitle className="mt-10 px-10">
+        Creando el 1er Club Femenil Independiente de México
+      </Subtitle>
 
-      <button
-        className="mt-8 px-4 py-3 bg-lime-300 hover:bg-lime-400 text-background rounded-xl text-md font-medium shadow-lg hover:shadow-xl transition-shadow duration-300 w-full font-alt flex items-center gap-2 justify-center max-w-sm"
-        type="button"
-      >
-        Start my trial
+      <Button>
+        ¡Se parte del cambio!
         <FaArrowRight />
-      </button>
+      </Button>
 
-      <div className="mt-10 max-w-xl lg:max-w-4xl">
+      <div className="max-w-3xl lg:max-w-4xl">
         <Image
-          src="/assets/hero.jpg"
+          src="/assets/soccer.svg"
           alt="Hero Image"
-          width={1200}
+          width={1600}
           height={800}
-          className="rounded-t-lg shadow-2xl shadow-indigo-50/60"
-          unoptimized
+          className="rounded-t-lg shadow-2xl shadow-indigo-50/60 pointer-events-none select-none"
+          decoding="sync"
+          loading="eager"
         />
       </div>
     </div>

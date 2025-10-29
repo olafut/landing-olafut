@@ -25,10 +25,10 @@ export const Header: FC = () => {
     <>
       <div ref={ref} className="h-5 w-full" />
 
-      <header className="px-4 sticky top-5 z-50 h-16 max-w-[1640px] mx-auto font-alt">
+      <header className="sticky top-5 z-50 h-18 max-w-7xl mx-auto font-alt px-4">
         <div
           className={twMerge(
-            'flex flex-row rounded-xl px-4 transition-all duration-300 items-center border border-transparent h-16 gap-4',
+            'flex flex-row rounded-xl px-4 transition-all duration-300 items-center border border-transparent h-18 gap-4 justify-start',
             isScrolled &&
               'bg-background/90 backdrop-blur-md border-neutral-800',
             'hover:bg-background/90 hover:backdrop-blur-md hover:border-neutral-800',
@@ -47,15 +47,15 @@ export const Header: FC = () => {
                     exit={{ width: 0, opacity: 0, left: -20 }}
                     transition={{ duration: 1, ease: 'backOut' }}
                   >
-                    Olafut
+                    OLAFUT
                   </motion.span>
                 )}
               </AnimatePresence>
             </h1>
           </Link>
-          <ul className="flex max-w-screen-2xl mx-auto items-center w-full h-full">
+          <ul className="flex mx-auto items-center w-full h-full justify-end">
+            <NavLink href="/about">Acerca de</NavLink>
             <NavLink href="/blog">Blog</NavLink>
-            <NavLink href="/about">About Me</NavLink>
           </ul>
         </div>
       </header>
