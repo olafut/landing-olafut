@@ -1,13 +1,11 @@
-'use client';
-
-import { Content } from './_components/Content';
+import { ContentSection } from './_components/ContentSection';
 import { HeroSection } from './_components/HeroSection';
 
 export default function Home() {
   return (
     <main>
       <HeroSection />
-      <Content />
+      <ContentSection />
     </main>
   );
 }

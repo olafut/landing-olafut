@@ -1,34 +1,19 @@
 import './globals.css';
 import type { Metadata } from 'next';
-import { Host_Grotesk } from 'next/font/google';
-import localFont from 'next/font/local';
+import { Bricolage_Grotesque, Montserrat } from 'next/font/google';
 import type { PropsWithChildren } from 'react';
 import { Header } from './_components/Header';
 
-const uxumFont = localFont({
-  variable: '--font-uxum',
-  src: [
-    {
-      path: '../fonts/uxumregular.otf',
-      weight: '400',
-      style: 'normal',
-    },
-    {
-      path: '../fonts/uxumlight.otf',
-      weight: '300',
-      style: 'normal',
-    },
-    {
-      path: '../fonts/uxumbold.otf',
-      weight: '600',
-      style: 'normal',
-    },
-  ],
+const bricolageFont = Bricolage_Grotesque({
+  variable: '--font-bricolage-grotesque',
+  weight: ['200', '300', '400', '500', '600', '700', '800'],
+  subsets: ['latin'],
 });
 
-const spaceGroteskFont = Host_Grotesk({
+const montserratFont = Montserrat({
   variable: '--font-space-grotesk',
-  weight: ['300', '400', '700'],
+  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
+  subsets: ['latin'],
 });
 
 export const metadata: Metadata = {
@@ -40,9 +25,9 @@ export default function RootLayout({ children }: Readonly<PropsWithChildren>) {
   return (
     <html
       lang="es"
-      className={`${spaceGroteskFont.variable} ${uxumFont.variable} antialiased`}
+      className={`${montserratFont.variable}  ${bricolageFont.variable} antialiased`}
     >
-      <body className="bg-background text-foreground font-sans transition-colors duration-500 min-h-[200dvh]">
+      <body className="bg-background text-foreground font-sans transition-colors duration-500">
         <Header />
         {children}
       </body>
