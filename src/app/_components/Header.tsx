@@ -41,7 +41,7 @@ export const Header: FC = () => {
               <AnimatePresence>
                 {!isScrolled && (
                   <motion.span
-                    className="relative z-10 overflow-hidden text-xl"
+                    className="relative z-10 overflow-hidden text-xl hidden md:inline-block"
                     initial={{ width: 0, opacity: 0, left: -20 }}
                     animate={{ width: 'auto', opacity: 1, left: 0 }}
                     exit={{ width: 0, opacity: 0, left: -20 }}
