@@ -33,7 +33,7 @@ export const PostPreview: FC<PostPreviewProps> = ({ post }) => {
           srcDesktop={coverImageDesktop}
         />
       </div>
-      <Title level="h4" className="mb-4">
+      <Title level="h3" className="mb-4">
         <Link href={`/blog/${slug}`} className="hover:underline">
           {title}
         </Link>
