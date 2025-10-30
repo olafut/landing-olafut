@@ -30,6 +30,14 @@ export default function RootLayout({ children }: Readonly<PropsWithChildren>) {
       <body className="bg-background text-foreground font-sans transition-colors duration-500">
         <Header />
         {children}
+
+        <footer className="bg-foreground rounded-t-5xl p-10 h-full">
+          <div className="container grid grid-cols-3 h-full">
+            <p className="text-background text-center">Redes Sociales</p>
+            <p className="text-background text-center">Olafut</p>
+            <p className="text-background text-center">Contacto</p>
+          </div>
+        </footer>
       </body>
     </html>
   );
