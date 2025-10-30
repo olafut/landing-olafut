@@ -4,7 +4,7 @@ import { Button, Subtitle, Title } from './ui';
 
 export const HeroSection = () => {
   return (
-    <div className="relative px-6 py-10 md:py-20 flex flex-col items-center mx-auto container justify-center">
+    <div className="relative px-6 py-10 md:py-20 lg:py-40 flex flex-col items-center mx-auto container justify-center">
       <div className="absolute content-[''] w-1/3 h-full right-0 bg-radial from-0% from-primary to-background to-100% blur-xl -z-50 opacity-100 hidden lg:block" />
 
       <section className="grid grid-cols-1 xl:grid-cols-2 max-w-lg lg:max-w-full gap-20 justify-center">
