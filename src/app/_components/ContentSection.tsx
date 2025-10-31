@@ -1,21 +1,19 @@
+import Image from 'next/image';
 import { FaArrowRight } from 'react-icons/fa6';
-import { useBrands } from '../hooks/useBrands';
-import { BrandsCarousel } from './BrandsCarousel';
 import { Button, Paragraph, Strong, Title } from './ui';
 
 export const ContentSection = () => {
-  const { brands } = useBrands();
-
   return (
-    <section className="rounded-5xl text-background shadow-lg bg-linear-to-b from-white to-primary to-600% z-20 py-10 md:py-20">
-      <BrandsCarousel brands={brands} />
-
-      <div className="container px-10 md:px-20 lg:px-48 mx-auto">
-        <section className="text-left flex flex-col gap-10">
-          <Title level="h2" className="text-center">
+    <section className="rounded-5xl text-background shadow-lg bg-foreground z-20 p-10 md:py-20 flex flex-col gap-20">
+      <div className="container mx-auto flex flex-col gap-10">
+        <section className="flex flex-col gap-10">
+          <Title
+            level="h2"
+            className="text-center py-10 text-4xl lg:text-6xl max-w-2xl font-black mx-auto"
+          >
             ¿Por qué nace Olafut?
           </Title>
-          <div className="flex flex-col gap-6 text-center">
+          <div className="flex flex-col gap-4 text-center max-w-2xl mx-auto">
             <Paragraph>
               Esto no solo es un CLUB, es el inicio de una historia que empieza
               desde la afición y no al revés. Queremos un espacio donde las
@@ -34,13 +32,99 @@ export const ContentSection = () => {
           </div>
         </section>
 
-        <section className="mt-20 flex justify-center">
+        <section className="flex justify-center my-10">
           <Button>
             ¡Únete!
             <FaArrowRight />
           </Button>
         </section>
       </div>
+
+      <div className="container mx-auto px-0 lg:px-10 gap-20 flex flex-col">
+        <Title level="h2" className="font-black text-center">
+          ¿Cómo vamos a construir el CAMINO?
+        </Title>
+
+        <article className="flex flex-col lg:grid lg:grid-cols-5 gap-10 items-center">
+          <div className="col-span-2 flex flex-col gap-4 w-full">
+            <Title level="h4" className="text-3xl lg:text-4xl font-black">
+              OLA-CAST
+            </Title>
+            <Paragraph>
+              El micrófono puede ser tuyo. Participa para ser parte de las
+              transmisiones en vivo y de nuestro Podcast.
+            </Paragraph>
+          </div>
+          <Image
+            src="/assets/soccer.svg"
+            alt="Olafut Podcast"
+            width={600}
+            height={400}
+            className="col-span-3 w-full"
+          />
+        </article>
+
+        <article className="flex flex-col-reverse lg:grid lg:grid-cols-5 gap-10 items-center">
+          <Image
+            src="/assets/soccer.svg"
+            alt="Olafut Scout"
+            width={600}
+            height={400}
+            className="col-span-3 w-full"
+          />
+          <div className="col-span-2 flex flex-col gap-4 w-full">
+            <Title level="h4" className="text-3xl lg:text-4xl font-black">
+              OLA-GAMES
+            </Title>
+            <Paragraph>Torneos y eventos con formatos innovadores</Paragraph>
+          </div>
+        </article>
+
+        <article className="flex flex-col lg:grid lg:grid-cols-5 gap-10 items-center">
+          <div className="col-span-2 flex flex-col gap-4 w-full">
+            <Title level="h4" className="text-3xl lg:text-4xl font-black">
+              OLA-MIND
+            </Title>
+            <Paragraph>
+              Crecimiento personal y profesional a través de pláticas, cursos y
+              clases impartidas por las más expertas en la industria deportiva.
+            </Paragraph>
+          </div>
+          <Image
+            src="/assets/soccer.svg"
+            alt="Olafut Mind"
+            width={600}
+            height={400}
+            className="col-span-3 w-full"
+          />
+        </article>
+
+        <article className="flex flex-col-reverse lg:grid lg:grid-cols-5 gap-10 items-center">
+          <Image
+            src="/assets/soccer.svg"
+            alt="Olafut Scout"
+            width={600}
+            height={400}
+            className="col-span-3 w-full"
+          />
+          <div className="col-span-2 flex flex-col gap-4 w-full">
+            <Title level="h4" className="text-3xl lg:text-4xl font-black">
+              OLA-SCOUT
+            </Title>
+            <Paragraph>
+              El lente y lugar para dar a conocer y apoyar en el camino al
+              próximo talento del fútbol femenil profesional.
+            </Paragraph>
+          </div>
+        </article>
+      </div>
+
+      <section className="flex justify-center mb-10">
+        <Button className="mx-auto">
+          ¡No te pierdas la oportunidad!
+          <FaArrowRight />
+        </Button>
+      </section>
     </section>
   );
 };

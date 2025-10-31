@@ -1,10 +1,10 @@
 export const Footer = () => {
   return (
-    <footer className="bg-foreground rounded-t-5xl p-10 h-full">
+    <footer className="bg-background rounded-t-5xl p-10 h-full border border-neutral-300">
       <div className="container grid grid-cols-3 h-full mx-auto">
-        <p className="text-background text-center">Redes Sociales</p>
-        <p className="text-background text-center">Olafut</p>
-        <p className="text-background text-center">Contacto</p>
+        <p className="text-foreground text-center">Redes Sociales</p>
+        <p className="text-foreground text-center">Olafut</p>
+        <p className="text-foreground text-center">Contacto</p>
       </div>
     </footer>
   );

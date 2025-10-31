@@ -11,7 +11,6 @@ interface HeroPostProps {
 }
 
 export const HeroPost: FC<HeroPostProps> = ({ post }) => {
-  console.log('HeroPost props:', { post });
   const {
     title,
     date,
@@ -22,8 +21,6 @@ export const HeroPost: FC<HeroPostProps> = ({ post }) => {
     coverImageTablet,
     coverImageDesktop,
   } = post;
-
-  console.log('HeroPost 2 props:', { post });
 
   return (
     <section>
@@ -48,7 +45,7 @@ export const HeroPost: FC<HeroPostProps> = ({ post }) => {
           </div>
         </div>
         <div>
-          <Paragraph className="mb-4">{excerpt}</Paragraph>
+          <Paragraph className="mb-6">{excerpt}</Paragraph>
           <Avatar name={author.name} picture={author.picture} />
         </div>
       </div>

@@ -12,7 +12,7 @@ export const ProductsSection = () => {
       </Title>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-        <article className="bg-neutral-600/40 min-h-72 backdrop-blur-2xl p-10 rounded-3xl shadow-md flex flex-col gap-4">
+        <article className="bg-neutral-300/50 min-h-72 backdrop-blur-2xl p-10 rounded-3xl shadow-sm flex flex-col gap-4">
           <Title level="h4" className="text-3xl lg:text-4xl font-black">
             OLA-CAST
           </Title>
@@ -21,13 +21,13 @@ export const ProductsSection = () => {
             transmisiones en vivo y de nuestro Podcast.
           </Paragraph>
         </article>
-        <article className="bg-neutral-600/40 min-h-72 backdrop-blur-2xl p-10 rounded-3xl shadow-md flex flex-col gap-4">
+        <article className="bg-neutral-300/50 min-h-72 backdrop-blur-2xl p-10 rounded-3xl shadow-sm flex flex-col gap-4">
           <Title level="h4" className="text-3xl lg:text-4xl font-black">
             OLA-GAMES
           </Title>
           <Paragraph>Torneos y eventos con formatos innovadores</Paragraph>
         </article>
-        <article className="bg-neutral-600/40 min-h-72 backdrop-blur-2xl p-10 rounded-3xl shadow-md flex flex-col gap-4">
+        <article className="bg-neutral-300/50 min-h-72 backdrop-blur-2xl p-10 rounded-3xl shadow-sm flex flex-col gap-4">
           <Title level="h4" className="text-3xl lg:text-4xl font-black">
             OLA-MIND
           </Title>
@@ -36,7 +36,7 @@ export const ProductsSection = () => {
             clases impartidas por las más expertas en la industria deportiva.
           </Paragraph>
         </article>
-        <article className="bg-neutral-600/40 min-h-72 backdrop-blur-2xl p-10 rounded-3xl shadow-md flex flex-col gap-4">
+        <article className="bg-neutral-300/50 min-h-72 backdrop-blur-2xl p-10 rounded-3xl shadow-sm flex flex-col gap-4">
           <Title level="h4" className="text-3xl lg:text-4xl font-black">
             OLA-SCOUT
           </Title>

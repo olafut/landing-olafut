@@ -2,7 +2,7 @@ import Link from 'next/link';
 import type { FC } from 'react';
 import type { Post } from '@/interfaces/post';
 import { DateFormatter } from '../DateFormatter';
-import { Title } from '../ui';
+import { Paragraph, Title } from '../ui';
 import { Avatar } from './Avatar';
 import { CoverImage } from './CoverImage';
 
@@ -41,7 +41,7 @@ export const PostPreview: FC<PostPreviewProps> = ({ post }) => {
       <div className="text-lg mb-4">
         <DateFormatter dateString={date} />
       </div>
-      <p className="text-lg leading-relaxed mb-4">{excerpt}</p>
+      <Paragraph className="mb-6">{excerpt}</Paragraph>
       <Avatar name={author.name} picture={author.picture} />
     </div>
   );
