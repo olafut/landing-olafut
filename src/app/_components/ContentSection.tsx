@@ -55,23 +55,25 @@ export const ContentSection = () => {
               transmisiones en vivo y de nuestro Podcast.
             </Paragraph>
           </div>
-          <Image
-            src="/assets/soccer.svg"
-            alt="Olafut Podcast"
-            width={600}
-            height={400}
-            className="col-span-3 w-full"
-          />
+          <div className="relative col-span-3 w-96 h-96 mx-auto rounded-2xl">
+            <Image
+              src="/assets/OLA-DIGITAL.webp"
+              alt="Ola-Cast"
+              fill
+              className="absolute rounded-2xl object-cover"
+            />
+          </div>
         </article>
 
         <article className="flex flex-col-reverse lg:grid lg:grid-cols-5 gap-10 items-center">
-          <Image
-            src="/assets/soccer.svg"
-            alt="Olafut Scout"
-            width={600}
-            height={400}
-            className="col-span-3 w-full"
-          />
+          <div className="relative col-span-3 w-96 h-96 mx-auto rounded-2xl">
+            <Image
+              src="/assets/OLA-GAMES.webp"
+              alt="Ola-Games"
+              fill
+              className="absolute rounded-2xl object-cover"
+            />
+          </div>
           <div className="col-span-2 flex flex-col gap-4 w-full">
             <Title level="h4" className="text-3xl lg:text-4xl font-black">
               OLA-GAMES
@@ -90,23 +92,25 @@ export const ContentSection = () => {
               clases impartidas por las más expertas en la industria deportiva.
             </Paragraph>
           </div>
-          <Image
-            src="/assets/soccer.svg"
-            alt="Olafut Mind"
-            width={600}
-            height={400}
-            className="col-span-3 w-full"
-          />
+          <div className="relative col-span-3 w-96 h-96 mx-auto rounded-2xl">
+            <Image
+              src="/assets/OLA-TALKS.webp"
+              alt="Ola-Mind"
+              fill
+              className="absolute rounded-2xl object-cover"
+            />
+          </div>
         </article>
 
         <article className="flex flex-col-reverse lg:grid lg:grid-cols-5 gap-10 items-center">
-          <Image
-            src="/assets/soccer.svg"
-            alt="Olafut Scout"
-            width={600}
-            height={400}
-            className="col-span-3 w-full"
-          />
+          <div className="relative col-span-3 w-96 h-96 mx-auto rounded-2xl">
+            <Image
+              src="/assets/OLA-SCOUT.webp"
+              alt="Ola-Scout"
+              fill
+              className="absolute rounded-2xl object-cover"
+            />
+          </div>
           <div className="col-span-2 flex flex-col gap-4 w-full">
             <Title level="h4" className="text-3xl lg:text-4xl font-black">
               OLA-SCOUT

@@ -31,7 +31,6 @@ export const HeroSection = () => {
           width={1232}
           height={200}
           className="pointer-events-none select-none h-[600px] w-auto rounded-2xl mx-auto"
-          // fill
           priority
           loading="eager"
           decoding="sync"
