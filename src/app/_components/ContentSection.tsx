@@ -55,7 +55,7 @@ export const ContentSection = () => {
               transmisiones en vivo y de nuestro Podcast.
             </Paragraph>
           </div>
-          <div className="relative col-span-3 w-96 h-96 mx-auto rounded-2xl">
+          <div className="relative col-span-3 w-96 h-96 max-w-full mx-auto rounded-2xl">
             <Image
               src="/assets/OLA-DIGITAL.webp"
               alt="Ola-Cast"
@@ -66,7 +66,7 @@ export const ContentSection = () => {
         </article>
 
         <article className="flex flex-col-reverse lg:grid lg:grid-cols-5 gap-10 items-center">
-          <div className="relative col-span-3 w-96 h-96 mx-auto rounded-2xl">
+          <div className="relative col-span-3 w-96 h-96 max-w-full mx-auto rounded-2xl">
             <Image
               src="/assets/OLA-GAMES.webp"
               alt="Ola-Games"
@@ -92,7 +92,7 @@ export const ContentSection = () => {
               clases impartidas por las más expertas en la industria deportiva.
             </Paragraph>
           </div>
-          <div className="relative col-span-3 w-96 h-96 mx-auto rounded-2xl">
+          <div className="relative col-span-3 w-96 h-96 max-w-full mx-auto rounded-2xl">
             <Image
               src="/assets/OLA-TALKS.webp"
               alt="Ola-Mind"
@@ -103,7 +103,7 @@ export const ContentSection = () => {
         </article>
 
         <article className="flex flex-col-reverse lg:grid lg:grid-cols-5 gap-10 items-center">
-          <div className="relative col-span-3 w-96 h-96 mx-auto rounded-2xl">
+          <div className="relative col-span-3 w-96 h-96 max-w-full mx-auto rounded-2xl">
             <Image
               src="/assets/OLA-SCOUT.webp"
               alt="Ola-Scout"
