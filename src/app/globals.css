@@ -2,15 +2,15 @@
 
 :root {
   --foreground: #111018;
-  --background: #ededed;
+  --background: #f7f7f7;
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     --foreground: #ededed;
     --background: #111018;
   }
-}
+} */
 
 @theme inline {
   --color-primary: #ea577f;
