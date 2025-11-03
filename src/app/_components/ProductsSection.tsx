@@ -1,5 +1,6 @@
 import { FaArrowRight } from 'react-icons/fa6';
-import { Button, Paragraph, Title } from './ui';
+import { ProductCard } from './ProductCard';
+import { Button, Title } from './ui';
 
 export const ProductsSection = () => {
   return (
@@ -12,39 +13,40 @@ export const ProductsSection = () => {
       </Title>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-        <article className="bg-neutral-300/50 min-h-72 backdrop-blur-2xl p-10 rounded-3xl shadow-sm flex flex-col gap-4">
-          <Title level="h4" className="text-3xl lg:text-4xl font-black">
-            OLA-CAST
-          </Title>
-          <Paragraph>
-            El micrófono puede ser tuyo. Participa para ser parte de las
-            transmisiones en vivo y de nuestro Podcast.
-          </Paragraph>
-        </article>
-        <article className="bg-neutral-300/50 min-h-72 backdrop-blur-2xl p-10 rounded-3xl shadow-sm flex flex-col gap-4">
-          <Title level="h4" className="text-3xl lg:text-4xl font-black">
-            OLA-GAMES
-          </Title>
-          <Paragraph>Torneos y eventos con formatos innovadores</Paragraph>
-        </article>
-        <article className="bg-neutral-300/50 min-h-72 backdrop-blur-2xl p-10 rounded-3xl shadow-sm flex flex-col gap-4">
-          <Title level="h4" className="text-3xl lg:text-4xl font-black">
-            OLA-MIND
-          </Title>
-          <Paragraph>
-            Crecimiento personal y profesional a través de pláticas, cursos y
-            clases impartidas por las más expertas en la industria deportiva.
-          </Paragraph>
-        </article>
-        <article className="bg-neutral-300/50 min-h-72 backdrop-blur-2xl p-10 rounded-3xl shadow-sm flex flex-col gap-4">
-          <Title level="h4" className="text-3xl lg:text-4xl font-black">
-            OLA-SCOUT
-          </Title>
-          <Paragraph>
-            El lente y lugar para dar a conocer y apoyar en el camino al próximo
-            talento del fútbol femenil profesional.
-          </Paragraph>
-        </article>
+        <ProductCard
+          title="OLA-CAST"
+          description="El micrófono puede ser tuyo. Participa para ser parte de las transmisiones en vivo y de nuestro Podcast."
+          image={{
+            src: '/assets/OLA-DIGITAL.webp',
+            alt: 'Ola-Cast',
+          }}
+        />
+
+        <ProductCard
+          title="OLA-GAMES"
+          description="Torneos y eventos con formatos innovadores"
+          image={{
+            src: '/assets/OLA-GAMES.webp',
+            alt: 'Ola-Games',
+          }}
+        />
+        <ProductCard
+          title="OLA-MIND"
+          description="Crecimiento personal y profesional a través de pláticas, cursos y clases impartidas por las más expertas en la industria deportiva."
+          image={{
+            src: '/assets/OLA-TALKS.webp',
+            alt: 'Ola-Mind',
+          }}
+        />
+
+        <ProductCard
+          title="OLA-SCOUT"
+          description="El lente y lugar para dar a conocer y apoyar en el camino al próximo talento del fútbol femenil profesional."
+          image={{
+            src: '/assets/OLA-SCOUT.webp',
+            alt: 'Ola-Scout',
+          }}
+        />
       </div>
 
       <Button className="mx-auto my-10">
