@@ -59,6 +59,7 @@ export async function generateMetadata(props: Params): Promise<Metadata> {
     metadataBase: new URL('https://olafut.com'),
     openGraph: {
       title,
+      url: `https://olafut.com/blog/${post.slug}`,
       images: [post.ogImage.url],
       type: 'article',
       description: post.excerpt,
