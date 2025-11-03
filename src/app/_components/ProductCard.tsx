@@ -34,7 +34,7 @@ export const ProductCard: FC<ProductCardProps> = ({
       </section>
 
       {!!imgProps?.src && !!imgProps.alt && (
-        <div className="relative w-96 h-auto max-w-full mx-auto rounded-2xl aspect-square hover:transform-cpu hover:scale-[1.02] transition-transform duration-300">
+        <div className="relative w-96 h-auto max-w-full mx-auto rounded-2xl aspect-3/4 lg:aspect-4/3 hover:transform-cpu hover:scale-[1.02] transition-transform duration-300">
           <Image
             className="absolute rounded-2xl object-cover"
             fill

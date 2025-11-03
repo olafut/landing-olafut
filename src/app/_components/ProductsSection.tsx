@@ -17,7 +17,7 @@ export const ProductsSection = () => {
           title="OLA-CAST"
           description="El micrófono puede ser tuyo. Participa para ser parte de las transmisiones en vivo y de nuestro Podcast."
           image={{
-            src: '/assets/OLA-DIGITAL.webp',
+            src: '/assets/OLA-CAST.webp',
             alt: 'Ola-Cast',
           }}
         />

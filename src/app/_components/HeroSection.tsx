@@ -25,16 +25,17 @@ export const HeroSection = () => {
           </Button>
         </div>
 
-        <Image
-          src="/assets/hero.webp"
-          alt="Hero Image"
-          width={1232}
-          height={200}
-          className="pointer-events-none select-none h-[600px] w-auto rounded-2xl mx-auto"
-          priority
-          loading="eager"
-          decoding="sync"
-        />
+        <div className="mx-auto relative w-full h-full aspect-3/4 lg:aspect-4/3">
+          <Image
+            src="/assets/hero.webp"
+            alt="Hero Image"
+            fill
+            className="rounded-2xl absolute object-cover"
+            priority
+            loading="eager"
+            decoding="sync"
+          />
+        </div>
       </section>
     </div>
   );
