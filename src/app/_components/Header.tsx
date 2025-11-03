@@ -42,90 +42,89 @@ export const Header: FC = () => {
           )}
         >
           <div className="flex">
-            <div className="w-full flex items-center h-18">
-              <Link
-                href="/"
-                onClick={handleCloseMenu}
-                className="h-full w-36 py-3"
+            <Link
+              href="/"
+              onClick={handleCloseMenu}
+              className="flex h-10 items-center justify-center m-auto"
+            >
+              <h1
+                className="font-bold text-left flex items-center h-full w-full overflow-hidden"
+                title="Olafut"
               >
-                <h1
-                  className="font-bold text-left flex items-center relative h-full w-full overflow-hidden"
-                  title="Olafut"
-                >
-                  <AnimatePresence mode="wait" initial={false}>
-                    {isScrolled ? (
-                      <motion.div
-                        key="collapsed"
-                        className="relative h-full aspect-square"
-                        initial={{
-                          left: -72,
-                          opacity: 0.5,
-                          clipPath: 'inset(0 0 0 70%)',
-                        }}
-                        animate={{
-                          left: 0,
-                          opacity: 1,
-                          clipPath: 'inset(0 0 0 0%)',
-                        }}
-                        exit={{
-                          left: -72,
-                          opacity: 0.5,
-                          clipPath: 'inset(0 0 0 70%)',
-                        }}
-                        transition={{
-                          duration: 0.3,
-                          ease: [0.4, 0, 0.2, 1],
-                        }}
-                      >
-                        <Image
-                          src="/assets/olafut_square.svg"
-                          alt="Olafut"
-                          width={72}
-                          height={72}
-                          priority
-                          loading="eager"
-                          decoding="sync"
-                        />
-                      </motion.div>
-                    ) : (
-                      <motion.div
-                        key="expanded"
-                        className="relative h-full"
-                        initial={{
-                          opacity: 0.5,
-                          left: -150,
-                          clipPath: 'inset(0 0 0 70%)',
-                        }}
-                        animate={{
-                          opacity: 1,
-                          left: 0,
-                          clipPath: 'inset(0 0 0 0%)',
-                        }}
-                        exit={{
-                          opacity: 0.5,
-                          left: -150,
-                          clipPath: 'inset(0 0 0 70%)',
-                        }}
-                        transition={{
-                          duration: 0.3,
-                          ease: [0.4, 0, 0.2, 1],
-                        }}
-                      >
-                        <Image
-                          src="/assets/olafut.svg"
-                          alt="Olafut Logo"
-                          width={150}
-                          height={72}
-                          priority
-                          loading="eager"
-                          decoding="sync"
-                        />
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </h1>
-              </Link>
-            </div>
+                <AnimatePresence mode="wait" initial={false}>
+                  {isScrolled ? (
+                    <motion.div
+                      key="collapsed"
+                      className="relative h-full aspect-square"
+                      initial={{
+                        left: -72,
+                        opacity: 0.5,
+                        clipPath: 'inset(0 0 0 70%)',
+                      }}
+                      animate={{
+                        left: 0,
+                        opacity: 1,
+                        clipPath: 'inset(0 0 0 0%)',
+                      }}
+                      exit={{
+                        left: -72,
+                        opacity: 0.5,
+                        clipPath: 'inset(0 0 0 70%)',
+                      }}
+                      transition={{
+                        duration: 0.3,
+                        ease: [0.4, 0, 0.2, 1],
+                      }}
+                    >
+                      <Image
+                        src="/assets/olafut_square.svg"
+                        alt="Olafut"
+                        width={72}
+                        height={72}
+                        priority
+                        loading="eager"
+                        decoding="sync"
+                      />
+                    </motion.div>
+                  ) : (
+                    <motion.div
+                      key="expanded"
+                      className="relative"
+                      initial={{
+                        opacity: 0.5,
+                        left: -150,
+                        clipPath: 'inset(0 0 0 70%)',
+                      }}
+                      animate={{
+                        opacity: 1,
+                        left: 0,
+                        clipPath: 'inset(0 0 0 0%)',
+                      }}
+                      exit={{
+                        opacity: 0.5,
+                        left: -150,
+                        clipPath: 'inset(0 0 0 70%)',
+                      }}
+                      transition={{
+                        duration: 0.3,
+                        ease: [0.4, 0, 0.2, 1],
+                      }}
+                    >
+                      <Image
+                        src="/assets/olafut.svg"
+                        alt="Olafut Logo"
+                        width={200}
+                        height={72}
+                        priority
+                        loading="eager"
+                        decoding="sync"
+                        className="border"
+                      />
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </h1>
+            </Link>
 
             <ul className="flex mx-auto w-full h-18 justify-end">
               <MenuIcon
