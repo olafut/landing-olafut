@@ -31,13 +31,13 @@ export const metadata: Metadata = {
     siteName: 'Olafut',
     locale: 'es_MX',
     type: 'website',
-    images: '/assets/hero.webp',
+    images: ['/assets/hero.webp'],
   },
   twitter: {
     title: 'Olafut - Creando el 1er Club Femenil Independiente de México',
     description: 'El fútbol solo necesita una comunidad dispuesta a todo',
     card: 'summary_large_image',
-    images: '/assets/hero.webp',
+    images: ['/assets/hero.webp'],
   },
 };
 
