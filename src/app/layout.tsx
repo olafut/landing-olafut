@@ -19,14 +19,14 @@ const montserratFont = Montserrat({
 
 export const metadata: Metadata = {
   title: 'Olafut',
-  description: 'Landing page de Olafut',
+  description: 'Creando el 1er Club Femenil Independiente de México',
   metadataBase: new URL('https://olafut.com'),
   appleWebApp: {
     title: 'Olafut',
   },
   openGraph: {
     title: 'Olafut',
-    description: 'Landing page de Olafut',
+    description: 'Creando el 1er Club Femenil Independiente de México',
     url: 'https://olafut.com',
     siteName: 'Olafut',
     locale: 'es_MX',
