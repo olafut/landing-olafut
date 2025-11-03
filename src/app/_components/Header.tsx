@@ -83,6 +83,8 @@ export const Header: FC = () => {
                           width={72}
                           height={72}
                           priority
+                          loading="eager"
+                          decoding="sync"
                         />
                       </motion.div>
                     ) : (
@@ -114,8 +116,9 @@ export const Header: FC = () => {
                           alt="Olafut Logo"
                           width={150}
                           height={72}
-                          className="h-full w-auto"
                           priority
+                          loading="eager"
+                          decoding="sync"
                         />
                       </motion.div>
                     )}
