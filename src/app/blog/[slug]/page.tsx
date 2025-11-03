@@ -55,9 +55,19 @@ export async function generateMetadata(props: Params): Promise<Metadata> {
 
   return {
     title,
+    description: post.excerpt,
     openGraph: {
       title,
       images: [post.ogImage.url],
+      type: 'article',
+      description: post.excerpt,
+      locale: 'es_MX',
+    },
+    twitter: {
+      title,
+      description: post.excerpt,
+      images: [post.ogImage.url],
+      card: 'summary_large_image',
     },
   };
 }
