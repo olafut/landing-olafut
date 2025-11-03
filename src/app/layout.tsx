@@ -20,6 +20,19 @@ const montserratFont = Montserrat({
 export const metadata: Metadata = {
   title: 'Olafut',
   description: 'Landing page de Olafut',
+  metadataBase: new URL('https://olafut.com'),
+  appleWebApp: {
+    title: 'Olafut',
+  },
+  openGraph: {
+    title: 'Olafut',
+    description: 'Landing page de Olafut',
+    url: 'https://olafut.com',
+    siteName: 'Olafut',
+    locale: 'es_MX',
+    type: 'website',
+    images: '/assets/hero.webp',
+  },
 };
 
 export default function RootLayout({ children }: Readonly<PropsWithChildren>) {

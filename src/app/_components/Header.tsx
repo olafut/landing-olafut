@@ -1,9 +1,9 @@
 'use client';
 
 import { AnimatePresence, motion } from 'motion/react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { type FC, useEffect, useRef, useState } from 'react';
-import { FaAccusoft } from 'react-icons/fa6';
 import { twMerge } from 'tailwind-merge';
 import { NavLink } from './NavLink';
 import { MenuIcon } from './ui/MenuIcon';
@@ -43,21 +43,81 @@ export const Header: FC = () => {
         >
           <div className="flex">
             <div className="w-full flex items-center h-18">
-              <Link href="/" onClick={handleCloseMenu}>
-                <h1 className="font-bold text-center flex items-center">
-                  <FaAccusoft className="z-20 mr-4 text-indigo-500 text-3xl" />
-
-                  <AnimatePresence>
-                    {!isScrolled && (
-                      <motion.span
-                        className="relative z-10 overflow-hidden text-xl"
-                        initial={{ width: 0, opacity: 0, left: -20 }}
-                        animate={{ width: 'auto', opacity: 1, left: 0 }}
-                        exit={{ width: 0, opacity: 0, left: -20 }}
-                        transition={{ duration: 1, ease: 'backOut' }}
+              <Link
+                href="/"
+                onClick={handleCloseMenu}
+                className="h-full w-36 py-3"
+              >
+                <h1
+                  className="font-bold text-left flex items-center relative h-full w-full overflow-hidden"
+                  title="Olafut"
+                >
+                  <AnimatePresence mode="wait" initial={false}>
+                    {isScrolled ? (
+                      <motion.div
+                        key="collapsed"
+                        className="relative h-full aspect-square"
+                        initial={{
+                          left: -72,
+                          opacity: 0.5,
+                          clipPath: 'inset(0 0 0 70%)',
+                        }}
+                        animate={{
+                          left: 0,
+                          opacity: 1,
+                          clipPath: 'inset(0 0 0 0%)',
+                        }}
+                        exit={{
+                          left: -72,
+                          opacity: 0.5,
+                          clipPath: 'inset(0 0 0 70%)',
+                        }}
+                        transition={{
+                          duration: 0.3,
+                          ease: [0.4, 0, 0.2, 1],
+                        }}
                       >
-                        OLAFUT
-                      </motion.span>
+                        <Image
+                          src="/assets/olafut_square.svg"
+                          alt="Olafut"
+                          width={72}
+                          height={72}
+                          priority
+                        />
+                      </motion.div>
+                    ) : (
+                      <motion.div
+                        key="expanded"
+                        className="relative h-full"
+                        initial={{
+                          opacity: 0.5,
+                          left: -150,
+                          clipPath: 'inset(0 0 0 70%)',
+                        }}
+                        animate={{
+                          opacity: 1,
+                          left: 0,
+                          clipPath: 'inset(0 0 0 0%)',
+                        }}
+                        exit={{
+                          opacity: 0.5,
+                          left: -150,
+                          clipPath: 'inset(0 0 0 70%)',
+                        }}
+                        transition={{
+                          duration: 0.3,
+                          ease: [0.4, 0, 0.2, 1],
+                        }}
+                      >
+                        <Image
+                          src="/assets/olafut.svg"
+                          alt="Olafut Logo"
+                          width={150}
+                          height={72}
+                          className="h-full w-auto"
+                          priority
+                        />
+                      </motion.div>
                     )}
                   </AnimatePresence>
                 </h1>
