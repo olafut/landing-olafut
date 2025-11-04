@@ -71,27 +71,33 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
-          # Guardar el contenido de out en un directorio temporal
-          mkdir -p /tmp/deploy-content
-          cp -r out/* /tmp/deploy-content/
+          # Crear un directorio temporal limpio
+          TEMP_DIR=$(mktemp -d)
+          cp -r out/* "$TEMP_DIR/"
 
-          # Intentar hacer checkout de la rama de deploy si existe
-          git fetch origin static:static 2>/dev/null || true
+          # Cambiar a un directorio temporal para el git
+          WORK_DIR=$(mktemp -d)
+          cd "$WORK_DIR"
 
-          if git show-ref --verify --quiet refs/heads/static; then
-            # La rama existe, hacer checkout
-            git checkout static
-            # Limpiar todo el contenido
-            git rm -rf . || true
-          else
-            # La rama no existe, crear una nueva rama huérfana
-            git checkout --orphan static
-            # Limpiar el índice
-            git rm -rf . || true
-          fi
+          # Inicializar un nuevo repositorio
+          git init
+          git remote add origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
 
-          # Copiar el contenido desde el directorio temporal
-          cp -r /tmp/deploy-content/* .
+          # Intentar traer la rama si existe
+          git fetch origin gh-pages-deploy 2>/dev/null || true
+
+          # Crear rama huérfana
+          git checkout --orphan gh-pages-deploy
+
+          # Copiar solo el contenido de out
+          cp -r "$TEMP_DIR"/* .
+
+          # Crear .gitignore para asegurar que no se incluyan archivos innecesarios
+          cat > .gitignore << 'EOF'
+          node_modules/
+          .next/
+          .cache/
+          EOF
 
           # Agregar todos los archivos
           git add -A
@@ -102,8 +108,8 @@ jobs:
           else
             # Commit y push
             git commit -m "Deploy build from commit ${GITHUB_SHA::7}"
-            git push -f origin static
-            echo "✅ Desplegado exitosamente a static"
+            git push -f origin gh-pages-deploy
+            echo "✅ Desplegado exitosamente a gh-pages-deploy"
           fi
 
       # Mensaje de éxito para PRs
