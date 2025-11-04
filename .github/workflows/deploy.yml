@@ -1,0 +1,90 @@
+name: Build and Deploy to Static Branch
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout del código
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      # Setup de Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      # Setup de pnpm
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: 8
+          run_install: false
+
+      # Cache de dependencias de pnpm
+      - name: Setup pnpm cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.pnpm-store
+            **/node_modules
+          key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-
+
+      # Instalar dependencias
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      # Build de la aplicación
+      - name: Build Next.js app
+        run: pnpm build
+
+      # Verificar que existe la carpeta out
+      - name: Check out directory
+        run: |
+          if [ ! -d "out" ]; then
+            echo "Error: La carpeta 'out' no existe después del build"
+            exit 1
+          fi
+          ls -la out
+
+      # Deploy a la rama de estáticos (solo en push a main, no en PR)
+      - name: Deploy to static branch
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        run: |
+          # Configurar git
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+          # Crear o actualizar la rama de deploy
+          git checkout --orphan static
+
+          # Limpiar todos los archivos excepto out
+          git rm -rf . || true
+
+          # Copiar contenido de out al root
+          cp -r out/* .
+
+          # Agregar todos los archivos
+          git add -A
+
+          # Commit y push
+          git commit -m "Deploy build from commit ${GITHUB_SHA::7}"
+          git push -f origin static
+
+      # Mensaje de éxito para PRs
+      - name: PR Build Success
+        if: github.event_name == 'pull_request'
+        run: echo "✅ Build completado exitosamente. Los archivos NO fueron desplegados porque esto es un PR."
