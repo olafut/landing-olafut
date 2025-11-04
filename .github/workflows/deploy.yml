@@ -29,7 +29,7 @@ jobs:
       - name: Setup pnpm
         uses: pnpm/action-setup@v3
         with:
-          version: 8
+          version: latest
           run_install: false
 
       # Cache de dependencias de pnpm
@@ -45,7 +45,7 @@ jobs:
 
       # Instalar dependencias
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: pnpm install --no-frozen-lockfile
 
       # Build de la aplicación
       - name: Build Next.js app

@@ -92,7 +92,7 @@ export const Header: FC = () => {
                       className="relative"
                       initial={{
                         opacity: 0.5,
-                        left: -150,
+                        left: -200,
                         clipPath: 'inset(0 0 0 70%)',
                       }}
                       animate={{
@@ -102,7 +102,7 @@ export const Header: FC = () => {
                       }}
                       exit={{
                         opacity: 0.5,
-                        left: -150,
+                        left: -200,
                         clipPath: 'inset(0 0 0 70%)',
                       }}
                       transition={{
