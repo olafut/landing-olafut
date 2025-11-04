@@ -68,21 +68,40 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
-          # Crear o actualizar la rama de deploy
-          git checkout --orphan static
+          # Guardar el contenido de out en un directorio temporal
+          mkdir -p /tmp/deploy-content
+          cp -r out/* /tmp/deploy-content/
 
-          # Limpiar todos los archivos excepto out
-          git rm -rf . || true
+          # Intentar hacer checkout de la rama de deploy si existe
+          git fetch origin static:static 2>/dev/null || true
 
-          # Copiar contenido de out al root
-          cp -r out/* .
+          if git show-ref --verify --quiet refs/heads/static; then
+            # La rama existe, hacer checkout
+            git checkout static
+            # Limpiar todo el contenido
+            git rm -rf . || true
+          else
+            # La rama no existe, crear una nueva rama huérfana
+            git checkout --orphan static
+            # Limpiar el índice
+            git rm -rf . || true
+          fi
+
+          # Copiar el contenido desde el directorio temporal
+          cp -r /tmp/deploy-content/* .
 
           # Agregar todos los archivos
           git add -A
 
-          # Commit y push
-          git commit -m "Deploy build from commit ${GITHUB_SHA::7}"
-          git push -f origin static
+          # Verificar si hay cambios
+          if git diff --staged --quiet; then
+            echo "No hay cambios para desplegar"
+          else
+            # Commit y push
+            git commit -m "Deploy build from commit ${GITHUB_SHA::7}"
+            git push -f origin static
+            echo "✅ Desplegado exitosamente a static"
+          fi
 
       # Mensaje de éxito para PRs
       - name: PR Build Success
