@@ -1,15 +1,13 @@
 import Image from 'next/image';
+import type { Author } from '@/interfaces/author';
 
-type AvatarProps = {
-  name: string;
-  picture: string;
-};
+type AvatarProps = Author;
 
-export const Avatar = ({ name, picture }: AvatarProps) => {
+export const Avatar = ({ avatar, name }: AvatarProps) => {
   return (
     <div className="flex items-center">
       <Image
-        src={picture}
+        src={avatar}
         className="w-12 h-12 rounded-full mr-4"
         height={48}
         width={48}

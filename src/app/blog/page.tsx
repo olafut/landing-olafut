@@ -1,15 +1,13 @@
-import { getAllPosts } from '@/lib/api';
+import { getPostsFromCache } from '@/lib/notion';
 import { HeroPost } from '../_components/blog/HeroPost';
 import { MoreStories } from '../_components/blog/MoreStories';
 import { PostContainer } from '../_components/blog/PostContainer';
 import { Title } from '../_components/ui';
 
-export default async function Blog() {
-  const allPosts = await getAllPosts();
-
-  const heroPost = allPosts[0];
-
-  const morePosts = allPosts.slice(1);
+export default function Blog() {
+  const posts = getPostsFromCache();
+  const heroPost = posts[0];
+  const morePosts = posts.slice(1);
 
   return (
     <main>

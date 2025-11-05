@@ -11,27 +11,12 @@ interface HeroPostProps {
 }
 
 export const HeroPost: FC<HeroPostProps> = ({ post }) => {
-  const {
-    title,
-    date,
-    excerpt,
-    author,
-    slug,
-    coverImageMobile,
-    coverImageTablet,
-    coverImageDesktop,
-  } = post;
+  const { title, date, summary, author, slug, coverImage } = post;
 
   return (
     <section>
       <div className="mb-8 md:mb-16">
-        <CoverImage
-          title={title}
-          slug={slug}
-          srcMobile={coverImageMobile}
-          srcTablet={coverImageTablet}
-          srcDesktop={coverImageDesktop}
-        />
+        <CoverImage title={title} slug={slug} src={coverImage || ''} />
       </div>
       <div className="md:grid md:grid-cols-2 md:gap-x-16 lg:gap-x-8 mb-20 md:mb-28">
         <div>
@@ -45,8 +30,8 @@ export const HeroPost: FC<HeroPostProps> = ({ post }) => {
           </div>
         </div>
         <div>
-          <Paragraph className="mb-6">{excerpt}</Paragraph>
-          <Avatar name={author.name} picture={author.picture} />
+          <Paragraph className="mb-6">{summary}</Paragraph>
+          <Avatar name={author?.name} avatar={author?.avatar} />
         </div>
       </div>
     </section>
