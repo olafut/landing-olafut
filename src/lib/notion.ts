@@ -4,6 +4,7 @@ import type { PageObjectResponse } from '@notionhq/client';
 import { Client } from '@notionhq/client';
 import { NotionToMarkdown } from 'notion-to-md';
 import type { Post } from '@/interfaces/post';
+import { downloadImage, generateSlug } from '@/utils';
 
 export const notion = new Client({ auth: process.env.NOTION_TOKEN });
 export const n2m = new NotionToMarkdown({ notionClient: notion });
@@ -79,35 +80,46 @@ export async function getPostFromNotion(pageId: string): Promise<Post | null> {
       page_id: pageId,
     })) as PageObjectResponse;
     const mdBlocks = await n2m.pageToMarkdown(pageId);
+
     const { parent: contentString } = n2m.toMarkdownString(mdBlocks);
 
-    // Get first paragraph for description (excluding empty lines)
     const paragraphs = contentString
       .split('\n')
       .filter((line: string) => line.trim().length > 0);
+
     const firstParagraph = paragraphs[0] || '';
+
     const description =
       firstParagraph.slice(0, 160) + (firstParagraph.length > 160 ? '...' : '');
 
     const properties = page.properties as NotionProperties;
 
+    const imageUrl = properties['Featured Image'].files?.[0]?.file.url;
+
+    const slug = generateSlug(
+      properties.Title.title[0]?.plain_text || 'Untitled',
+    );
+
+    const extension = imageUrl
+      ? imageUrl.split('.').pop().split('?')[0]
+      : 'jpg';
+
+    downloadImage(
+      imageUrl,
+      path.join(process.cwd(), 'public', 'images', `${slug}.${extension}`),
+    )
+      .then((message) => console.log(message))
+      .catch((error) => console.error('Error downloading image:', error));
+
     const post: Post = {
       id: page.id,
       title: properties.Title.title[0]?.plain_text || 'Untitled',
-      slug:
-        properties.Title.title[0]?.plain_text
-          .toLowerCase()
-          .replace(/[^a-z0-9]+/g, '-') // Replace any non-alphanumeric chars with dash
-          .replace(/^-+|-+$/g, '') || // Remove leading/trailing dashes
-        'untitled',
-      // coverImage: properties['Featured Image']?.url || undefined,
-      coverImage:
-        properties['Featured Image']?.files?.[0]?.file?.url || undefined,
+      slug,
+      coverImage: imageUrl ? `/images/${slug}.${extension}` : undefined,
       summary: properties.Description?.rich_text[0]?.plain_text || description,
       date:
         properties['Published Date']?.date?.start || new Date().toISOString(),
       content: contentString,
-      // author: properties.Author?.people[0]?.name,
       author: {
         name: properties.Author?.people[0]?.name,
         avatar: properties.Author?.people[0]?.avatar_url,

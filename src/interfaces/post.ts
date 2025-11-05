@@ -8,7 +8,7 @@ export type Post = {
   summary: string;
   date: string;
   content: string;
-  author: Author;
+  author?: Author;
   tags?: string[];
   category?: string;
 };

@@ -1,9 +1,12 @@
 import Image from 'next/image';
 import type { Author } from '@/interfaces/author';
 
-type AvatarProps = Author;
+type AvatarProps = Partial<Author>;
 
-export const Avatar = ({ avatar, name }: AvatarProps) => {
+export const Avatar = ({
+  avatar = '/assets/blog/authors/patricio.webp',
+  name = 'Patricio Mariscal',
+}: AvatarProps) => {
   return (
     <div className="flex items-center">
       <Image
