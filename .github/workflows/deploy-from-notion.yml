@@ -67,9 +67,9 @@ jobs:
           fi
           ls -la out
 
-      # Deploy a la rama de estáticos (solo en push a main, no en PR)
+      # Deploy a la rama de estáticos (solo en push a feature/notion-integration, no en PR)
       - name: Deploy to static branch
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        if: github.event_name == 'push' && github.ref == 'refs/heads/feature/notion-integration'
         run: |
           # Configurar git
           git config --global user.name "github-actions[bot]"
