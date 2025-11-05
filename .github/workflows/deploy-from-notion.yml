@@ -53,6 +53,9 @@ jobs:
 
       # Build de la aplicación
       - name: Build Next.js app
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+          NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}
         run: pnpm build
 
       # Verificar que existe la carpeta out
