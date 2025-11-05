@@ -67,7 +67,7 @@ jobs:
           if git diff --staged --quiet; then
             echo "Nothing to commit for downloaded images"
           else
-            git commit -m "Add downloaded images from Notion"
+            git commit -m "chore: add downloaded images from Notion"
             git push origin HEAD:feature/notion-integration
           fi
 
