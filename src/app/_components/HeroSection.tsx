@@ -4,7 +4,7 @@ import { Button, Subtitle, Title } from './ui';
 
 export const HeroSection = () => {
   return (
-    <div className="relative p-10 lg:pt-20 lg:pb-30 flex flex-col items-center mx-auto container justify-center">
+    <div className="relative p-10 lg:pt-20 lg:pb-30 flex flex-col items-center mx-auto container justify-center min-h-[calc(100dvh-4.5rem)]">
       <section className="grid grid-cols-1 xl:grid-cols-2 max-w-lg xl:max-w-full gap-20 justify-center items-center">
         <div className="flex flex-col text-center xl:text-left ">
           <p className="font-alt text-xs font-semibold tracking-widest mb-4">

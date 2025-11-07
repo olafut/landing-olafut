@@ -21,22 +21,22 @@ export const ProductCard: FC<ProductCardProps> = ({
   return (
     <article
       className={twMerge(
-        'bg-neutral-300/50 min-h-72 backdrop-blur-2xl p-10 rounded-3xl shadow-sm flex flex-col gap-10 justify-between',
+        'bg-foreground/10 min-h-72 backdrop-blur-2xl p-10 rounded-2xl flex flex-col gap-10 justify-between border border-neutral-300',
         className,
       )}
       style={style}
     >
       <section className="flex flex-col gap-4">
-        <Title level="h4" className="text-3xl lg:text-4xl font-black">
+        <Title level="h4" className="font-black">
           {title}
         </Title>
         <Paragraph>{description}</Paragraph>
       </section>
 
       {!!imgProps?.src && !!imgProps.alt && (
-        <div className="relative w-96 h-auto max-w-full mx-auto rounded-2xl aspect-3/4 lg:aspect-4/3 hover:transform-cpu hover:scale-[1.02] transition-transform duration-300">
+        <div className="relative w-96 h-auto max-w-full mx-auto aspect-3/4 lg:aspect-4/3 hover:transform-cpu hover:scale-[1.02] transition-transform duration-300">
           <Image
-            className="absolute rounded-2xl object-cover"
+            className="absolute object-cover rounded-lg"
             fill
             {...imgProps}
           />

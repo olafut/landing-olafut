@@ -13,7 +13,7 @@ const variants = cva('', {
       h1: 'font-sans text-4xl md:text-5xl lg:text-6xl leading-none font-black w-full',
       h2: 'font-sans text-3xl md:text-4xl lg:text-5xl leading-none font-black w-full',
       h3: 'font-sans text-2xl md:text-3xl lg:text-4xl leading-none font-semibold w-full',
-      h4: 'font-sans text-lg md:text-xl lg:text-2xl leading-none font-semibold w-full',
+      h4: 'font-sans text-2xl md:text-2xl lg:text-3xl leading-none font-semibold w-full',
     },
   },
   defaultVariants: {

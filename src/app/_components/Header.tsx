@@ -29,8 +29,6 @@ export const Header: FC = () => {
 
   return (
     <>
-      <div ref={ref} className="h-5 w-full" />
-
       <header className="sticky top-5 z-50 h-18 container mx-auto font-alt px-4 md:px-0">
         <div
           className={twMerge(
@@ -158,6 +156,8 @@ export const Header: FC = () => {
           </ul>
         </div>
       </header>
+
+      <div ref={ref} className="w-full" />
     </>
   );
 };
