@@ -1,12 +1,14 @@
 name: Build and Deploy from Notion
 
 on:
-  push:
+  pull_request:
     branches:
       - main
+    types: [opened, synchronize, reopened]
 
 permissions:
   contents: write
+  pull-requests: write
 
 jobs:
   build-and-deploy:
@@ -14,26 +16,24 @@ jobs:
     environment: Production
 
     steps:
-      # Checkout del código
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
+          ref: ${{ github.head_ref }} # ✅ Checkout de la rama del PR
           fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
 
-      # Setup de Node.js
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: "20"
 
-      # Setup de pnpm
       - name: Setup pnpm
         uses: pnpm/action-setup@v3
         with:
           version: latest
           run_install: false
 
-      # Cache de dependencias de pnpm
       - name: Setup pnpm cache
         uses: actions/cache@v4
         with:
@@ -44,84 +44,83 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pnpm-
 
-      # Instalar dependencias
       - name: Install dependencies
         run: pnpm install --no-frozen-lockfile
 
-      # Build de la aplicación
       - name: Build Next.js app
         env:
           NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
           NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}
         run: pnpm build
 
-      # Hacer commit de las imágenes descargadas durante el build
-      - name: Commit downloaded images
+      # ✅ Commit a la rama del PR, NO a main
+      - name: Commit downloaded images to PR branch
         run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add public/images/*
-          if git diff --staged --quiet; then
-            echo "Nothing to commit for downloaded images"
-          else
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add public/assets/blog/
+
+          if ! git diff --staged --quiet; then
             git commit -m "chore: add downloaded images from Notion"
-            git push origin HEAD:main
+            git push origin HEAD:${{ github.head_ref }}
+            echo "✅ Imágenes commiteadas a la rama del PR"
+          else
+            echo "ℹ️ No hay imágenes nuevas"
           fi
 
-      # Verificar que existe la carpeta out
-      - name: Check out directory
+      - name: Verify build output
         run: |
           if [ ! -d "out" ]; then
-            echo "Error: La carpeta 'out' no existe después del build"
+            echo "❌ Error: La carpeta 'out' no existe después del build"
             exit 1
           fi
-          ls -la out
+          echo "✅ Carpeta out verificada"
+          ls -lah out
 
-      # Deploy a la rama de estáticos (solo en push a main, no en PR)
+      # ✅ Deploy siempre en PRs (para preview)
       - name: Deploy to static branch
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         run: |
-          # Configurar git
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-
-          # Crear un directorio temporal limpio
+          # Crear directorio temporal
           TEMP_DIR=$(mktemp -d)
           cp -r out/* "$TEMP_DIR/"
 
-          # Cambiar a un directorio temporal para el git
+          # Trabajar en directorio temporal
           WORK_DIR=$(mktemp -d)
           cd "$WORK_DIR"
 
-          # Inicializar un nuevo repositorio
+          # Configurar repositorio
           git init
           git remote add origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
 
-          # Intentar traer la rama si existe
+          # Traer rama static si existe
           git fetch origin static 2>/dev/null || true
 
           # Crear rama huérfana
           git checkout --orphan static
 
-          # Copiar solo el contenido de out
+          # Copiar contenido
           cp -r "$TEMP_DIR"/* .
 
-          # Crear .gitignore para asegurar que no se incluyan archivos innecesarios
-          cat > .gitignore << 'EOF'
-          node_modules/
-          .next/
-          .cache/
-          EOF
-
-          # Agregar todos los archivos
+          # Agregar archivos
           git add -A
 
           # Verificar si hay cambios
-          if git diff --staged --quiet; then
-            echo "No hay cambios para desplegar"
-          else
-            # Commit y push
-            git commit -m "Deploy build from commit ${GITHUB_SHA::7}"
+          if ! git diff --staged --quiet; then
+            git commit -m "Deploy from PR #${{ github.event.pull_request.number }} (${GITHUB_SHA::7})"
             git push -f origin static
             echo "✅ Desplegado exitosamente a static"
+          else
+            echo "ℹ️ No hay cambios para desplegar"
           fi
+
+      - name: Comment deployment info on PR
+        if: success()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: '✅ **Build completado exitosamente**\n\n🚀 Los cambios están desplegados en la rama `static`\n📦 Las imágenes de Notion han sido descargadas y commiteadas a este PR'
+            })

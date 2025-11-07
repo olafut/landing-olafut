@@ -1,6 +1,7 @@
 import './globals.css';
 import type { Metadata } from 'next';
 import { Bricolage_Grotesque, Montserrat } from 'next/font/google';
+import { NextIntlClientProvider } from 'next-intl';
 import type { PropsWithChildren } from 'react';
 import { Footer } from './_components/Footer';
 import { Header } from './_components/Header';
@@ -48,9 +49,11 @@ export default function RootLayout({ children }: Readonly<PropsWithChildren>) {
       className={`${montserratFont.variable}  ${bricolageFont.variable} antialiased`}
     >
       <body className="bg-background text-foreground font-sans transition-colors duration-500">
-        <Header />
-        {children}
-        <Footer />
+        <NextIntlClientProvider locale="es">
+          <Header />
+          {children}
+          <Footer />
+        </NextIntlClientProvider>
       </body>
     </html>
   );

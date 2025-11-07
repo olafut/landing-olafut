@@ -15,7 +15,7 @@ export default function NotFound() {
       </p>
 
       <Link href="/" className="mt-10 w-full">
-        <Button className=" w-full mx-auto">
+        <Button className="w-full mx-auto">
           <FaHouse />
           Volver al inicio
         </Button>

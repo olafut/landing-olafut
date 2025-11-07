@@ -1,8 +1,12 @@
 import Image from 'next/image';
 import { FaArrowRight } from 'react-icons/fa6';
-import { Button, Subtitle, Title } from './ui';
+import { useTranslate } from '../hooks';
+import { CallToActionButton } from './CallToActionButton';
+import { Subtitle, Title } from './ui';
 
 export const HeroSection = () => {
+  const { t } = useTranslate('Hero');
+
   return (
     <div className="relative p-10 lg:pt-20 lg:pb-30 flex flex-col items-center mx-auto container justify-center min-h-[calc(100dvh-4.5rem)]">
       <section className="grid grid-cols-1 xl:grid-cols-2 max-w-lg xl:max-w-full gap-20 justify-center items-center">
@@ -11,18 +15,14 @@ export const HeroSection = () => {
             LANDING PAGE BUILDER
           </p>
 
-          <Title level="h1">
-            El fútbol solo necesita una comunidad dispuesta a todo
-          </Title>
+          <Title level="h1">{t('title')}</Title>
 
-          <Subtitle className="my-10">
-            Creando el 1er Club Femenil Independiente de México
-          </Subtitle>
+          <Subtitle className="my-10">{t('subtitle')}</Subtitle>
 
-          <Button className="mx-auto lg:mx-0">
-            ¡Se parte del cambio!
+          <CallToActionButton className="w-full">
+            {t('cta')}
             <FaArrowRight />
-          </Button>
+          </CallToActionButton>
         </div>
 
         <div className="mx-auto relative w-full h-full aspect-3/4 lg:aspect-4/3">

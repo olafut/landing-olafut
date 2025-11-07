@@ -13,7 +13,15 @@
 } */
 
 @theme inline {
-  --color-primary: #ea577f;
+  --color-primary-100: #f9d7e1;
+  --color-primary-200: #f4b3c4;
+  --color-primary-300: #ee8fa7;
+  --color-primary-400: #e96b8a;
+  --color-primary-500: #ea577f;
+  --color-primary-600: #d9456f;
+  --color-primary-700: #c43d63;
+  --color-primary-800: #b13557;
+  --color-primary-900: #9e2e4d;
   --color-secondary: #dfdfdf;
   --color-background: var(--background);
   --color-foreground: var(--foreground);

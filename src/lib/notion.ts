@@ -81,8 +81,37 @@ export async function getPostFromNotion(pageId: string): Promise<Post | null> {
     })) as PageObjectResponse;
     const mdBlocks = await n2m.pageToMarkdown(pageId);
 
+    const properties = page.properties as NotionProperties;
+
+    // Extract title
+    const title = properties.Title.title[0]?.plain_text || 'Untitled';
+
+    // Generate slug
+    const slug = generateSlug(title);
+
+    // Get and download cover image
+    const imageUrl = properties['Featured Image'].files?.[0]?.file.url;
+    const extension = imageUrl
+      ? imageUrl.split('.').pop().split('?')[0]
+      : 'jpg';
+
+    downloadImage(
+      imageUrl,
+      path.join(
+        process.cwd(),
+        'public',
+        'assets',
+        'blog',
+        `${slug}.${extension}`,
+      ),
+    )
+      .then((message) => console.log(message))
+      .catch((error) => console.error('Error downloading image:', error));
+
+    // Generate markdown content
     const { parent: contentString } = n2m.toMarkdownString(mdBlocks);
 
+    // Generate summary from Description or use first 160 chars of content
     const paragraphs = contentString
       .split('\n')
       .filter((line: string) => line.trim().length > 0);
@@ -92,43 +121,57 @@ export async function getPostFromNotion(pageId: string): Promise<Post | null> {
     const description =
       firstParagraph.slice(0, 160) + (firstParagraph.length > 160 ? '...' : '');
 
-    const properties = page.properties as NotionProperties;
+    const summary =
+      properties.Description?.rich_text[0]?.plain_text || description;
 
-    const imageUrl = properties['Featured Image'].files?.[0]?.file.url;
+    // Get publish date
+    const publishDate =
+      properties['Published Date']?.date?.start || new Date().toISOString();
 
-    const slug = generateSlug(
-      properties.Title.title[0]?.plain_text || 'Untitled',
-    );
-
-    const extension = imageUrl
-      ? imageUrl.split('.').pop().split('?')[0]
-      : 'jpg';
+    // Get author info and download avatar image
+    const authorName = properties.Author?.people[0]?.name || 'author';
+    const authorAvatar = properties.Author?.people[0]?.avatar_url || '';
+    const authorSlug = generateSlug(authorName);
 
     downloadImage(
-      imageUrl,
-      path.join(process.cwd(), 'public', 'images', `${slug}.${extension}`),
+      authorAvatar,
+      path.join(
+        process.cwd(),
+        'public',
+        'assets',
+        'blog',
+        'authors',
+        `${authorSlug}.jpg`,
+      ),
     )
       .then((message) => console.log(message))
-      .catch((error) => console.error('Error downloading image:', error));
+      .catch((error) =>
+        console.error('Error downloading author avatar:', error),
+      );
 
+    // Get SEO tags
+    const tags =
+      properties.Tags?.multi_select?.map((tag: { name: string }) => tag.name) ||
+      [];
+
+    // Get category
+    const category = properties.Category?.select?.name;
+
+    // Construct Post object
     const post: Post = {
       id: page.id,
-      title: properties.Title.title[0]?.plain_text || 'Untitled',
+      title,
       slug,
-      coverImage: imageUrl ? `/images/${slug}.${extension}` : undefined,
-      summary: properties.Description?.rich_text[0]?.plain_text || description,
-      date:
-        properties['Published Date']?.date?.start || new Date().toISOString(),
+      coverImage: imageUrl ? `/assets/blog/${slug}.${extension}` : undefined,
+      summary,
+      date: publishDate,
       content: contentString,
       author: {
-        name: properties.Author?.people[0]?.name,
-        avatar: properties.Author?.people[0]?.avatar_url,
+        name: authorName,
+        avatar: `/assets/blog/authors/${authorSlug}.jpg`,
       },
-      tags:
-        properties.Tags?.multi_select?.map(
-          (tag: { name: string }) => tag.name,
-        ) || [],
-      category: properties.Category?.select?.name,
+      tags,
+      category,
     };
 
     return post;

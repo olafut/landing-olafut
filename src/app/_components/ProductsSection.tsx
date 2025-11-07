@@ -1,58 +1,80 @@
 import { FaArrowRight } from 'react-icons/fa6';
+import { useTranslate } from '../hooks';
+import { CallToActionButton } from './CallToActionButton';
 import { ProductCard } from './ProductCard';
-import { Button, Title } from './ui';
+import { Title } from './ui';
 
 export const ProductsSection = () => {
+  const { t } = useTranslate('Features');
+
   return (
     <section className="my-12 flex flex-col gap-6 text-left container mx-auto px-6 md:px-14">
       <Title
         level="h2"
         className="py-10 text-4xl lg:text-6xl max-w-2xl font-black"
       >
-        ¿Cómo vamos a construir el CAMINO?
+        {t('title')}
       </Title>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
         <ProductCard
-          title="OLA-CAST"
-          description="El micrófono puede ser tuyo. Participa para ser parte de las transmisiones en vivo y de nuestro Podcast."
+          title={t('items.OLA-CAST.title')}
+          description={[t('items.OLA-CAST.description.0')]}
           image={{
             src: '/assets/OLA-CAST.webp',
-            alt: 'Ola-Cast',
+            alt: t('items.OLA-CAST.title'),
           }}
         />
 
         <ProductCard
-          title="OLA-GAMES"
-          description="Torneos y eventos con formatos innovadores"
+          title={t('items.OLA-DIGITAL.title')}
+          description={[t('items.OLA-DIGITAL.description.0')]}
+          image={{
+            src: '/assets/OLA-DIGITAL.webp',
+            alt: t('items.OLA-DIGITAL.title'),
+          }}
+        />
+
+        <ProductCard
+          title={t('items.OLA-GAMES.title')}
+          description={[
+            t('items.OLA-GAMES.description.0'),
+            t('items.OLA-GAMES.description.1'),
+          ]}
           image={{
             src: '/assets/OLA-GAMES.webp',
-            alt: 'Ola-Games',
+            alt: t('items.OLA-GAMES.title'),
           }}
-        />
-        <ProductCard
-          title="OLA-MIND"
-          description="Crecimiento personal y profesional a través de pláticas, cursos y clases impartidas por las más expertas en la industria deportiva."
-          image={{
-            src: '/assets/OLA-TALKS.webp',
-            alt: 'Ola-Mind',
-          }}
+          comingSoon
         />
 
         <ProductCard
-          title="OLA-SCOUT"
-          description="El lente y lugar para dar a conocer y apoyar en el camino al próximo talento del fútbol femenil profesional."
+          title={t('items.OLA-MIND.title')}
+          description={[t('items.OLA-MIND.description.0')]}
+          image={{
+            src: '/assets/OLA-TALKS.webp',
+            alt: t('items.OLA-MIND.title'),
+          }}
+          comingSoon
+        />
+
+        <ProductCard
+          title={t('items.OLA-SCOUT.title')}
+          description={[t('items.OLA-SCOUT.description.0')]}
           image={{
             src: '/assets/OLA-SCOUT.webp',
-            alt: 'Ola-Scout',
+            alt: t('items.OLA-SCOUT.title'),
           }}
+          comingSoon
         />
       </div>
 
-      <Button className="mx-auto my-10">
-        ¡No te pierdas la oportunidad!
-        <FaArrowRight />
-      </Button>
+      <footer className="px-10">
+        <CallToActionButton className="mx-auto my-10">
+          {t('cta')}
+          <FaArrowRight />
+        </CallToActionButton>
+      </footer>
     </section>
   );
 };
