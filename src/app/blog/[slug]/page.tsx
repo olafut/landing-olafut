@@ -3,8 +3,8 @@ import { notFound } from 'next/navigation';
 import { PostBody } from '@/app/_components/blog/PostBody';
 import { PostContainer } from '@/app/_components/blog/PostContainer';
 import { PostHeader } from '@/app/_components/blog/PostHeader';
-import { getAllPosts, getPostBySlug } from '@/lib/api';
 import markdownToHtml from '@/lib/markdownToHtml';
+import { getPost, getPostsFromCache } from '@/lib/notion';
 
 type Params = {
   params: Promise<{
@@ -19,7 +19,7 @@ export default async function PostPage({
 }) {
   const { slug } = await params;
 
-  const post = getPostBySlug(slug);
+  const post = await getPost(slug);
 
   if (!post) return notFound();
 
@@ -38,7 +38,7 @@ export default async function PostPage({
 }
 
 export async function generateStaticParams() {
-  const posts = await getAllPosts();
+  const posts = getPostsFromCache();
 
   return posts.map((post) => ({
     slug: String(post.slug),
@@ -47,7 +47,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata(props: Params): Promise<Metadata> {
   const params = await props.params;
-  const post = getPostBySlug(params.slug);
+  const post = await getPost(params.slug);
 
   if (!post) return notFound();
 
@@ -55,20 +55,20 @@ export async function generateMetadata(props: Params): Promise<Metadata> {
 
   return {
     title,
-    description: post.excerpt,
+    description: post.summary,
     metadataBase: new URL('https://olafut.com'),
     openGraph: {
       title,
       url: `https://olafut.com/blog/${post.slug}`,
-      images: [post.ogImage.url],
+      images: [post.coverImage || ''],
       type: 'article',
-      description: post.excerpt,
+      description: post.summary,
       locale: 'es_MX',
     },
     twitter: {
       title,
-      description: post.excerpt,
-      images: [post.ogImage.url],
+      description: post.summary,
+      images: [post.coverImage || ''],
       card: 'summary_large_image',
     },
   };

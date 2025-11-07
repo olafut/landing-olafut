@@ -11,27 +11,12 @@ type PostPreviewProps = {
 };
 
 export const PostPreview: FC<PostPreviewProps> = ({ post }) => {
-  const {
-    title,
-    date,
-    excerpt,
-    author,
-    slug,
-    coverImageMobile,
-    coverImageTablet,
-    coverImageDesktop,
-  } = post;
+  const { title, date, summary, author, slug, coverImage } = post;
 
   return (
     <div>
       <div className="mb-5">
-        <CoverImage
-          slug={slug}
-          title={title}
-          srcMobile={coverImageMobile}
-          srcTablet={coverImageTablet}
-          srcDesktop={coverImageDesktop}
-        />
+        <CoverImage slug={slug} title={title} src={coverImage || ''} />
       </div>
       <Title level="h3" className="mb-4">
         <Link href={`/blog/${slug}`} className="hover:underline">
@@ -41,8 +26,8 @@ export const PostPreview: FC<PostPreviewProps> = ({ post }) => {
       <div className="text-lg mb-4">
         <DateFormatter dateString={date} />
       </div>
-      <Paragraph className="mb-6">{excerpt}</Paragraph>
-      <Avatar name={author.name} picture={author.picture} />
+      <Paragraph className="mb-6">{summary}</Paragraph>
+      <Avatar name={author?.name} avatar={author?.avatar} />
     </div>
   );
 };
