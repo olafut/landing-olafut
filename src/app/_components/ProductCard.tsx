@@ -28,7 +28,7 @@ export const ProductCard: FC<ProductCardProps> = ({
   return (
     <article
       className={twMerge(
-        'bg-foreground/10 min-h-72 backdrop-blur-2xl p-10 rounded-2xl flex flex-col gap-10 justify-between border border-neutral-300 relative md:flex-row lg:flex-col',
+        'bg-foreground/10 min-h-72 backdrop-blur-2xl py-10 px-6 md:p-10 rounded-2xl flex flex-col gap-10 justify-between border border-neutral-300 relative md:flex-row lg:flex-col',
         rtl ? 'md:flex-row-reverse' : 'md:flex-row',
         className,
       )}
@@ -40,15 +40,13 @@ export const ProductCard: FC<ProductCardProps> = ({
         </span>
       )}
 
-      <section className="flex flex-col gap-4 min-w-xs">
+      <section className="flex flex-col gap-4">
         <Title level="h4" className="font-black">
           {title}
         </Title>
 
         {description.filter(Boolean).map((desc, idx) => (
-          <div key={String(idx)} className="flex gap-4">
-            <Paragraph>{desc}</Paragraph>
-          </div>
+          <Paragraph key={String(idx)}>{desc}</Paragraph>
         ))}
       </section>
 
