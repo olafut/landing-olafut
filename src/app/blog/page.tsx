@@ -12,10 +12,10 @@ export default function Blog() {
   return (
     <main>
       <PostContainer>
-        <section className="flex-col md:flex-row flex items-center md:justify-between mt-10 mb-16 md:mb-12">
+        <section className="flex-col md:flex-row flex items-center md:justify-between py-16">
           <Title
             level="h1"
-            className="text-5xl md:text-8xl font-bold tracking-tighter leading-tight md:pr-8"
+            className="font-bold tracking-tighter leading-tight"
           >
             Blog
           </Title>

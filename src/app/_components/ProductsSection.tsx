@@ -66,7 +66,7 @@ export const ProductsSection = () => {
         />
       </div>
 
-      <footer className="px-10">
+      <footer className="max-w-md mx-auto w-full">
         <CallToActionButton className="mx-auto my-10">
           {t('cta')}
           <FaArrowRight />

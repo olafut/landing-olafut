@@ -10,10 +10,10 @@ interface TitleProps extends BaseProps {
 const variants = cva('', {
   variants: {
     headingLevel: {
-      h1: 'font-sans text-5xl lg:text-6xl leading-none font-black w-full',
-      h2: 'font-sans text-4xl lg:text-5xl leading-none font-black w-full',
-      h3: 'font-sans text-3xl lg:text-4xl leading-none font-semibold w-full',
-      h4: 'font-sans text-2xl lg:text-3xl leading-none font-semibold w-full',
+      h1: 'font-sans text-5xl lg:text-6xl leading-tight lg:leading-none font-black w-full',
+      h2: 'font-sans text-4xl lg:text-5xl leading-tight lg:leading-none font-black w-full',
+      h3: 'font-sans text-3xl lg:text-4xl leading-tight lg:leading-none font-bold w-full',
+      h4: 'font-sans text-2xl lg:text-3xl leading-tight lg:leading-none font-bold w-full',
     },
   },
   defaultVariants: {
@@ -31,7 +31,7 @@ export const Title: FC<TitleProps> = ({
 
   return (
     <Tag
-      className={twMerge(variants({ headingLevel }), className)}
+      className={twMerge(variants({ headingLevel }), className, 'leading-')}
       style={style}
     >
       {children}

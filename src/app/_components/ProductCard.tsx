@@ -46,9 +46,12 @@ export const ProductCard: FC<ProductCardProps> = ({
       </section>
 
       {!!imgProps?.src && !!imgProps.alt && (
-        <div className="relative w-96 h-auto max-w-full mx-auto aspect-3/4 lg:aspect-4/3 hover:transform-cpu hover:scale-[1.02] transition-transform duration-300">
+        <div className="relative w-96 h-auto max-w-full mx-auto aspect-3/4 lg:aspect-4/3 rounded-lg overflow-hidden group/image">
+          {/* Overlay en hover */}
+          <div className="absolute inset-0 bg-linear-to-t from-foreground/80 via-transparent to-transparent opacity-0 group-hover/image:opacity-100 transition-opacity duration-300 z-10" />
+
           <Image
-            className="absolute object-cover rounded-lg"
+            className="object-cover group-hover/image:scale-110 transition-transform duration-500"
             fill
             {...imgProps}
           />

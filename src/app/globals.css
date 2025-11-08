@@ -25,8 +25,8 @@
   --color-secondary: #dfdfdf;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-bricolage-grotesque);
-  --font-alt: var(--font-space-grotesk);
+  --font-sans: var(--font-display);
+  --font-alt: var(--font-text);
   --radius-5xl: 2.5rem;
   --animate-infinite-scroll: infinite-scroll 35s linear infinite;
 }

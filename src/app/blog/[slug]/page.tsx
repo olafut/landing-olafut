@@ -26,7 +26,7 @@ export default async function PostPage({
   const content = await markdownToHtml(post.content || '');
 
   return (
-    <main>
+    <main className="py-16">
       <PostContainer>
         <PostHeader post={post} />
         <article className="mb-32">

@@ -90,7 +90,7 @@ export const Header: FC = () => {
                       className="relative"
                       initial={{
                         opacity: 0.5,
-                        left: -280,
+                        left: -220,
                         clipPath: 'inset(0 0 0 70%)',
                       }}
                       animate={{
@@ -100,7 +100,7 @@ export const Header: FC = () => {
                       }}
                       exit={{
                         opacity: 0.5,
-                        left: -280,
+                        left: -220,
                         clipPath: 'inset(0 0 0 70%)',
                       }}
                       transition={{
@@ -111,7 +111,7 @@ export const Header: FC = () => {
                       <Image
                         src="/assets/olafut.svg"
                         alt="Olafut Logo"
-                        width={280}
+                        width={220}
                         height={72}
                         priority
                         loading="eager"

@@ -6,18 +6,15 @@ import type { PropsWithChildren } from 'react';
 import { Footer } from './_components/Footer';
 import { Header } from './_components/Header';
 
-const bricolageFont = Inter({
-  variable: '--font-bricolage-grotesque',
+const displayFont = Inter({
+  variable: '--font-display',
   weight: ['300', '400', '500', '600', '700'],
-  // weight: ['400'],
   subsets: ['latin'],
 });
 
-const montserratFont = Raleway({
-  variable: '--font-space-grotesk',
+const textFont = Raleway({
+  variable: '--font-text',
   weight: ['300', '400', '500', '600', '700'],
-  // weight: ['100', '400', '700', '900'],
-  // weight: ['400', '700'],
   subsets: ['latin'],
 });
 
@@ -49,7 +46,7 @@ export default function RootLayout({ children }: Readonly<PropsWithChildren>) {
   return (
     <html
       lang="es"
-      className={`${montserratFont.variable}  ${bricolageFont.variable} antialiased`}
+      className={`${textFont.variable}  ${displayFont.variable} antialiased`}
     >
       <body className="bg-background text-foreground font-sans transition-colors duration-500">
         <NextIntlClientProvider locale="es">
