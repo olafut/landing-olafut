@@ -12,7 +12,7 @@ const translations: Translations = {
     paragraphs: [
       'El Futbol Femenil necesita más que promesas.',
       'Imagina un lugar donde el fútbol femenil no compite, sino que colabora.',
-      'Queremos un espacio donde las mujeres sean las protagonistas:',
+      'Queremos un espacio donde las mujeres sean las protagonistas.',
       '¡Unamos a todas las que viven el fútbol con <important>PASIÓN Y PROPÓSITO!</important>',
     ],
     cta: '¡Únete!',

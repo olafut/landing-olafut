@@ -4,7 +4,8 @@ import type { PageObjectResponse } from '@notionhq/client';
 import { Client } from '@notionhq/client';
 import { NotionToMarkdown } from 'notion-to-md';
 import type { Post } from '@/interfaces/post';
-import { downloadImage, generateSlug } from '@/utils';
+import { generateSlug } from '@/utils';
+import { downloadImage } from '@/utils/downloadImage';
 
 export const notion = new Client({ auth: process.env.NOTION_TOKEN });
 export const n2m = new NotionToMarkdown({ notionClient: notion });
@@ -95,18 +96,20 @@ export async function getPostFromNotion(pageId: string): Promise<Post | null> {
       ? imageUrl.split('.').pop().split('?')[0]
       : 'jpg';
 
-    downloadImage(
-      imageUrl,
-      path.join(
-        process.cwd(),
-        'public',
-        'assets',
-        'blog',
-        `${slug}.${extension}`,
-      ),
-    )
-      .then((message) => console.log(message))
-      .catch((error) => console.error('Error downloading image:', error));
+    if (imageUrl) {
+      downloadImage(
+        imageUrl,
+        path.join(
+          process.cwd(),
+          'public',
+          'assets',
+          'blog',
+          `${slug}.${extension}`,
+        ),
+      )
+        .then((message) => console.log(message))
+        .catch((error) => console.error('Error downloading image:', error));
+    }
 
     // Generate markdown content
     const { parent: contentString } = n2m.toMarkdownString(mdBlocks);
@@ -133,21 +136,23 @@ export async function getPostFromNotion(pageId: string): Promise<Post | null> {
     const authorAvatar = properties.Author?.people[0]?.avatar_url || '';
     const authorSlug = generateSlug(authorName);
 
-    downloadImage(
-      authorAvatar,
-      path.join(
-        process.cwd(),
-        'public',
-        'assets',
-        'blog',
-        'authors',
-        `${authorSlug}.jpg`,
-      ),
-    )
-      .then((message) => console.log(message))
-      .catch((error) =>
-        console.error('Error downloading author avatar:', error),
-      );
+    if (authorAvatar) {
+      downloadImage(
+        authorAvatar,
+        path.join(
+          process.cwd(),
+          'public',
+          'assets',
+          'blog',
+          'authors',
+          `${authorSlug}.jpg`,
+        ),
+      )
+        .then((message) => console.log(message))
+        .catch((error) =>
+          console.error('Error downloading author avatar:', error),
+        );
+    }
 
     // Get SEO tags
     const tags =
@@ -168,7 +173,7 @@ export async function getPostFromNotion(pageId: string): Promise<Post | null> {
       content: contentString,
       author: {
         name: authorName,
-        avatar: `/assets/blog/authors/${authorSlug}.jpg`,
+        avatar: authorAvatar ? `/assets/blog/authors/${authorSlug}.jpg` : '',
       },
       tags,
       category,

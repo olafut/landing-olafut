@@ -1,20 +1,20 @@
 import './globals.css';
 import type { Metadata } from 'next';
-import { Bricolage_Grotesque, Montserrat } from 'next/font/google';
+import { Inter, Raleway } from 'next/font/google';
 import { NextIntlClientProvider } from 'next-intl';
 import type { PropsWithChildren } from 'react';
 import { Footer } from './_components/Footer';
 import { Header } from './_components/Header';
 
-const bricolageFont = Bricolage_Grotesque({
-  variable: '--font-bricolage-grotesque',
-  weight: ['200', '300', '400', '500', '600', '700', '800'],
+const displayFont = Inter({
+  variable: '--font-display',
+  weight: ['300', '400', '500', '600', '700'],
   subsets: ['latin'],
 });
 
-const montserratFont = Montserrat({
-  variable: '--font-space-grotesk',
-  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
+const textFont = Raleway({
+  variable: '--font-text',
+  weight: ['300', '400', '500', '600', '700'],
   subsets: ['latin'],
 });
 
@@ -46,7 +46,7 @@ export default function RootLayout({ children }: Readonly<PropsWithChildren>) {
   return (
     <html
       lang="es"
-      className={`${montserratFont.variable}  ${bricolageFont.variable} antialiased`}
+      className={`${textFont.variable}  ${displayFont.variable} antialiased`}
     >
       <body className="bg-background text-foreground font-sans transition-colors duration-500">
         <NextIntlClientProvider locale="es">
