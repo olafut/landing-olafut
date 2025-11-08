@@ -1,20 +1,23 @@
 import './globals.css';
 import type { Metadata } from 'next';
-import { Bricolage_Grotesque, Montserrat } from 'next/font/google';
+import { Inter, Raleway } from 'next/font/google';
 import { NextIntlClientProvider } from 'next-intl';
 import type { PropsWithChildren } from 'react';
 import { Footer } from './_components/Footer';
 import { Header } from './_components/Header';
 
-const bricolageFont = Bricolage_Grotesque({
+const bricolageFont = Inter({
   variable: '--font-bricolage-grotesque',
-  weight: ['200', '300', '400', '500', '600', '700', '800'],
+  weight: ['300', '400', '500', '600', '700'],
+  // weight: ['400'],
   subsets: ['latin'],
 });
 
-const montserratFont = Montserrat({
+const montserratFont = Raleway({
   variable: '--font-space-grotesk',
-  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
+  weight: ['300', '400', '500', '600', '700'],
+  // weight: ['100', '400', '700', '900'],
+  // weight: ['400', '700'],
   subsets: ['latin'],
 });
 

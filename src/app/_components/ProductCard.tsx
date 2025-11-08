@@ -32,7 +32,7 @@ export const ProductCard: FC<ProductCardProps> = ({
       style={style}
     >
       {comingSoon && (
-        <span className="absolute -right-2 top-4 bg-primary-400 text-background rounded-t-sm rounded-bl-sm px-4 py-2 font-sans font-semibold text-sm before:content-[''] before:absolute before:right-0 before:top-full before:w-0 before:h-0 before:border-t-8 before:border-t-primary-700 before:border-r-8 before:border-r-transparent tracking-widest">
+        <span className="absolute -right-2 top-4 bg-foreground text-background rounded-t-sm rounded-bl-sm px-4 py-2 font-sans font-semibold text-sm before:content-[''] before:absolute before:right-0 before:top-full before:w-0 before:h-0 before:border-t-8 before:border-t-neutral-400 before:border-r-8 before:border-r-transparent tracking-widest">
           {t('comingSoon')}
         </span>
       )}

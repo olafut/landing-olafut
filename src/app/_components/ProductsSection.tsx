@@ -9,10 +9,7 @@ export const ProductsSection = () => {
 
   return (
     <section className="my-12 flex flex-col gap-6 text-left container mx-auto px-6 md:px-14">
-      <Title
-        level="h2"
-        className="py-10 text-4xl lg:text-6xl max-w-2xl font-black"
-      >
+      <Title level="h2" className="py-10 max-w-2xl font-foreground">
         {t('title')}
       </Title>
 
