@@ -4,7 +4,8 @@ import type { PageObjectResponse } from '@notionhq/client';
 import { Client } from '@notionhq/client';
 import { NotionToMarkdown } from 'notion-to-md';
 import type { Post } from '@/interfaces/post';
-import { downloadImage, generateSlug } from '@/utils';
+import { generateSlug } from '@/utils';
+import { downloadImage } from '@/utils/downloadImage';
 
 export const notion = new Client({ auth: process.env.NOTION_TOKEN });
 export const n2m = new NotionToMarkdown({ notionClient: notion });

@@ -8,7 +8,7 @@ export const ProductsSection = () => {
   const { t } = useTranslate('Features');
 
   return (
-    <section className="my-12 flex flex-col gap-6 text-left container mx-auto px-6 md:px-14">
+    <section className="my-12 flex flex-col gap-6 text-left container mx-auto px-6 max-w-3xl lg:max-w-5xl">
       <Title level="h2" className="py-10 max-w-2xl font-foreground">
         {t('title')}
       </Title>
@@ -30,6 +30,7 @@ export const ProductsSection = () => {
             src: '/assets/OLA-DIGITAL.webp',
             alt: t('items.OLA-DIGITAL.title'),
           }}
+          rtl
         />
 
         <ProductCard
@@ -53,6 +54,7 @@ export const ProductsSection = () => {
             alt: t('items.OLA-MIND.title'),
           }}
           comingSoon
+          rtl
         />
 
         <ProductCard

@@ -1,4 +1,3 @@
-'use server';
 import fs from 'node:fs';
 import { Readable } from 'node:stream';
 import type { ReadableStream } from 'node:stream/web';

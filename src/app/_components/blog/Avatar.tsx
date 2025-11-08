@@ -4,8 +4,6 @@ import type { Author } from '@/interfaces/author';
 type AvatarProps = Partial<Author>;
 
 export const Avatar = ({ avatar, name }: AvatarProps) => {
-  console.log('Avatar props:', { avatar, name });
-
   return (
     <div className="flex items-center">
       {!avatar || !name ? (
