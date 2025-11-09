@@ -9,7 +9,7 @@ const translations: Translations = {
     cta: '¡Se parte del cambio!',
   },
   WhyOlafut: {
-    title: '¿Por qué nace OLAFUT?',
+    title: '¿Por qué nace <logo>OLAFUT</logo>?',
     paragraphs: [
       'El Futbol Femenil necesita más que promesas.',
       'Imagina un lugar donde el fútbol femenil no compite, sino que colabora.',

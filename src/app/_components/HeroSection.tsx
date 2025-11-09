@@ -14,7 +14,7 @@ export const HeroSection = () => {
 
   return (
     <section className="relative min-h-175 lg:min-h-[min(850px,calc(100dvh-4.5rem))] bg-background overflow-hidden flex items-center">
-      <div className="container mx-auto py-16 relative z-10 px-6 lg:px-0">
+      <div className="container mx-auto py-16 relative z-10 px-6 xl:px-0">
         <div className="grid xl:grid-cols-12 gap-12 xl:gap-20 items-center">
           {/* Left Content */}
           <motion.div
@@ -47,7 +47,7 @@ export const HeroSection = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.8 }}
-              className="space-y-8"
+              className="space-y-8 max-w-2xl mx-auto xl:mx-0"
             >
               <Title
                 level="h1"
@@ -102,7 +102,7 @@ export const HeroSection = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.3, ease: 'easeOut' }}
           >
-            <div className="relative aspect-3/4 md:aspect-8/7 rounded-xl overflow-hidden shadow-2xl">
+            <div className="relative aspect-3/4 md:aspect-8/7 rounded-xl overflow-hidden shadow-2xl max-w-2xl mx-auto">
               {/* Main Image with hover effect */}
               <motion.div
                 whileHover={{ scale: 1.03 }}

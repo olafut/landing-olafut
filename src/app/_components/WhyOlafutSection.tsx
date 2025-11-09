@@ -6,7 +6,11 @@ import { CallToActionButton } from './CallToActionButton';
 import { FeaturedCard } from './FeaturedCard';
 import { Paragraph, Title } from './ui';
 
-const CARD_ICONS = [FaTrophy, FaHandshake, FaStar] as const;
+const FEATURES = [
+  { id: 'trophy', icon: FaTrophy, textKey: 'paragraphs.0' },
+  { id: 'handshake', icon: FaHandshake, textKey: 'paragraphs.1' },
+  { id: 'star', icon: FaStar, textKey: 'paragraphs.2' },
+] as const;
 
 export const WhyOlafutSection = () => {
   const { t, rt } = useTranslate('WhyOlafut');
@@ -16,33 +20,33 @@ export const WhyOlafutSection = () => {
       className="rounded-5xl text-background shadow-lg bg-foreground py-20"
       aria-labelledby="why-olafut-title"
     >
-      <div className="container mx-auto px-6 flex flex-col space-y-12 md:space-y-16">
+      <div className="container mx-auto px-6 flex flex-col gap-12 md:gap-16">
         {/* Header + Cards */}
-        <div className="flex flex-col space-y-12 md:space-y-16 max-w-5xl mx-auto">
+        <div className="flex flex-col gap-12 md:gap-16 max-w-5xl mx-auto">
           {/* Title */}
           <Title
             id="why-olafut-title"
             level="h2"
             className="text-center font-black max-w-3xl mx-auto"
           >
-            {t('title')}
+            {rt('title')}
           </Title>
 
           {/* Feature Cards */}
           <div className="grid md:grid-cols-3 gap-6">
-            {CARD_ICONS.map((Icon, index) => (
+            {FEATURES.map(({ icon, id, textKey }, index) => (
               <FeaturedCard
-                key={index.toString()}
-                icon={Icon}
-                text={t(`paragraphs.${index}`)}
-                delay={index * 0.1}
+                key={id}
+                icon={icon}
+                text={t(textKey)}
+                delay={index * 0.2}
               />
             ))}
           </div>
         </div>
 
         {/* Highlight Banner */}
-        <div className="p-6 md:p-8 bg-linear-to-r from-foreground via-secondary/5 to-foreground rounded-2xl">
+        <div className="p-6 md:p-8 bg-linear-to-r from-foreground via-secondary/5 to-foreground rounded-2xl border border-background/10">
           <Paragraph className="text-lg md:text-xl font-medium text-center leading-relaxed max-w-3xl mx-auto">
             {rt('paragraphs.3')}
           </Paragraph>
