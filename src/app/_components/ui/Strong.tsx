@@ -5,7 +5,10 @@ import type { BaseProps } from '@/interfaces/base';
 export const Strong: FC<BaseProps> = ({ children, className, style }) => {
   return (
     <span
-      className={twMerge('font-semibold text-primary-500', className)}
+      className={twMerge(
+        'inline-block font-bold text-primary-500 cursor-default transition-all tracking-wide uppercase',
+        className,
+      )}
       style={style}
     >
       {children}
