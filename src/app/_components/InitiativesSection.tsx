@@ -49,7 +49,6 @@ export const InitiativesSection = () => {
       aria-labelledby="initiatives-title"
     >
       <div className="flex flex-col gap-12">
-        {/* Title con animación */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -65,7 +64,6 @@ export const InitiativesSection = () => {
           </Title>
         </motion.div>
 
-        {/* Grid con altura uniforme ✨ */}
         <div className="grid grid-cols-1 lg:grid-cols-[repeat(auto-fit,minmax(320px,1fr))] auto-rows-fr gap-6 md:gap-8">
           {INITIATIVES.map((initiative, index) => {
             const descriptions = [
@@ -84,7 +82,7 @@ export const InitiativesSection = () => {
                   ease: 'easeOut',
                 }}
                 viewport={{ once: true, margin: '-100px' }}
-                className="h-full" // ✨ Importante para que funcione auto-rows-fr
+                className="h-full"
               >
                 <InitiativeCard
                   title={t(`items.${initiative.key}.title`)}
@@ -101,7 +99,6 @@ export const InitiativesSection = () => {
           })}
         </div>
 
-        {/* CTA con animación */}
         <motion.div
           className="flex justify-center mt-4"
           initial={{ opacity: 0, y: 20 }}

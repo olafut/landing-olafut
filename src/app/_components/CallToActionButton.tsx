@@ -17,10 +17,8 @@ export const CallToActionButton: FC<BaseProps> = ({
       )}
       style={style}
     >
-      {/* Shine effect */}
       <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-linear-to-r from-transparent via-white/30 to-transparent" />
 
-      {/* Glow effect */}
       <span className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-linear-to-r from-primary-400/50 to-primary-600/50 blur-xl" />
 
       <span className="relative flex items-center justify-center gap-3">

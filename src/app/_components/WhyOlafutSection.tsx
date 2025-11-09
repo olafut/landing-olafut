@@ -21,9 +21,7 @@ export const WhyOlafutSection = () => {
       aria-labelledby="why-olafut-title"
     >
       <div className="container mx-auto px-6 flex flex-col gap-12 md:gap-16">
-        {/* Header + Cards */}
         <div className="flex flex-col gap-12 md:gap-16 max-w-5xl mx-auto">
-          {/* Title */}
           <Title
             id="why-olafut-title"
             level="h2"
@@ -32,7 +30,6 @@ export const WhyOlafutSection = () => {
             {rt('title')}
           </Title>
 
-          {/* Feature Cards */}
           <div className="grid md:grid-cols-3 gap-6">
             {FEATURES.map(({ icon, id, textKey }, index) => (
               <FeaturedCard
@@ -45,14 +42,12 @@ export const WhyOlafutSection = () => {
           </div>
         </div>
 
-        {/* Highlight Banner */}
         <div className="p-6 md:p-8 bg-linear-to-r from-foreground via-secondary/5 to-foreground rounded-2xl border border-background/10">
           <Paragraph className="text-lg md:text-xl font-medium text-center leading-relaxed max-w-3xl mx-auto">
             {rt('paragraphs.3')}
           </Paragraph>
         </div>
 
-        {/* CTA */}
         <div className="flex justify-center">
           <CallToActionButton className="w-full max-w-md">
             {t('cta')}

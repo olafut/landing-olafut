@@ -16,14 +16,12 @@ export const HeroSection = () => {
     <section className="relative min-h-175 lg:min-h-[min(850px,calc(100dvh-4.5rem))] bg-background overflow-hidden flex items-center">
       <div className="container mx-auto py-16 relative z-10 px-6 xl:px-0">
         <div className="grid xl:grid-cols-12 gap-12 xl:gap-20 items-center">
-          {/* Left Content */}
           <motion.div
             className="xl:col-span-5 space-y-8 text-center xl:text-left"
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: 'easeOut' }}
           >
-            {/* Badge */}
             <motion.div
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -42,7 +40,6 @@ export const HeroSection = () => {
               </div>
             </motion.div>
 
-            {/* Title with enhanced animation */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -57,7 +54,6 @@ export const HeroSection = () => {
               </Title>
             </motion.div>
 
-            {/* Subtitle with keyword highlights */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -69,7 +65,6 @@ export const HeroSection = () => {
               </Subtitle>
             </motion.div>
 
-            {/* CTA */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -82,7 +77,6 @@ export const HeroSection = () => {
               </CallToActionButton>
             </motion.div>
 
-            {/* Trust Badges */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -95,7 +89,6 @@ export const HeroSection = () => {
             </motion.div>
           </motion.div>
 
-          {/* Right Image */}
           <motion.div
             className="xl:col-span-7 relative"
             initial={{ opacity: 0, x: 50 }}
@@ -103,7 +96,6 @@ export const HeroSection = () => {
             transition={{ duration: 0.8, delay: 0.3, ease: 'easeOut' }}
           >
             <div className="relative aspect-3/4 md:aspect-8/7 rounded-xl overflow-hidden shadow-2xl max-w-2xl mx-auto">
-              {/* Main Image with hover effect */}
               <motion.div
                 whileHover={{ scale: 1.03 }}
                 transition={{ duration: 0.6 }}
@@ -116,17 +108,14 @@ export const HeroSection = () => {
                   className="object-cover"
                   priority
                   loading="eager"
-                  // sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 800px"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 800px"
                 />
 
-                {/* Subtle gradient overlay for contrast */}
                 <div className="absolute inset-0 bg-linear-to-t from-foreground/20 via-transparent to-transparent" />
 
-                {/* Border glow effect */}
                 <div className="absolute inset-0 rounded-5xl ring-1 ring-primary-300/30" />
               </motion.div>
 
-              {/* Floating Cards - Light theme */}
               <FloatingCard delay={1.5} className="absolute top-8 right-8">
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-xl bg-linear-to-br from-primary-400 to-primary-600 flex items-center justify-center text-xl shadow-lg">
@@ -144,7 +133,6 @@ export const HeroSection = () => {
               </FloatingCard>
             </div>
 
-            {/* Quote or stats - Optional decorative element */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}

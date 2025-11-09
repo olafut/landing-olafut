@@ -50,14 +50,12 @@ export const InitiativeCard: FC<InitiativeCardProps> = ({
       )}
       style={style}
     >
-      {/* Coming Soon Badge */}
       {comingSoon && (
         <span className="absolute right-0 sm:-right-2 top-4 bg-linear-to-br from-accent-300 to-accent-500 text-white rounded-tl-lg rounded-bl-lg sm:rounded-t-sm sm:rounded-bl-sm px-3 sm:px-4 py-2 font-sans font-bold text-xs sm:text-sm tracking-wider uppercase shadow-lg z-10 before:content-[''] before:absolute before:right-0 before:top-full before:w-0 before:h-0 before:border-t-8 before:border-t-accent-800 before:border-r-8 before:border-r-transparent before:hidden before:sm:block">
           {t('comingSoon')}
         </span>
       )}
 
-      {/* Content */}
       <div
         className={twMerge(
           'flex flex-col gap-4 col-span-1 md:col-span-5 lg:col-span-1',
@@ -78,10 +76,8 @@ export const InitiativeCard: FC<InitiativeCardProps> = ({
         ))}
       </div>
 
-      {/* Image con parallax ✨ */}
       {imgProps?.src && imgProps.alt && (
         <div className="relative w-full h-auto mx-auto max-w-full aspect-3/4 md:aspect-5/4 rounded-lg overflow-hidden group/image flex col-span-1 md:col-span-7 lg:col-span-1">
-          {/* Overlay en hover */}
           <div className="absolute inset-0 bg-linear-to-t from-foreground/80 via-transparent to-transparent opacity-0 group-hover/image:opacity-100 transition-opacity duration-300 z-10" />
 
           <Image
