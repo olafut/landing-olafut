@@ -52,7 +52,7 @@ export const InitiativeCard: FC<InitiativeCardProps> = ({
     >
       {/* Coming Soon Badge */}
       {comingSoon && (
-        <span className="absolute right-0 sm:-right-2 top-4 bg-foreground text-background rounded-tl-lg rounded-bl-lg sm:rounded-t-sm sm:rounded-bl-sm px-3 sm:px-4 py-2 font-sans font-bold text-xs sm:text-sm tracking-wider uppercase shadow-lg z-10 before:content-[''] before:absolute before:right-0 before:top-full before:w-0 before:h-0 before:border-t-8 before:border-t-foreground/80 before:border-r-8 before:border-r-transparent before:hidden before:sm:block">
+        <span className="absolute right-0 sm:-right-2 top-4 bg-linear-to-br from-accent-300 to-accent-500 text-white rounded-tl-lg rounded-bl-lg sm:rounded-t-sm sm:rounded-bl-sm px-3 sm:px-4 py-2 font-sans font-bold text-xs sm:text-sm tracking-wider uppercase shadow-lg z-10 before:content-[''] before:absolute before:right-0 before:top-full before:w-0 before:h-0 before:border-t-8 before:border-t-accent-800 before:border-r-8 before:border-r-transparent before:hidden before:sm:block">
           {t('comingSoon')}
         </span>
       )}
