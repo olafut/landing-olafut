@@ -1,5 +1,5 @@
 import { HeroSection } from './_components/HeroSection';
-import { ProductsSection } from './_components/ProductsSection';
+import { InitiativesSection } from './_components/InitiativesSection';
 import { WhyOlafutSection } from './_components/WhyOlafutSection';
 
 export default function Home() {
@@ -7,7 +7,7 @@ export default function Home() {
     <main>
       <HeroSection />
       <WhyOlafutSection />
-      <ProductsSection />
+      <InitiativesSection />
     </main>
   );
 }
