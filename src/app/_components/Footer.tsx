@@ -95,7 +95,6 @@ export const Footer = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={`Seguir a Olafut en ${social.name} (abre en nueva ventana)`}
-                    whileHover={{ y: -4 }}
                     whileTap={{ scale: 0.95 }}
                     className="group w-11 h-11 rounded-lg bg-background/10 flex items-center justify-center text-background/70 hover:bg-background/20 transition-all duration-300 border border-background/10 hover:border-primary-500/50"
                   >
