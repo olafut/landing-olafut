@@ -28,7 +28,7 @@ export const ContentSection = () => {
                   whileInView={{ opacity: 1 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="p-8 rounded-3xl bg-background/5 backdrop-blur-sm border border-background/10 flex flex-col items-center text-center gap-6 hover:shadow-2xl hover:shadow-primary/20 hover:-translate-y-2 transition-all duration-300"
+                  className="p-8 rounded-3xl bg-background/5 backdrop-blur-sm border border-background/10 flex flex-col items-center text-center gap-6 lg:hover:shadow-2xl lg:hover:shadow-primary/20 lg:hover:-translate-y-2 transition-all duration-300"
                 >
                   <div className="w-16 h-16 rounded-full bg-linear-to-br from-primary/20 to-primary/10 flex items-center justify-center">
                     <Icon className="text-primary text-3xl lg:text-4xl" />

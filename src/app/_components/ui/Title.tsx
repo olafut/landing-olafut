@@ -31,7 +31,7 @@ export const Title: FC<TitleProps> = ({
 
   return (
     <Tag
-      className={twMerge(variants({ headingLevel }), className, 'leading-')}
+      className={twMerge(variants({ headingLevel }), className)}
       style={style}
     >
       {children}

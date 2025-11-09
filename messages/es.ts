@@ -2,7 +2,8 @@ import type { Translations } from './translations';
 
 const translations: Translations = {
   Hero: {
-    title: 'El fútbol femenil solo necesita una comunidad dispuesta a todo',
+    title:
+      'El <important>Fútbol Femenil</important> solo necesita una comunidad dispuesta <important>a TODO</important>',
     subtitle:
       'OLAFUT es el HUB del futbol femenil: el corazón que une gradas, canchas, micrófonos y mentes creativas.',
     cta: '¡Se parte del cambio!',
@@ -13,7 +14,7 @@ const translations: Translations = {
       'El Futbol Femenil necesita más que promesas.',
       'Imagina un lugar donde el fútbol femenil no compite, sino que colabora.',
       'Queremos un espacio donde las mujeres sean las protagonistas.',
-      '¡Unamos a todas las que viven el fútbol con <important>PASIÓN Y PROPÓSITO!</important>',
+      '¡Unamos a todas las que viven el fútbol con <strong>PASIÓN Y PROPÓSITO!</strong>',
     ],
     cta: '¡Únete!',
   },

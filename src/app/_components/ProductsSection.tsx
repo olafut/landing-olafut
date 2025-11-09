@@ -8,12 +8,12 @@ export const ProductsSection = () => {
   const { t } = useTranslate('Features');
 
   return (
-    <section className="my-12 flex flex-col gap-6 text-left container mx-auto px-6 max-w-3xl lg:max-w-5xl">
+    <section className="my-12 flex flex-col gap-6 text-left container mx-auto px-6">
       <Title level="h2" className="py-10 max-w-2xl font-foreground">
         {t('title')}
       </Title>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+      <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-10">
         <ProductCard
           title={t('items.OLA-CAST.title')}
           description={[t('items.OLA-CAST.description.0')]}
