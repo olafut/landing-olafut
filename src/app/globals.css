@@ -5,13 +5,6 @@
   --background: #f7f7f7;
 }
 
-/* @media (prefers-color-scheme: dark) {
-  :root {
-    --foreground: #ededed;
-    --background: #111018;
-  }
-} */
-
 @theme inline {
   --color-primary-100: #f9d7e1;
   --color-primary-200: #f4b3c4;
@@ -26,7 +19,7 @@
   --color-accent-200: #d5b3e9;
   --color-accent-300: #c08dde;
   --color-accent-400: #ab67d3;
-  --color-accent-500: #9641c8; /* Base */
+  --color-accent-500: #9641c8;
   --color-accent-600: #7834a0;
   --color-accent-700: #5a2778;
   --color-accent-800: #3c1a50;

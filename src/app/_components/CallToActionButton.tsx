@@ -12,7 +12,7 @@ export const CallToActionButton: FC<BaseProps> = ({
   return (
     <Button
       className={twMerge(
-        'group relative px-8 py-4 bg-linear-to-r from-primary-400 via-primary-500 to-primary-600 rounded-lg font-bold text-white text-md shadow-[0_8px_24px_rgba(234,87,127,0.25)] overflow-hidden transition-all hover:shadow-[0_12px_32px_rgba(234,87,127,0.4)] hover:scale-105 active:scale-100',
+        'group relative px-8 py-4 bg-linear-to-br from-primary-400 via-primary-500 to-primary-600 rounded-lg font-bold text-white text-md shadow-[0_8px_24px_rgba(234,87,127,0.25)] overflow-hidden transition-all hover:shadow-[0_12px_32px_rgba(234,87,127,0.4)] hover:scale-105 active:scale-100',
         className,
       )}
       style={style}
