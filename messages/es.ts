@@ -3,7 +3,7 @@ import type { Translations } from './translations';
 const translations: Translations = {
   Hero: {
     title:
-      'El <important>Fútbol Femenil</important> solo necesita una comunidad dispuesta <important>a TODO</important>',
+      'El <important>Fútbol</important> <important>Femenil</important> solo necesita una comunidad dispuesta <important>a TODO</important>',
     subtitle:
       'OLAFUT es el HUB del futbol femenil: el corazón que une gradas, canchas, micrófonos y mentes creativas.',
     cta: '¡Se parte del cambio!',
