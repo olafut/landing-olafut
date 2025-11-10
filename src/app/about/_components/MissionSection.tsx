@@ -2,9 +2,12 @@
 
 import { motion } from 'motion/react';
 import Image from 'next/image';
-import { Paragraph, Strong, Title } from '@/app/_components/ui';
+import { Paragraph, Title } from '@/app/_components/ui';
+import { useTranslate } from '@/app/hooks';
 
 export const MissionSection = () => {
+  const { t, rt } = useTranslate('AboutUs.Mission');
+
   return (
     <section className="py-20 md:py-28">
       <div className="container mx-auto px-6">
@@ -16,19 +19,13 @@ export const MissionSection = () => {
             viewport={{ once: true }}
             className="space-y-6"
           >
-            <Title>Nuestra Misión</Title>
+            <Title>{t('title')}</Title>
             <Paragraph className="text-lg leading-relaxed">
-              OLAFUT nace de la pasión por el fútbol, el deporte y la convicción
-              de que las mujeres merecen un espacio propio e independiente.
+              {t('paragraph1')}
             </Paragraph>
             <Paragraph className="text-lg leading-relaxed">
-              Somos un movimiento que paso a paso construye el primer{' '}
-              <Strong>HUB</Strong>{' '}
-              <span className="text-xs italic">(centro, núcleo)</span> del
-              fútbol femenil que busca brindar un espacio seguro, dar voz,
-              recompensar, fomentar competencia sana, dar conocimientos y ayudar
-              a crecer a todas las mujeres que formen parte a través de
-              diferentes pilares y estrategias.
+              {rt('paragraph2')}{' '}
+              <span className="text-xs italic">{t('hubNote')}</span>
             </Paragraph>
           </motion.div>
 

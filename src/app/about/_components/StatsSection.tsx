@@ -3,15 +3,16 @@
 import { motion } from 'motion/react';
 import { FaFutbol, FaMicrophone, FaStar, FaUsers } from 'react-icons/fa6';
 import { Paragraph, Title } from '@/app/_components/ui';
+import { useTranslate } from '@/app/hooks';
 
-const STATS = [
-  { number: '5,000+', label: 'Seguidoras', icon: FaUsers },
-  { number: '3', label: 'Iniciativas', icon: FaStar },
-  { number: '47', label: 'Episodios', icon: FaMicrophone },
-  { number: '100%', label: 'Independiente', icon: FaFutbol },
-] as const;
+import copies from '@/messages/es';
+
+const STAT_ICONS = [FaUsers, FaStar, FaMicrophone, FaFutbol] as const;
 
 export const StatsSection = () => {
+  const { t } = useTranslate('AboutUs.Stats');
+  const stats = Array.from(copies.AboutUs.Stats.items);
+
   return (
     <section className="py-20 md:py-28 bg-foreground text-background">
       <div className="container mx-auto px-6">
@@ -22,13 +23,13 @@ export const StatsSection = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <Title className="mb-4">Olafut en Números</Title>
-          <Paragraph>El impacto que estamos generando juntas</Paragraph>
+          <Title className="mb-4">{t('title')}</Title>
+          <Paragraph>{t('subtitle')}</Paragraph>
         </motion.div>
 
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 max-w-5xl mx-auto">
-          {STATS.map((stat, index) => {
-            const Icon = stat.icon;
+          {stats.map((stat, index) => {
+            const Icon = STAT_ICONS[index];
             return (
               <motion.div
                 key={stat.label}

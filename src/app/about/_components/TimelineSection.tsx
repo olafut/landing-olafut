@@ -2,29 +2,13 @@
 
 import { motion } from 'motion/react';
 import { Paragraph } from '@/app/_components/ui';
-
-const TIMELINE = [
-  {
-    year: '2024',
-    title: 'Fundación de Olafut',
-    description:
-      'Nace el primer club femenil independiente de México con la misión de revolucionar el fútbol femenil.',
-  },
-  {
-    year: '2024',
-    title: 'Lanzamiento OLA-CAST',
-    description:
-      'Iniciamos nuestro podcast para dar voz a las protagonistas del fútbol femenil.',
-  },
-  {
-    year: '2024',
-    title: 'Comunidad de 5K+',
-    description:
-      'Alcanzamos más de 5,000 seguidoras comprometidas con el cambio.',
-  },
-] as const;
+import { useTranslate } from '@/app/hooks';
+import copies from '@/messages/es';
 
 export const TimelineSection = () => {
+  const { t } = useTranslate('AboutUs.Timeline');
+  const timeline = Array.from(copies.AboutUs.Timeline.items);
+
   return (
     <section className="py-20 md:py-28">
       <div className="container mx-auto px-6">
@@ -36,15 +20,13 @@ export const TimelineSection = () => {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl font-black text-foreground mb-4">
-            Nuestra Historia
+            {t('title')}
           </h2>
-          <Paragraph>
-            Los hitos más importantes en el camino de Olafut
-          </Paragraph>
+          <Paragraph>{t('subtitle')}</Paragraph>
         </motion.div>
 
         <div className="max-w-3xl mx-auto space-y-12">
-          {TIMELINE.map((milestone, index) => (
+          {timeline.map((milestone, index) => (
             <motion.div
               key={index.toString()}
               initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}

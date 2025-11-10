@@ -1,34 +1,152 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# OLAFUT - Sitio Web
 
-## Getting Started
+Bienvenido al repositorio del sitio web de OLAFUT. Este documento te guiará paso a paso para desplegar cambios en el sitio web de forma sencilla.
 
-First, run the development server:
+## ¿Cómo funciona el despliegue?
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+El sitio web se actualiza automáticamente cuando se hace un **Pull Request (PR)** hacia la rama `main`. GitHub se encarga de todo el proceso de construcción y despliegue automáticamente.
+
+## Guía rápida: Cómo desplegar cambios
+
+### Paso 1: Editar los textos del sitio
+
+**Todos los textos del sitio están centralizados en un solo archivo de copies:**
+
+📄 **`messages/es.ts`**
+
+Este archivo contiene todas las copies organizados por secciones:
+
+- **Common**: Navegación y textos comunes reutilizables
+- **Hero**: Sección principal de inicio
+- **Footer**: Pie de página
+- **AboutUs**: Todas las secciones de la página "Acerca de"
+- **Blog**: Textos del blog
+- **NotFound**: Página 404
+- Y más...
+
+Para editar los textos:
+
+1. Ve al archivo `messages/es.ts` en GitHub
+2. Haz clic en el botón de editar (ícono del lápiz)
+3. Busca la sección que quieres modificar (por ejemplo, `Hero.title` para el título principal)
+4. Modifica los textos que necesites
+5. Guarda los cambios
+
+**Ejemplo de estructura:**
+
+```typescript
+Hero: {
+  badge: 'Primer HUB Integral',
+  title: 'El <important>Fútbol</important> <important>Femenil</important>...',
+  cta: '¡Se parte del cambio!',
+}
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+**Nota importante:** Los textos pueden contener etiquetas especiales como `<important>`, `<strong>`, `<logo>` para dar formato. No elimines estas etiquetas, solo modifica el texto dentro de ellas.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Paso 2: Activar el despliegue
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Para que GitHub detecte que hay cambios nuevos y active el proceso de despliegue, necesitas modificar el archivo:
 
-## Learn More
+📄 **`trigger.txt`**
 
-To learn more about Next.js, take a look at the following resources:
+Este archivo contiene una fecha que sirve como "disparador" de cambios. Solo tienes que:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Abre el archivo `trigger.txt` en GitHub
+2. Cambia la fecha y hora por la actual
+3. Guarda los cambios
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+**Ejemplo:**
 
-## Deploy on Vercel
+```
+Fecha de última modificación:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+10 de noviembre de 2025, 14:39 hrs
+```
+
+### Paso 3: Crear el Pull Request
+
+Una vez que hayas editado los archivos que necesites (`es.ts` y/o `trigger.txt`):
+
+1. Ve a la sección **"Pull Requests"** en GitHub
+2. Haz clic en **"New Pull Request"**
+3. Selecciona tu rama con los cambios → `main`
+4. Haz clic en **"Create Pull Request"**
+5. Agrega un título descriptivo (ejemplo: "Actualizar textos de la sección Hero")
+6. Haz clic en **"Create Pull Request"**
+
+### Paso 4: El proceso automático se activa
+
+Una vez creado el Pull Request:
+
+✅ GitHub Action se ejecutará automáticamente
+
+- Construirá el sitio web con tus cambios
+- Descargará imágenes de Notion si hay nuevas
+- Desplegará todo a la rama `static`
+- Te dejará un comentario en el PR confirmando que todo salió bien
+
+**¡Y listo!** Tus cambios estarán publicados.
+
+## Archivos importantes
+
+| Archivo              | Qué contiene                                                                                                                   |
+| -------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| **`messages/es.ts`** | **Archivo principal de copies** - Todos los textos del sitio web organizados por secciones (Hero, Footer, AboutUs, Blog, etc.) |
+| **`trigger.txt`**    | Archivo para forzar un nuevo despliegue (solo cambia la fecha)                                                                 |
+
+## Estructura de copies
+
+El archivo `messages/es.ts` está organizado jerárquicamente por secciones:
+
+### Secciones disponibles:
+
+#### **`Common`** - Textos comunes reutilizables
+
+- **`Navigation`**: Navegación del sitio
+- **`Cta`**: Botones de llamada a la acción (centralizados, sin duplicación)
+
+#### **`Hero`** - Sección principal de inicio
+
+- `badge`, `title`, `subtitle`
+- `trustBadges`: Etiquetas de confianza (activeCommunity, weeklyPodcast, everyoneCounts)
+- `floatingCard`: Tarjeta flotante (title, subtitle)
+- `buildingHistory`: Texto inferior
+
+#### **`Footer`** - Pie de página completo
+
+- `description`, `navigation.title`, `social.title`
+- `contact`: title, email, location
+- `copyright`, `logoAlt`, `logoAriaLabel`
+
+#### **`AboutUs`** - Todas las subsecciones de "Acerca de"
+
+- **`Hero`**: Título y subtítulo
+- **`Mission`**: Misión de Olafut (title, paragraph1, paragraph2, hubNote)
+- **`Stats`**: Estadísticas (title, subtitle, items array)
+- **`Timeline`**: Historia (title, subtitle, items array)
+- **`Values`**: Valores (title, subtitle, items array)
+- **`Cta`**: Llamada a la acción (title, description)
+
+#### Otras secciones
+
+- **`Blog`**: Textos del blog
+- **`NotFound`**: Página 404 (error, title, description)
+- **`WhyOlafut`**: Sección "Por qué nace Olafut" (title, paragraphs array)
+- **`Features`**: Iniciativas (title, items object, comingSoon)
+
+## ¿Por qué usar el archivo `trigger.txt`?
+
+Este archivo es una solución práctica para activar despliegues sin necesidad de contratar un CMS (sistema de gestión de contenidos), lo que nos ahorra costos. Aunque no es la solución más elegante técnicamente, cumple perfectamente su función.
+
+## ¿Necesitas ayuda?
+
+Si algo no funciona o tienes dudas:
+
+1. Revisa que el Pull Request se haya creado correctamente
+2. Verifica que el GitHub Action se esté ejecutando (aparecerá un indicador amarillo mientras trabaja)
+3. Si ves un ❌ rojo, algo falló - revisa los logs del Action para más detalles
+
+---
+
+**Nota:** Este proyecto está construido con Next.js y se despliega automáticamente mediante GitHub Actions.

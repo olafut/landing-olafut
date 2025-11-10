@@ -1,47 +1,61 @@
 'use client';
 
 import { motion } from 'motion/react';
-import { FaArrowRight } from 'react-icons/fa6';
+import { FaMobileAlt } from 'react-icons/fa';
+import {
+  FaArrowRight,
+  FaBinoculars,
+  FaGraduationCap,
+  FaMicrophone,
+  FaTrophy,
+} from 'react-icons/fa6';
+import type { Initiative } from '@/interfaces';
 import { useTranslate } from '../hooks';
 import { CallToActionButton } from './CallToActionButton';
 import { InitiativeCard } from './InitiativeCard';
 import { Title } from './ui';
 
-const INITIATIVES = [
+const INITIATIVES: Initiative[] = [
   {
     key: 'OLA-CAST',
     image: '/assets/OLA-CAST.webp',
     rtl: false,
     comingSoon: false,
+    icon: FaMicrophone,
   },
   {
     key: 'OLA-DIGITAL',
     image: '/assets/OLA-DIGITAL.webp',
     rtl: true,
     comingSoon: false,
+    icon: FaMobileAlt,
   },
   {
     key: 'OLA-GAMES',
     image: '/assets/OLA-GAMES.webp',
     rtl: false,
     comingSoon: true,
+    icon: FaTrophy,
   },
   {
     key: 'OLA-MIND',
     image: '/assets/OLA-TALKS.webp',
     rtl: true,
     comingSoon: true,
+    icon: FaGraduationCap,
   },
   {
     key: 'OLA-SCOUT',
     image: '/assets/OLA-SCOUT.webp',
     rtl: false,
     comingSoon: true,
+    icon: FaBinoculars,
   },
 ] as const;
 
 export const InitiativesSection = () => {
   const { t } = useTranslate('Features');
+  const { t: commonT } = useTranslate('Common.Cta');
 
   return (
     <section
@@ -93,6 +107,7 @@ export const InitiativesSection = () => {
                   }}
                   rtl={initiative.rtl}
                   comingSoon={initiative.comingSoon}
+                  icon={initiative.icon}
                 />
               </motion.div>
             );
@@ -107,7 +122,7 @@ export const InitiativesSection = () => {
           viewport={{ once: true }}
         >
           <CallToActionButton className="w-full max-w-md">
-            {t('cta')}
+            {commonT('dontMissOut')}
             <FaArrowRight />
           </CallToActionButton>
         </motion.div>

@@ -3,28 +3,15 @@
 import { motion } from 'motion/react';
 import { FaHeart, FaTrophy, FaUsers } from 'react-icons/fa6';
 import { Paragraph, Title } from '@/app/_components/ui';
+import { useTranslate } from '@/app/hooks';
+import copies from '@/messages/es';
 
-const VALUES = [
-  {
-    icon: FaHeart,
-    title: 'Pasión',
-    description:
-      'Por el fútbol femenil y por construir un futuro más equitativo en el deporte.',
-  },
-  {
-    icon: FaUsers,
-    title: 'Comunidad',
-    description: 'Creemos en el poder de la unión. Juntas somos más fuertes.',
-  },
-  {
-    icon: FaTrophy,
-    title: 'Excelencia',
-    description:
-      'Buscamos la calidad en cada aspecto: dentro y fuera de la cancha.',
-  },
-] as const;
+const VALUE_ICONS = [FaHeart, FaUsers, FaTrophy] as const;
 
 export const ValuesSection = () => {
+  const { t } = useTranslate('AboutUs.Values');
+  const values = Array.from(copies.AboutUs.Values.items);
+
   return (
     <section className="py-20 md:py-28 bg-foreground/5">
       <div className="container mx-auto px-6">
@@ -36,16 +23,16 @@ export const ValuesSection = () => {
           className="text-center mb-16"
         >
           <Title level="h3" className="mb-4">
-            Nuestros Valores
+            {t('title')}
           </Title>
           <Paragraph className="text-lg text-foreground/80 max-w-2xl mx-auto">
-            Los principios que guían cada decisión y acción en Olafut
+            {t('subtitle')}
           </Paragraph>
         </motion.div>
 
         <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-          {VALUES.map((value, index) => {
-            const Icon = value.icon;
+          {values.map((value, index) => {
+            const Icon = VALUE_ICONS[index];
             return (
               <motion.div
                 key={value.title}

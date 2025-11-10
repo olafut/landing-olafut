@@ -11,6 +11,7 @@ import { Subtitle, Title } from './ui';
 
 export const HeroSection = () => {
   const { t, rt } = useTranslate('Hero');
+  const { t: tCta } = useTranslate('Common.Cta');
 
   return (
     <section className="relative min-h-175 lg:min-h-[min(850px,calc(100dvh-4.5rem))] bg-background overflow-hidden flex items-center">
@@ -35,7 +36,7 @@ export const HeroSection = () => {
                   className="w-2 h-2 bg-primary-500 rounded-full shadow-[0_0_8px_rgba(234,87,127,0.6)]"
                 />
                 <span className="text-xs font-bold text-foreground tracking-wider uppercase">
-                  Primer Club Independiente
+                  {t('badge')}
                 </span>
               </div>
             </motion.div>
@@ -60,7 +61,7 @@ export const HeroSection = () => {
               transition={{ delay: 0.7, duration: 0.8 }}
               className="space-y-4"
             >
-              <Subtitle className="text-lg md:text-xl text-foreground/80 leading-relaxed max-w-xl mx-auto xl:mx-0 font-medium group">
+              <Subtitle className="text-xl md:text-[1.3rem]! text-foreground/80 leading-relaxed max-w-xl mx-auto xl:mx-0 font-medium group">
                 {rt('subtitle')}
               </Subtitle>
             </motion.div>
@@ -72,7 +73,7 @@ export const HeroSection = () => {
               className="pt-4 flex justify-center xl:justify-start max-w-md mx-auto xl:mx-0"
             >
               <CallToActionButton>
-                {t('cta')}
+                {tCta('bePartOfChange')}
                 <FaArrowRight className="group-hover:translate-x-1 transition-transform" />
               </CallToActionButton>
             </motion.div>
@@ -83,9 +84,21 @@ export const HeroSection = () => {
               transition={{ delay: 1.1, duration: 0.6 }}
               className="flex flex-wrap justify-center xl:justify-start gap-6 pt-8 border-t-2 border-secondary"
             >
-              <TrustBadge icon="⚡" label="Comunidad activa" delay={1.2} />
-              <TrustBadge icon="🎙️" label="Podcast semanal" delay={1.3} />
-              <TrustBadge icon="⚽" label="100% independiente" delay={1.4} />
+              <TrustBadge
+                icon="⚡"
+                label={t('trustBadges.activeCommunity')}
+                delay={1.2}
+              />
+              <TrustBadge
+                icon="🎙️"
+                label={t('trustBadges.weeklyPodcast')}
+                delay={1.3}
+              />
+              <TrustBadge
+                icon="⚽"
+                label={t('trustBadges.everyoneCounts')}
+                delay={1.4}
+              />
             </motion.div>
           </motion.div>
 
@@ -123,10 +136,10 @@ export const HeroSection = () => {
                   </div>
                   <div>
                     <div className="text-sm font-bold text-foreground">
-                      Más que un club
+                      {t('floatingCard.title')}
                     </div>
                     <div className="text-xs text-foreground/50">
-                      Un movimiento
+                      {t('floatingCard.subtitle')}
                     </div>
                   </div>
                 </div>
@@ -141,7 +154,7 @@ export const HeroSection = () => {
             >
               <div className="px-6 py-3 bg-white/90 backdrop-blur-md border-2 border-primary-200 rounded-full shadow-lg">
                 <p className="text-sm font-semibold text-foreground">
-                  💜 Construyendo historia juntas
+                  {t('buildingHistory')}
                 </p>
               </div>
             </motion.div>

@@ -60,16 +60,16 @@ jobs:
           NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}
         run: pnpm build
 
-      - name: Commit downloaded images to PR branch
+      - name: Commit trigger file and downloaded images to PR branch
         run: |
-          git add public/assets/blog/
+          git add trigger.txt public/assets/blog/
 
           if ! git diff --staged --quiet; then
-            git commit -m "chore: add downloaded images from Notion"
+            git commit -m "chore: update trigger file and add downloaded images from Notion"
             git push origin HEAD:${{ github.head_ref }}
-            echo "✅ Imágenes commiteadas a la rama del PR"
+            echo "✅ Archivo trigger e imágenes commiteadas a la rama del PR"
           else
-            echo "ℹ️ No hay imágenes nuevas"
+            echo "ℹ️ No hay cambios nuevos"
           fi
 
       - name: Verify build output

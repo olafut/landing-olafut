@@ -82,16 +82,14 @@ export async function generateMetadata(props: Params): Promise<Metadata> {
       title,
       url,
       siteName: 'Olafut',
-      images: post.coverImage
-        ? [
-            {
-              url: post.coverImage,
-              width: 1200,
-              height: 630,
-              alt: post.title,
-            },
-          ]
-        : [],
+      images: [
+        {
+          url: post.coverImage || '/assets/hero.webp',
+          width: 1200,
+          height: 630,
+          alt: post.title,
+        },
+      ],
       type: 'article',
       description: post.summary,
       publishedTime: post.date,
@@ -102,7 +100,14 @@ export async function generateMetadata(props: Params): Promise<Metadata> {
       ...BASE_METADATA.twitter,
       title,
       description: post.summary,
-      images: post.coverImage ? [post.coverImage] : [],
+      images: [
+        {
+          url: post.coverImage || '/assets/hero.webp',
+          width: 1200,
+          height: 628,
+          alt: post.title,
+        },
+      ],
     },
     alternates: {
       canonical: url,

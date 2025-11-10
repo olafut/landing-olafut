@@ -5,10 +5,12 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { type FC, useEffect, useRef, useState } from 'react';
 import { twMerge } from 'tailwind-merge';
+import { useTranslate } from '../hooks';
 import { NavLink } from './NavLink';
 import { MenuIcon } from './ui/MenuIcon';
 
 export const Header: FC = () => {
+  const { t } = useTranslate('Common.Navigation');
   const ref = useRef<HTMLDivElement>(null);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -133,10 +135,10 @@ export const Header: FC = () => {
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
               />
               <NavLink className="hidden md:flex" href="/about">
-                Acerca de
+                {t('about')}
               </NavLink>
               <NavLink className="hidden md:flex" href="/blog">
-                Blog
+                {t('blog')}
               </NavLink>
             </ul>
           </div>
@@ -147,14 +149,14 @@ export const Header: FC = () => {
               href="/about"
               onClick={handleCloseMenu}
             >
-              Acerca de
+              {t('about')}
             </NavLink>
             <NavLink
               className="w-full h-20"
               href="/blog"
               onClick={handleCloseMenu}
             >
-              Blog
+              {t('blog')}
             </NavLink>
           </ul>
         </div>
