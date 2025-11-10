@@ -54,42 +54,6 @@ jobs:
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git config --global init.defaultBranch main
 
-      - name: Update trigger file with current date
-        run: |
-          # Configurar timezone para Ciudad de México
-          export TZ=America/Mexico_City
-
-          # Obtener componentes de fecha
-          MONTH_NUM=$(date +%-m)
-          DAY=$(date +%-d)
-          YEAR=$(date +%Y)
-          TIME=$(date +%H:%M)
-
-          # Traducir mes a español
-          case $MONTH_NUM in
-            1) MONTH="enero" ;;
-            2) MONTH="febrero" ;;
-            3) MONTH="marzo" ;;
-            4) MONTH="abril" ;;
-            5) MONTH="mayo" ;;
-            6) MONTH="junio" ;;
-            7) MONTH="julio" ;;
-            8) MONTH="agosto" ;;
-            9) MONTH="septiembre" ;;
-            10) MONTH="octubre" ;;
-            11) MONTH="noviembre" ;;
-            12) MONTH="diciembre" ;;
-          esac
-
-          # Crear el contenido del archivo con el formato deseado
-          cat > trigger.txt << EOF
-          Fecha de última modificación:
-
-          $DAY de $MONTH de $YEAR, $TIME hrs
-          EOF
-
-          echo "✅ Archivo trigger.txt actualizado con la fecha: $DAY de $MONTH de $YEAR, $TIME hrs (CDMX)"
-
       - name: Build Next.js app
         env:
           NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
