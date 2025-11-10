@@ -2,6 +2,7 @@
 
 import { motion } from 'motion/react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import {
   FaEnvelope,
@@ -32,6 +33,12 @@ const SOCIAL_LINKS = [
   },
 ] as const;
 
+const NAVIGATION_LINKS = [
+  { name: 'Inicio', href: '/' },
+  { name: 'Sobre Nosotros', href: '/about' },
+  { name: 'Blog', href: '/blog' },
+] as const;
+
 export const Footer = () => {
   const path = usePathname();
   const router = useRouter();
@@ -48,13 +55,14 @@ export const Footer = () => {
   return (
     <footer className="relative bg-foreground text-background mt-16 overflow-hidden rounded-t-5xl font-sans">
       <div className="container mx-auto px-6 pt-16 pb-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16 pb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 pb-16">
+          {/* Brand Section */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
-            className="md:col-span-2 lg:col-span-1 space-y-6"
+            className="lg:col-span-1 space-y-6"
           >
             <button
               onClick={handleGoHome}
@@ -77,12 +85,36 @@ export const Footer = () => {
             </p>
           </motion.div>
 
+          {/* Navigation Section */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
             viewport={{ once: true }}
-            className="md:col-span-1"
+            className="lg:col-span-1"
+          >
+            <h3 className="text-lg font-bold mb-6">Navega</h3>
+            <ul className="space-y-3">
+              {NAVIGATION_LINKS.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-sm text-secondary hover:text-primary-400 transition-colors font-alt inline-block"
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+
+          {/* Social Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="lg:col-span-1"
           >
             <h3 className="text-lg font-bold mb-6">Síguenos</h3>
             <div className="flex gap-3">
@@ -108,12 +140,13 @@ export const Footer = () => {
             </div>
           </motion.div>
 
+          {/* Contact Section */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
             viewport={{ once: true }}
-            className="md:col-span-3 lg:col-span-1"
+            className="lg:col-span-1"
           >
             <h3 className="text-lg font-bold mb-6">Contacto</h3>
             <ul className="space-y-4">
@@ -149,7 +182,7 @@ export const Footer = () => {
         <div className="h-px bg-background/10 my-8" />
 
         <div className="flex items-center justify-center gap-4">
-          <p className="text-secondary font-sans text-xs">
+          <p className="text-secondary font-sans text-xs text-center">
             © {new Date().getFullYear()} OlaFut. Todos los derechos reservados.
           </p>
         </div>
