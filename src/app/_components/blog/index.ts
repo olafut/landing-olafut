@@ -1,4 +1,5 @@
 export * from './Avatar';
+export * from './BlogHeader';
 export * from './CoverImage';
 export * from './HeroPost';
 export * from './MoreStories';

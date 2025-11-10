@@ -26,4 +26,9 @@ export type Translations = {
       subtitle: string;
     };
   };
+  Blog: {
+    title: string;
+    description: string;
+    publishedArticles: string;
+  };
 };
