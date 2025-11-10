@@ -1,21 +1,52 @@
+import { cva } from 'class-variance-authority';
 import Image from 'next/image';
+import { twMerge } from 'tailwind-merge';
 import type { Author } from '@/interfaces/author';
+import type { BaseProps } from '@/interfaces/base';
 
-type AvatarProps = Partial<Author>;
+interface AvatarProps extends Partial<Author>, BaseProps {
+  variant?: 'default' | 'compact';
+}
 
-export const Avatar = ({ avatar, name }: AvatarProps) => {
+const avatarVariants = cva(
+  'bg-primary-100 rounded-full flex items-center justify-center text-2xl font-bold text-primary-500',
+  {
+    variants: {
+      variant: {
+        default: 'w-12 h-12 text-2xl mr-4',
+        compact: 'w-8 h-8 text-sm mr-2',
+      },
+    },
+  },
+);
+
+const nameVariants = cva('font-bold', {
+  variants: {
+    variant: {
+      default: 'text-xl',
+      compact: 'text-sm',
+    },
+  },
+});
+
+export const Avatar = ({
+  avatar,
+  name,
+  variant = 'default',
+  className,
+}: AvatarProps) => {
   return (
-    <div className="flex items-center">
+    <div className={twMerge('flex items-center', className)}>
       {!avatar || !name ? (
         <div className="inline-block">
-          <div className="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center text-2xl font-bold text-primary-500 mr-4">
+          <div className={avatarVariants({ variant })}>
             <span>{name?.charAt(0).toUpperCase()}</span>
           </div>
         </div>
       ) : (
         <Image
           src={avatar}
-          className="w-12 h-12 rounded-full mr-4"
+          className={avatarVariants({ variant })}
           height={48}
           width={48}
           alt={name}
@@ -25,7 +56,7 @@ export const Avatar = ({ avatar, name }: AvatarProps) => {
         />
       )}
 
-      <div className="text-xl font-bold">{name}</div>
+      <div className={nameVariants({ variant })}>{name}</div>
     </div>
   );
 };

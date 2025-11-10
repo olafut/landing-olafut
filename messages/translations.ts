@@ -30,5 +30,7 @@ export type Translations = {
     title: string;
     description: string;
     publishedArticles: string;
+    readingTime: string;
+    readArticle: string;
   };
 };
