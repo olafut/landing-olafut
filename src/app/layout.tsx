@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import { Inter, Raleway } from 'next/font/google';
 import { NextIntlClientProvider } from 'next-intl';
 import type { PropsWithChildren } from 'react';
+import { BASE_METADATA } from '@/constants/base-metadata';
 import { Footer } from './_components/Footer';
 import { Header } from './_components/Header';
 
@@ -19,11 +20,11 @@ const textFont = Raleway({
 });
 
 export const metadata: Metadata = {
+  ...BASE_METADATA,
   title:
     'Olafut - El Fútbol Femenil solo necesita una comunidad dispuesta a TODO.',
   description:
     'OLAFUT es el HUB del futbol femenil: el corazón que une gradas, canchas, micrófonos y mentes creativas.',
-  metadataBase: new URL('https://olafut.com'),
   keywords: [
     'Olafut',
     'fútbol femenil México',
@@ -39,26 +40,20 @@ export const metadata: Metadata = {
     'transmisiones fútbol femenil en vivo',
     'podcast fútbol femenil México',
   ],
-  appleWebApp: {
-    title: 'Olafut',
-  },
   openGraph: {
+    ...BASE_METADATA.openGraph,
     title:
       'Olafut - El Fútbol Femenil solo necesita una comunidad dispuesta a TODO.',
     description:
       'OLAFUT es el HUB del futbol femenil: el corazón que une gradas, canchas, micrófonos y mentes creativas.',
-    url: 'https://olafut.com',
-    siteName: 'Olafut',
-    locale: 'es_MX',
-    type: 'website',
     images: ['/assets/hero.webp'],
   },
   twitter: {
+    ...BASE_METADATA.twitter,
     title:
       'Olafut - El Fútbol Femenil solo necesita una comunidad dispuesta a TODO.',
     description:
       'OLAFUT es el HUB del futbol femenil: el corazón que une gradas, canchas, micrófonos y mentes creativas.',
-    card: 'summary_large_image',
     images: ['/assets/hero.webp'],
   },
 };

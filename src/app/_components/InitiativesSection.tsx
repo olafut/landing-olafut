@@ -64,7 +64,7 @@ export const InitiativesSection = () => {
           </Title>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-[repeat(auto-fit,minmax(320px,1fr))] auto-rows-fr gap-6 md:gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-[repeat(auto-fit,minmax(380px,1fr))] auto-rows-fr gap-6 md:gap-8">
           {INITIATIVES.map((initiative, index) => {
             const descriptions = [
               t(`items.${initiative.key}.description.0`),

@@ -40,10 +40,12 @@ export const InitiativeCard: FC<InitiativeCardProps> = ({
         'relative',
         // Hover state
         'transition-all duration-300',
-        'hover:shadow-md hover:shadow-primary/10',
-        'hover:-translate-y-1',
-        'hover:border-primary/30',
-        'hover:bg-secondary/70',
+        'lg:hover:shadow-md lg:hover:shadow-primary/10',
+        'lg:hover:-translate-y-1',
+        'lg:hover:border-primary/30',
+        'lg:hover:bg-secondary/70',
+        'active:scale-95',
+        'lg:active:scale-100',
         'group/image',
 
         className,
@@ -78,10 +80,10 @@ export const InitiativeCard: FC<InitiativeCardProps> = ({
 
       {imgProps?.src && imgProps.alt && (
         <div className="relative w-full h-auto mx-auto max-w-full aspect-3/4 md:aspect-5/4 rounded-lg overflow-hidden group/image flex col-span-1 md:col-span-7 lg:col-span-1">
-          <div className="absolute inset-0 bg-linear-to-t from-foreground/80 via-transparent to-transparent opacity-0 group-hover/image:opacity-100 transition-opacity duration-300 z-10" />
+          <div className="absolute inset-0 bg-linear-to-t from-foreground/80 via-transparent to-transparent opacity-0 active:group-active/image-opacity-100 lg:group-hover/image:opacity-100 transition-opacity duration-300 z-10" />
 
           <Image
-            className="object-cover group-hover/image:scale-110 transition-transform duration-500"
+            className="object-cover active:group-active:image-scale-110 lg:group-hover/image:scale-110 transition-transform duration-500"
             fill
             {...imgProps}
           />
