@@ -60,6 +60,9 @@ export async function generateMetadata(props: Params): Promise<Metadata> {
 
   const title = `${post.title} | Blog Olafut`;
   const url = `https://olafut.com/blog/${post.slug}`;
+  const imageUrl = post.coverImage
+    ? `https://olafut.com${post.coverImage}`
+    : undefined;
 
   // Combine tags with base keywords
   const keywords = [
@@ -84,7 +87,7 @@ export async function generateMetadata(props: Params): Promise<Metadata> {
       siteName: 'Olafut',
       images: [
         {
-          url: post.coverImage || '/assets/hero.webp',
+          url: imageUrl || '/assets/hero.webp',
           width: 1200,
           height: 630,
           alt: post.title,
@@ -102,7 +105,7 @@ export async function generateMetadata(props: Params): Promise<Metadata> {
       description: post.summary,
       images: [
         {
-          url: post.coverImage || '/assets/hero.webp',
+          url: imageUrl || '/assets/hero.webp',
           width: 1200,
           height: 628,
           alt: post.title,
