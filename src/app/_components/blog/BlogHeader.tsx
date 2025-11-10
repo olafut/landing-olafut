@@ -12,7 +12,7 @@ export const BlogHeader: FC<BlogHeaderProps> = ({ postsCount }) => {
   const { t } = useTranslate('Blog');
 
   return (
-    <section className="flex flex-col gap-10 py-16 md:py-20">
+    <section className="flex flex-col gap-4 py-16 md:py-20">
       <div className="flex flex-col gap-6">
         <Title level="h1" className="font-black tracking-tight">
           {t('title')}

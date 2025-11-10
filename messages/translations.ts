@@ -32,5 +32,6 @@ export type Translations = {
     publishedArticles: string;
     readingTime: string;
     readArticle: string;
+    moreStories: string;
   };
 };

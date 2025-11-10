@@ -71,6 +71,7 @@ const translations: Translations = {
     readingTime:
       '{minutes, plural, =1 {# min de lectura} other {# min de lectura}}',
     readArticle: 'Leer artículo completo',
+    moreStories: 'Más Artículos',
   },
 };
 
