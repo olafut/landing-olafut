@@ -93,9 +93,7 @@ export async function getPostFromNotion(pageId: string): Promise<Post | null> {
 
     // Get and download cover image
     const imageUrl = properties['Featured Image'].files?.[0]?.file.url;
-    const extension = imageUrl
-      ? imageUrl.split('.').pop().split('?')[0]
-      : 'jpg';
+    const extension = 'webp';
 
     if (imageUrl) {
       downloadImage(
@@ -107,6 +105,7 @@ export async function getPostFromNotion(pageId: string): Promise<Post | null> {
           'blog',
           `${slug}.${extension}`,
         ),
+        { createSmallVersion: true },
       )
         .then((message) => console.log(message))
         .catch((error) => console.error('Error downloading image:', error));

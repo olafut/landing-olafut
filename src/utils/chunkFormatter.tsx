@@ -11,7 +11,9 @@ export const chunkFormatter: Record<
   string | number | Date | RichTagsFunction
 > = {
   important: (chunks: ReactNode) => <Important>{chunks}</Important>,
-  b: (chunks: ReactNode) => <Strong>{chunks}</Strong>,
+  b: (chunks: ReactNode) => (
+    <strong className="font-black text-foreground">{chunks}</strong>
+  ),
   strong: (chunks: ReactNode) => <Strong>{chunks}</Strong>,
   tag: (chunks: ReactNode) => <Hub>{chunks}</Hub>,
   description: (chunks: ReactNode) => <Description>{chunks}</Description>,

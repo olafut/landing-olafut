@@ -64,6 +64,8 @@ export async function generateMetadata(props: Params): Promise<Metadata> {
     ? `https://olafut.com${post.coverImage}`
     : undefined;
 
+  const smallImageUrl = imageUrl?.replace('.webp', '-small.webp');
+
   // Combine tags with base keywords
   const keywords = [
     'Olafut',
@@ -90,6 +92,12 @@ export async function generateMetadata(props: Params): Promise<Metadata> {
           url: imageUrl || '/assets/hero.webp',
           width: 1200,
           height: 630,
+          alt: post.title,
+        },
+        {
+          url: smallImageUrl || '/assets/hero.webp',
+          width: 600,
+          height: 315,
           alt: post.title,
         },
       ],
