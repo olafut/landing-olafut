@@ -29,6 +29,7 @@ export const metadata: Metadata = {
       'Sobre Nosotros | OlaFut - Primer Club Femenil Independiente de México',
     description:
       'Conoce la historia de OlaFut, el primer club femenil independiente de México. Nuestra misión, visión y el equipo que hace posible esta revolución en el fútbol femenil.',
+    url: 'https://olafut.com/about',
     images: [
       {
         url: '/assets/about.jpg',

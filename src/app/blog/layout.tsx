@@ -26,6 +26,7 @@ export const metadata: Metadata = {
     title: 'Blog | OlaFut - Noticias y Artículos de Fútbol Femenil',
     description:
       'Descubre las últimas noticias, análisis y perspectivas sobre el fútbol femenil en México. Historias que inspiran, informan y celebran el talento femenino en el deporte.',
+    url: 'https://olafut.com/blog',
     images: [
       {
         url: '/assets/hero.webp',
