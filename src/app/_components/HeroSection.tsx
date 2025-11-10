@@ -35,7 +35,7 @@ export const HeroSection = () => {
                   className="w-2 h-2 bg-primary-500 rounded-full shadow-[0_0_8px_rgba(234,87,127,0.6)]"
                 />
                 <span className="text-xs font-bold text-foreground tracking-wider uppercase">
-                  Primer Club Independiente
+                  Primer HUB Integral
                 </span>
               </div>
             </motion.div>
@@ -60,7 +60,7 @@ export const HeroSection = () => {
               transition={{ delay: 0.7, duration: 0.8 }}
               className="space-y-4"
             >
-              <Subtitle className="text-lg md:text-xl text-foreground/80 leading-relaxed max-w-xl mx-auto xl:mx-0 font-medium group">
+              <Subtitle className="text-xl md:text-[1.3rem]! text-foreground/80 leading-relaxed max-w-xl mx-auto xl:mx-0 font-medium group">
                 {rt('subtitle')}
               </Subtitle>
             </motion.div>
@@ -85,7 +85,7 @@ export const HeroSection = () => {
             >
               <TrustBadge icon="⚡" label="Comunidad activa" delay={1.2} />
               <TrustBadge icon="🎙️" label="Podcast semanal" delay={1.3} />
-              <TrustBadge icon="⚽" label="100% independiente" delay={1.4} />
+              <TrustBadge icon="⚽" label="Todas cuentan" delay={1.4} />
             </motion.div>
           </motion.div>
 

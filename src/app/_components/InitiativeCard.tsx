@@ -4,16 +4,17 @@ import type { ImageProps } from 'next/image';
 import Image from 'next/image';
 import type { FC, ReactNode } from 'react';
 import { twMerge } from 'tailwind-merge';
+import type { Initiative } from '@/interfaces';
 import type { BaseProps } from '@/interfaces/base';
 import { useTranslate } from '../hooks';
 import { Paragraph, Title } from './ui';
 
-interface InitiativeCardProps extends BaseProps {
+type InitiativeCardMetaProps = Pick<Initiative, 'comingSoon' | 'rtl' | 'icon'>;
+
+interface InitiativeCardProps extends BaseProps, InitiativeCardMetaProps {
   title: ReactNode;
   description: ReactNode[];
   image?: ImageProps;
-  comingSoon?: boolean;
-  rtl?: boolean;
 }
 
 export const InitiativeCard: FC<InitiativeCardProps> = ({
@@ -24,6 +25,7 @@ export const InitiativeCard: FC<InitiativeCardProps> = ({
   image: imgProps,
   comingSoon = false,
   rtl = false,
+  icon: Icon,
 }) => {
   const { t } = useTranslate('Features');
 
@@ -65,6 +67,9 @@ export const InitiativeCard: FC<InitiativeCardProps> = ({
         )}
       >
         <Title level="h4" className="font-black text-foreground">
+          {Icon && (
+            <Icon className="inline-block mr-3 mb-1 w-8 h-8 text-primary" />
+          )}
           {title}
         </Title>
 

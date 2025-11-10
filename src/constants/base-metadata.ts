@@ -6,7 +6,7 @@ export const BASE_METADATA: Partial<Metadata> = {
     title: 'Olafut',
   },
   openGraph: {
-    url: 'https://olafut.com',
+    url: new URL('https://olafut.com'),
     siteName: 'Olafut',
     locale: 'es_MX',
     type: 'website',

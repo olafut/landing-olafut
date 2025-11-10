@@ -25,12 +25,12 @@ export const FeaturedCard: FC<FeaturedCardProps> = ({
     >
       <div className="w-16 h-16 rounded-full bg-linear-to-br from-primary/20 to-primary/10 flex items-center justify-center transition-transform duration-300 lg:group-hover:scale-110">
         <Icon
-          className="text-primary text-3xl lg:text-4xl"
+          className="text-primary text-6xl lg:text-7xl"
           aria-hidden="true"
         />
       </div>
 
-      <Paragraph className="text-base leading-relaxed">{text}</Paragraph>
+      <Paragraph className="leading-relaxed">{text}</Paragraph>
     </motion.div>
   );
 };
