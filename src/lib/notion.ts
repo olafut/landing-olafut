@@ -36,11 +36,7 @@ export function getPostsFromCache(): Post[] {
     try {
       const cache = fs.readFileSync(cachePath, 'utf-8');
       const posts: Post[] = JSON.parse(cache);
-      return posts.concat(posts, posts).map((post, index) => ({
-        ...post,
-        slug: `${post.slug}-${index}`, // Ensure unique slugs
-        id: `${post.id}-${index}`, // Ensure unique IDs
-      }));
+      return posts;
     } catch (error) {
       console.error('Error reading posts cache:', error);
       return [];
