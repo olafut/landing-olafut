@@ -76,7 +76,7 @@ const translations: Translations = {
         ],
       },
     },
-    comingSoon: 'MUY PRONTO...',
+    comingSoon: 'Muy pronto...',
   },
   AboutUs: {
     Hero: {
