@@ -1,5 +1,9 @@
+'use client';
+
 import type { FC } from 'react';
+import { useTranslate } from '@/app/hooks/useTranslate';
 import type { Post } from '@/interfaces/post';
+import { Title } from '../ui';
 import { PostPreview } from './PostPreview';
 
 type MoreStoriesProps = {
@@ -7,12 +11,14 @@ type MoreStoriesProps = {
 };
 
 export const MoreStories: FC<MoreStoriesProps> = ({ posts }) => {
+  const { t } = useTranslate('Blog');
+
   return (
-    <section>
-      <h2 className="mb-8 text-5xl md:text-7xl font-bold tracking-tighter leading-tight">
-        Más Historias
-      </h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 md:gap-x-16 lg:gap-x-32 gap-y-20 md:gap-y-32 mb-32">
+    <section className="mb-20">
+      <Title level="h2" className="mb-12">
+        {t('moreStories')}
+      </Title>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-20 md:gap-10 lg:gap-12">
         {posts.map((post) => (
           <PostPreview key={post.slug} post={post} />
         ))}

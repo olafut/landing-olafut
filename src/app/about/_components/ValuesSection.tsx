@@ -38,7 +38,7 @@ export const ValuesSection = () => {
           <Title level="h3" className="mb-4">
             Nuestros Valores
           </Title>
-          <Paragraph className="text-lg text-foreground/70 max-w-2xl mx-auto">
+          <Paragraph className="text-lg text-foreground/80 max-w-2xl mx-auto">
             Los principios que guían cada decisión y acción en Olafut
           </Paragraph>
         </motion.div>
@@ -61,7 +61,7 @@ export const ValuesSection = () => {
                 <Title level="h4" className="text-center mb-4">
                   {value.title}
                 </Title>
-                <Paragraph className="text-foreground/70 text-center leading-relaxed">
+                <Paragraph className="text-foreground/80 text-center leading-relaxed">
                   {value.description}
                 </Paragraph>
               </motion.div>

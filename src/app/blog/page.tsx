@@ -1,8 +1,8 @@
 import { getPostsFromCache } from '@/lib/notion';
+import { BlogHeader } from '../_components/blog/BlogHeader';
 import { HeroPost } from '../_components/blog/HeroPost';
 import { MoreStories } from '../_components/blog/MoreStories';
 import { PostContainer } from '../_components/blog/PostContainer';
-import { Title } from '../_components/ui';
 
 export default function Blog() {
   const posts = getPostsFromCache();
@@ -12,16 +12,9 @@ export default function Blog() {
   return (
     <main>
       <PostContainer>
-        <section className="flex-col md:flex-row flex items-center md:justify-between py-16">
-          <Title
-            level="h1"
-            className="font-bold tracking-tighter leading-tight"
-          >
-            Blog
-          </Title>
-        </section>
+        <BlogHeader postsCount={posts.length} />
 
-        <HeroPost post={heroPost} />
+        {heroPost && <HeroPost post={heroPost} />}
 
         {morePosts.length > 0 && <MoreStories posts={morePosts} />}
       </PostContainer>

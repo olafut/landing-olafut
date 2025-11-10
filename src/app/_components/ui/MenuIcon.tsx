@@ -10,7 +10,7 @@ export const MenuIcon: FC<MenuIconProps> = ({ isOpen, onClick }) => {
     <div className="flex items-center justify-center relative md:hidden">
       <button
         onClick={onClick}
-        className="relative w-16 h-16 bg-transparent rounded-lg focus:outline-none"
+        className="relative w-16 h-16 bg-transparent rounded-lg focus:outline-none cursor-pointer"
         aria-label="Toggle menu"
         type="button"
       >

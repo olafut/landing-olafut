@@ -17,8 +17,8 @@ export const FeaturedCard: FC<FeaturedCardProps> = ({
 }) => {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
       transition={{ duration: 0.5, delay }}
       viewport={{ once: true }}
       className=" p-8 rounded-3xl bg-background/5 backdrop-blur-sm border border-background/10 flex flex-col items-center text-center gap-6 active:scale-95 lg:active:scale-100 lg:hover:shadow-2xl lg:hover:shadow-primary/20 lg:hover:-translate-y-2 transition-all duration-300"

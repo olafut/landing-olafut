@@ -6,6 +6,7 @@
 }
 
 @theme inline {
+  --color-primary-50: #fef2f5;
   --color-primary-100: #f9d7e1;
   --color-primary-200: #f4b3c4;
   --color-primary-300: #ee8fa7;
@@ -25,6 +26,7 @@
   --color-accent-800: #3c1a50;
   --color-accent-900: #1e0d28;
   --color-secondary: #dfdfdf;
+  --color-muted-foreground: #111018ee;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-display);

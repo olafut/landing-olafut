@@ -4,20 +4,23 @@ import type { FC } from 'react';
 import { twMerge } from 'tailwind-merge';
 import type { BaseProps } from '@/interfaces/base';
 
-const variants = cva('', {
-  variants: {
-    variant: {
-      primary:
-        'from-primary-400 via-primary-500 to-primary-600 text-white shadow-primary-500/80 hover:shadow-primary-500/80',
-      accent:
-        'from-accent-400 via-accent-500 to-accent-600 text-white shadow-accent-500/40',
-      dark: 'from-foreground via-foreground to-foreground text-white shadow-foreground/30 shadow-foreground/80 hover:shadow-foreground/80',
+const variants = cva(
+  'relative group px-6 py-4 w-full font-alt flex items-center gap-2 justify-center cursor-pointer uppercase tracking-wider bg-linear-to-br rounded-lg font-semibold overflow-hidden shadow-sm hover:shadow-md transition-all hover:scale-105 active:scale-100 text-sm md:text-base',
+  {
+    variants: {
+      variant: {
+        primary:
+          'from-primary-400 via-primary-500 to-primary-600 text-white shadow-primary-500/80 hover:shadow-primary-500/80',
+        accent:
+          'from-accent-400 via-accent-500 to-accent-600 text-white shadow-accent-500/40',
+        dark: 'from-foreground via-foreground to-foreground text-white shadow-foreground/30 shadow-foreground/80 hover:shadow-foreground/80',
+      },
+    },
+    defaultVariants: {
+      variant: 'primary',
     },
   },
-  defaultVariants: {
-    variant: 'primary',
-  },
-});
+);
 
 interface CallToActionButtonProps extends BaseProps {
   variant?: 'primary' | 'accent' | 'dark';
@@ -31,11 +34,7 @@ export const CallToActionButton: FC<CallToActionButtonProps> = ({
 }) => {
   return (
     <button
-      className={twMerge(
-        'relative group px-6 py-4 w-full font-alt flex items-center gap-2 justify-center cursor-pointer uppercase tracking-wider bg-linear-to-br rounded-lg font-bold overflow-hidden shadow-sm hover:shadow-md transition-all hover:scale-105 active:scale-100',
-        variants({ variant }),
-        className,
-      )}
+      className={twMerge('', variants({ variant }), className)}
       style={style}
       type="button"
     >

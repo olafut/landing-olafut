@@ -35,7 +35,8 @@ export function getPostsFromCache(): Post[] {
   if (fs.existsSync(cachePath)) {
     try {
       const cache = fs.readFileSync(cachePath, 'utf-8');
-      return JSON.parse(cache);
+      const posts: Post[] = JSON.parse(cache);
+      return posts;
     } catch (error) {
       console.error('Error reading posts cache:', error);
       return [];

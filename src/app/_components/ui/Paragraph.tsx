@@ -6,7 +6,7 @@ export const Paragraph: FC<BaseProps> = ({ children, className, style }) => {
   return (
     <p
       className={twMerge(
-        'font-normal font-alt text-md lg:text-lg leading-relaxed',
+        'font-normal font-alt text-base lg:text-lg leading-relaxed',
         className,
       )}
       style={style}

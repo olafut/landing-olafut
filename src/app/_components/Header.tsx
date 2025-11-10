@@ -39,7 +39,7 @@ export const Header: FC = () => {
             isMenuOpen && 'h-[calc(100dvh-2rem)] md:h-full',
             (isScrolled || isMenuOpen) &&
               'bg-background/90 backdrop-blur-md border-neutral-300',
-            'hover:bg-background/90 hover:backdrop-blur-md hover:border-neutral-300',
+            'md:hover:bg-background/90 md:hover:backdrop-blur-md md:hover:border-neutral-300',
           )}
         >
           <div className="flex">

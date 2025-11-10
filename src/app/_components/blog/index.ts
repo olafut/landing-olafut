@@ -1,4 +1,5 @@
 export * from './Avatar';
+export * from './BlogHeader';
 export * from './CoverImage';
 export * from './HeroPost';
 export * from './MoreStories';
@@ -7,3 +8,4 @@ export * from './PostContainer';
 export * from './PostHeader';
 export * from './PostPreview';
 export * from './PostTitle';
+export * from './ShareButtons';

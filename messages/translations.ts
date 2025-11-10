@@ -26,4 +26,12 @@ export type Translations = {
       subtitle: string;
     };
   };
+  Blog: {
+    title: string;
+    description: string;
+    publishedArticles: string;
+    readingTime: string;
+    readArticle: string;
+    moreStories: string;
+  };
 };
