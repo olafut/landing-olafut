@@ -71,7 +71,7 @@ export const Footer = () => {
               />
             </button>
 
-            <p className="text-sm text-background/80 leading-relaxed max-w-sm">
+            <p className="text-sm text-secondary font-alt leading-relaxed max-w-sm">
               OLAFUT es el HUB del futbol femenil: el corazón que une gradas,
               canchas, micrófonos y mentes creativas.
             </p>
@@ -126,7 +126,9 @@ export const Footer = () => {
                     className="text-primary-500 mt-0.5 shrink-0 group-hover:scale-110 transition-transform"
                     aria-hidden="true"
                   />
-                  <span>olafut10@gmail.com</span>
+                  <span className="text-secondary font-alt">
+                    olafut10@gmail.com
+                  </span>
                 </a>
               </li>
               <li>
@@ -135,7 +137,9 @@ export const Footer = () => {
                     className="text-primary-500 mt-0.5 shrink-0"
                     aria-hidden="true"
                   />
-                  <span>Ciudad de México, México</span>
+                  <span className="text-secondary font-alt">
+                    Ciudad de México, México
+                  </span>
                 </div>
               </li>
             </ul>
@@ -145,7 +149,7 @@ export const Footer = () => {
         <div className="h-px bg-background/10 my-8" />
 
         <div className="flex items-center justify-center gap-4">
-          <p className="text-background/60 text-xs">
+          <p className="text-secondary font-sans text-xs">
             © {new Date().getFullYear()} OlaFut. Todos los derechos reservados.
           </p>
         </div>

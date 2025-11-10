@@ -20,4 +20,10 @@ export type Translations = {
     cta: string;
     comingSoon: string;
   };
+  AboutUs: {
+    Hero: {
+      title: string;
+      subtitle: string;
+    };
+  };
 };

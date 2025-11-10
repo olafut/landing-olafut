@@ -19,15 +19,34 @@ const textFont = Raleway({
 });
 
 export const metadata: Metadata = {
-  title: 'Olafut - Creando el 1er Club Femenil Independiente de México',
-  description: 'El fútbol solo necesita una comunidad dispuesta a todo',
+  title:
+    'Olafut - El Fútbol Femenil solo necesita una comunidad dispuesta a TODO.',
+  description:
+    'OLAFUT es el HUB del futbol femenil: el corazón que une gradas, canchas, micrófonos y mentes creativas.',
   metadataBase: new URL('https://olafut.com'),
+  keywords: [
+    'Olafut',
+    'fútbol femenil México',
+    'club fútbol femenil independiente',
+    'primer club femenil independiente México',
+    'OLA-CAST',
+    'OLA-DIGITAL',
+    'OLA-GAMES',
+    'OLA-MIND',
+    'OLA-SCOUT',
+    'fútbol femenino profesional',
+    'comunidad fútbol femenil',
+    'transmisiones fútbol femenil en vivo',
+    'podcast fútbol femenil México',
+  ],
   appleWebApp: {
     title: 'Olafut',
   },
   openGraph: {
-    title: 'Olafut - Creando el 1er Club Femenil Independiente de México',
-    description: 'El fútbol solo necesita una comunidad dispuesta a todo',
+    title:
+      'Olafut - El Fútbol Femenil solo necesita una comunidad dispuesta a TODO.',
+    description:
+      'OLAFUT es el HUB del futbol femenil: el corazón que une gradas, canchas, micrófonos y mentes creativas.',
     url: 'https://olafut.com',
     siteName: 'Olafut',
     locale: 'es_MX',
@@ -35,8 +54,10 @@ export const metadata: Metadata = {
     images: ['/assets/hero.webp'],
   },
   twitter: {
-    title: 'Olafut - Creando el 1er Club Femenil Independiente de México',
-    description: 'El fútbol solo necesita una comunidad dispuesta a todo',
+    title:
+      'Olafut - El Fútbol Femenil solo necesita una comunidad dispuesta a TODO.',
+    description:
+      'OLAFUT es el HUB del futbol femenil: el corazón que une gradas, canchas, micrófonos y mentes creativas.',
     card: 'summary_large_image',
     images: ['/assets/hero.webp'],
   },

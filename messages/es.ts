@@ -56,6 +56,12 @@ const translations: Translations = {
     cta: '¡No te pierdas la oportunidad!',
     comingSoon: 'MUY PRONTO...',
   },
+  AboutUs: {
+    Hero: {
+      title: 'Somos <logo>Olafut</logo>',
+      subtitle: 'La OLA del cambio del Fútbol Femenil',
+    },
+  },
 };
 
 export default translations;

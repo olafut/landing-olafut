@@ -9,13 +9,13 @@ export default function NotFound() {
         404 Error - Página no encontrada
       </p>
       <h2 className="text-5xl font-bold">No podemos encontrar esa página.</h2>
-      <p>
+      <p className="font-alt max-w-lg">
         Pero no te preocupes, puedes encontrar muchas otras cosas en nuestra
         página de inicio.
       </p>
 
       <Link href="/" className="mt-10 w-full">
-        <Button className="w-full mx-auto">
+        <Button className="w-full mx-auto max-w-md">
           <FaHouse />
           Volver al inicio
         </Button>
