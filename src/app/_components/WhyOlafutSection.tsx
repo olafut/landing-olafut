@@ -14,6 +14,7 @@ const FEATURES = [
 
 export const WhyOlafutSection = () => {
   const { t, rt } = useTranslate('WhyOlafut');
+  const { t: commonT } = useTranslate('Common.Cta');
 
   return (
     <section
@@ -50,7 +51,7 @@ export const WhyOlafutSection = () => {
 
         <div className="flex justify-center">
           <CallToActionButton className="w-full max-w-md">
-            {t('cta')}
+            {commonT('join')}
             <FaArrowRight />
           </CallToActionButton>
         </div>

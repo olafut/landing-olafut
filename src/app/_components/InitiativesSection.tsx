@@ -55,6 +55,7 @@ const INITIATIVES: Initiative[] = [
 
 export const InitiativesSection = () => {
   const { t } = useTranslate('Features');
+  const { t: commonT } = useTranslate('Common.Cta');
 
   return (
     <section
@@ -121,7 +122,7 @@ export const InitiativesSection = () => {
           viewport={{ once: true }}
         >
           <CallToActionButton className="w-full max-w-md">
-            {t('cta')}
+            {commonT('dontMissOut')}
             <FaArrowRight />
           </CallToActionButton>
         </motion.div>

@@ -4,12 +4,13 @@ import { motion } from 'motion/react';
 import { FaHeart, FaTrophy, FaUsers } from 'react-icons/fa6';
 import { Paragraph, Title } from '@/app/_components/ui';
 import { useTranslate } from '@/app/hooks';
+import copies from '@/messages/es';
 
 const VALUE_ICONS = [FaHeart, FaUsers, FaTrophy] as const;
 
 export const ValuesSection = () => {
   const { t } = useTranslate('AboutUs.Values');
-  const values = t('items') as Array<{ title: string; description: string }>;
+  const values = Array.from(copies.AboutUs.Values.items);
 
   return (
     <section className="py-20 md:py-28 bg-foreground/5">

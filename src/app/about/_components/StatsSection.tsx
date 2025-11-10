@@ -5,11 +5,13 @@ import { FaFutbol, FaMicrophone, FaStar, FaUsers } from 'react-icons/fa6';
 import { Paragraph, Title } from '@/app/_components/ui';
 import { useTranslate } from '@/app/hooks';
 
+import copies from '@/messages/es';
+
 const STAT_ICONS = [FaUsers, FaStar, FaMicrophone, FaFutbol] as const;
 
 export const StatsSection = () => {
   const { t } = useTranslate('AboutUs.Stats');
-  const stats = t('items') as Array<{ number: string; label: string }>;
+  const stats = Array.from(copies.AboutUs.Stats.items);
 
   return (
     <section className="py-20 md:py-28 bg-foreground text-background">
