@@ -11,6 +11,7 @@ import {
   FaMapLocation,
   FaXTwitter,
 } from 'react-icons/fa6';
+import { useTranslate } from '../hooks';
 
 const SOCIAL_LINKS = [
   {
@@ -34,12 +35,14 @@ const SOCIAL_LINKS = [
 ] as const;
 
 const NAVIGATION_LINKS = [
-  { name: 'Inicio', href: '/' },
-  { name: 'Sobre Nosotros', href: '/about' },
-  { name: 'Blog', href: '/blog' },
+  { key: 'home', href: '/' },
+  { key: 'about', href: '/about' },
+  { key: 'blog', href: '/blog' },
 ] as const;
 
 export const Footer = () => {
+  const { t: tNav } = useTranslate('Common.Navigation');
+  const { t: tFooter } = useTranslate('Footer');
   const path = usePathname();
   const router = useRouter();
 
@@ -66,13 +69,13 @@ export const Footer = () => {
           >
             <button
               onClick={handleGoHome}
-              aria-label="Ir a la página principal de Olafut"
+              aria-label={tFooter('logoAriaLabel')}
               type="button"
               className="inline-block cursor-pointer"
             >
               <Image
                 src="/assets/olafut_white.svg"
-                alt="OlaFut - Primer club femenil independiente de México"
+                alt={tFooter('logoAlt')}
                 width={160}
                 height={53}
                 className="transition-opacity hover:opacity-80"
@@ -80,8 +83,7 @@ export const Footer = () => {
             </button>
 
             <p className="text-sm text-secondary font-alt leading-relaxed max-w-sm">
-              OLAFUT es el HUB del futbol femenil: el corazón que une gradas,
-              canchas, micrófonos y mentes creativas.
+              {tFooter('description')}
             </p>
           </motion.div>
 
@@ -93,7 +95,9 @@ export const Footer = () => {
             viewport={{ once: true }}
             className="lg:col-span-1"
           >
-            <h3 className="text-lg font-bold mb-6">Navega</h3>
+            <h3 className="text-lg font-bold mb-6">
+              {tFooter('navigation.title')}
+            </h3>
             <ul className="space-y-3">
               {NAVIGATION_LINKS.map((link) => (
                 <li key={link.href}>
@@ -101,7 +105,7 @@ export const Footer = () => {
                     href={link.href}
                     className="text-sm text-secondary hover:text-primary-400 transition-colors font-alt inline-block"
                   >
-                    {link.name}
+                    {tNav(link.key)}
                   </Link>
                 </li>
               ))}
@@ -116,7 +120,9 @@ export const Footer = () => {
             viewport={{ once: true }}
             className="lg:col-span-1"
           >
-            <h3 className="text-lg font-bold mb-6">Síguenos</h3>
+            <h3 className="text-lg font-bold mb-6">
+              {tFooter('social.title')}
+            </h3>
             <div className="flex gap-3">
               {SOCIAL_LINKS.map((social) => {
                 const Icon = social.icon;
@@ -148,11 +154,13 @@ export const Footer = () => {
             viewport={{ once: true }}
             className="lg:col-span-1"
           >
-            <h3 className="text-lg font-bold mb-6">Contacto</h3>
+            <h3 className="text-lg font-bold mb-6">
+              {tFooter('contact.title')}
+            </h3>
             <ul className="space-y-4">
               <li>
                 <a
-                  href="mailto:olafut10@gmail.com"
+                  href={`mailto:${tFooter('contact.email')}`}
                   className="text-sm text-background/70 hover:text-primary-400 transition-colors flex items-start gap-3 group w-fit"
                 >
                   <FaEnvelope
@@ -160,7 +168,7 @@ export const Footer = () => {
                     aria-hidden="true"
                   />
                   <span className="text-secondary font-alt">
-                    olafut10@gmail.com
+                    {tFooter('contact.email')}
                   </span>
                 </a>
               </li>
@@ -171,7 +179,7 @@ export const Footer = () => {
                     aria-hidden="true"
                   />
                   <span className="text-secondary font-alt">
-                    Ciudad de México, México
+                    {tFooter('contact.location')}
                   </span>
                 </div>
               </li>
@@ -183,7 +191,7 @@ export const Footer = () => {
 
         <div className="flex items-center justify-center gap-4">
           <p className="text-secondary font-sans text-xs text-center">
-            © {new Date().getFullYear()} OlaFut. Todos los derechos reservados.
+            © {new Date().getFullYear()} {tFooter('copyright')}
           </p>
         </div>
       </div>

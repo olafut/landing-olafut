@@ -46,7 +46,14 @@ export const metadata: Metadata = {
       'Olafut - El Fútbol Femenil solo necesita una comunidad dispuesta a TODO.',
     description:
       'OLAFUT es el HUB del futbol femenil: el corazón que une gradas, canchas, micrófonos y mentes creativas.',
-    images: ['/assets/hero.webp'],
+    images: [
+      {
+        url: '/assets/hero.webp',
+        width: 1200,
+        height: 630,
+        alt: 'Olafut - El Fútbol Femenil solo necesita una comunidad dispuesta a TODO.',
+      },
+    ],
   },
   twitter: {
     ...BASE_METADATA.twitter,
@@ -54,7 +61,14 @@ export const metadata: Metadata = {
       'Olafut - El Fútbol Femenil solo necesita una comunidad dispuesta a TODO.',
     description:
       'OLAFUT es el HUB del futbol femenil: el corazón que une gradas, canchas, micrófonos y mentes creativas.',
-    images: ['/assets/hero.webp'],
+    images: [
+      {
+        url: '/assets/hero.webp',
+        width: 1200,
+        height: 628,
+        alt: 'Olafut - El Fútbol Femenil solo necesita una comunidad dispuesta a TODO.',
+      },
+    ],
   },
 };
 

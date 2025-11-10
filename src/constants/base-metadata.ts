@@ -2,6 +2,10 @@ import type { Metadata } from 'next';
 
 export const BASE_METADATA: Partial<Metadata> = {
   metadataBase: new URL('https://olafut.com'),
+  robots: {
+    index: true,
+    follow: true,
+  },
   appleWebApp: {
     title: 'Olafut',
   },

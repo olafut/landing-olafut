@@ -2,8 +2,12 @@
 
 import { motion } from 'motion/react';
 import { CallToActionButton } from '@/app/_components/CallToActionButton';
+import { useTranslate } from '@/app/hooks';
 
 export const CtaSection = () => {
+  const { t } = useTranslate('AboutUs.Cta');
+  const { t: tCta } = useTranslate('Common.Cta');
+
   return (
     <section className="py-20 md:py-28 text-foreground">
       <div className="container mx-auto px-6 text-center">
@@ -14,15 +18,10 @@ export const CtaSection = () => {
           viewport={{ once: true }}
           className="space-y-8 max-w-2xl mx-auto"
         >
-          <h2 className="text-3xl md:text-4xl font-black">
-            ¿Lista para ser parte del cambio?
-          </h2>
-          <p className="text-lg leading-relaxed font-alt">
-            Únete a la comunidad que está revolucionando el fútbol femenil en
-            México. Cada voz cuenta, cada acción suma.
-          </p>
+          <h2 className="text-3xl md:text-4xl font-black">{t('title')}</h2>
+          <p className="text-lg leading-relaxed font-alt">{t('description')}</p>
           <CallToActionButton variant="primary">
-            ¡Únete a la OLA!
+            {tCta('joinTheCommunity')}
           </CallToActionButton>
         </motion.div>
       </div>

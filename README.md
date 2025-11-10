@@ -10,15 +10,39 @@ El sitio web se actualiza automáticamente cuando se hace un **Pull Request (PR)
 
 ### Paso 1: Editar los textos del sitio
 
-Los textos del sitio web (títulos, descripciones, etc.) se encuentran en el archivo:
+**Todos los textos del sitio están centralizados en un solo archivo de copies:**
 
 📄 **`messages/es.ts`**
 
-Simplemente edita este archivo en GitHub directamente:
-1. Ve al archivo en GitHub
+Este archivo contiene todas las copies organizados por secciones:
+
+- **Common**: Navegación y textos comunes reutilizables
+- **Hero**: Sección principal de inicio
+- **Footer**: Pie de página
+- **AboutUs**: Todas las secciones de la página "Acerca de"
+- **Blog**: Textos del blog
+- **NotFound**: Página 404
+- Y más...
+
+Para editar los textos:
+
+1. Ve al archivo `messages/es.ts` en GitHub
 2. Haz clic en el botón de editar (ícono del lápiz)
-3. Modifica los textos que necesites
-4. Guarda los cambios
+3. Busca la sección que quieres modificar (por ejemplo, `Hero.title` para el título principal)
+4. Modifica los textos que necesites
+5. Guarda los cambios
+
+**Ejemplo de estructura:**
+
+```typescript
+Hero: {
+  badge: 'Primer HUB Integral',
+  title: 'El <important>Fútbol</important> <important>Femenil</important>...',
+  cta: '¡Se parte del cambio!',
+}
+```
+
+**Nota importante:** Los textos pueden contener etiquetas especiales como `<important>`, `<strong>`, `<logo>` para dar formato. No elimines estas etiquetas, solo modifica el texto dentro de ellas.
 
 ### Paso 2: Activar el despliegue
 
@@ -33,6 +57,7 @@ Este archivo contiene una fecha que sirve como "disparador" de cambios. Solo tie
 3. Guarda los cambios
 
 **Ejemplo:**
+
 ```
 Fecha de última modificación:
 
@@ -55,6 +80,7 @@ Una vez que hayas editado los archivos que necesites (`es.ts` y/o `trigger.txt`)
 Una vez creado el Pull Request:
 
 ✅ GitHub Action se ejecutará automáticamente
+
 - Construirá el sitio web con tus cambios
 - Descargará imágenes de Notion si hay nuevas
 - Desplegará todo a la rama `static`
@@ -64,11 +90,50 @@ Una vez creado el Pull Request:
 
 ## Archivos importantes
 
-| Archivo | Qué contiene |
-|---------|--------------|
-| **`messages/es.ts`** | Todos los textos del sitio web (títulos, descripciones, botones, etc.) |
-| **`trigger.txt`** | Archivo para forzar un nuevo despliegue (solo cambia la fecha) |
-| **`.github/workflows/deploy.yml`** | Configuración del proceso automático (no tocar a menos que sea necesario) |
+| Archivo              | Qué contiene                                                                                                                   |
+| -------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| **`messages/es.ts`** | **Archivo principal de copies** - Todos los textos del sitio web organizados por secciones (Hero, Footer, AboutUs, Blog, etc.) |
+| **`trigger.txt`**    | Archivo para forzar un nuevo despliegue (solo cambia la fecha)                                                                 |
+
+## Estructura de copies
+
+El archivo `messages/es.ts` está organizado jerárquicamente por secciones:
+
+### Secciones disponibles:
+
+#### **`Common`** - Textos comunes reutilizables
+
+- **`Navigation`**: Navegación del sitio
+- **`Cta`**: Botones de llamada a la acción (centralizados, sin duplicación)
+
+#### **`Hero`** - Sección principal de inicio
+
+- `badge`, `title`, `subtitle`
+- `trustBadges`: Etiquetas de confianza (activeCommunity, weeklyPodcast, everyoneCounts)
+- `floatingCard`: Tarjeta flotante (title, subtitle)
+- `buildingHistory`: Texto inferior
+
+#### **`Footer`** - Pie de página completo
+
+- `description`, `navigation.title`, `social.title`
+- `contact`: title, email, location
+- `copyright`, `logoAlt`, `logoAriaLabel`
+
+#### **`AboutUs`** - Todas las subsecciones de "Acerca de"
+
+- **`Hero`**: Título y subtítulo
+- **`Mission`**: Misión de Olafut (title, paragraph1, paragraph2, hubNote)
+- **`Stats`**: Estadísticas (title, subtitle, items array)
+- **`Timeline`**: Historia (title, subtitle, items array)
+- **`Values`**: Valores (title, subtitle, items array)
+- **`Cta`**: Llamada a la acción (title, description)
+
+#### Otras secciones
+
+- **`Blog`**: Textos del blog
+- **`NotFound`**: Página 404 (error, title, description)
+- **`WhyOlafut`**: Sección "Por qué nace Olafut" (title, paragraphs array)
+- **`Features`**: Iniciativas (title, items object, comingSoon)
 
 ## ¿Por qué usar el archivo `trigger.txt`?
 
@@ -77,6 +142,7 @@ Este archivo es una solución práctica para activar despliegues sin necesidad d
 ## ¿Necesitas ayuda?
 
 Si algo no funciona o tienes dudas:
+
 1. Revisa que el Pull Request se haya creado correctamente
 2. Verifica que el GitHub Action se esté ejecutando (aparecerá un indicador amarillo mientras trabaja)
 3. Si ves un ❌ rojo, algo falló - revisa los logs del Action para más detalles
