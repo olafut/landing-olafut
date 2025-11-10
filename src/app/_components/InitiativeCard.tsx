@@ -54,10 +54,29 @@ export const InitiativeCard: FC<InitiativeCardProps> = ({
       )}
       style={style}
     >
-      {comingSoon && (
+      {/* {comingSoon && (
         <span className="absolute -right-2 top-4 bg-linear-to-br from-accent-400 via-accent-500 to-accent-600 text-white rounded-tl-sm rounded-bl-sm px-3 sm:px-4 py-2 font-sans font-bold text-xs sm:text-sm tracking-wider uppercase shadow-lg z-10 before:content-[''] before:absolute before:right-0 before:top-full before:w-0 before:h-0 before:border-t-8 before:border-t-accent-800 before:border-r-8 before:border-r-transparent">
           {t('comingSoon')}
         </span>
+      )} */}
+
+      {comingSoon && (
+        <div
+          className="absolute inset-0 rounded-2xl z-20 flex items-center justify-center border-2 border-accent-500/50"
+          style={{
+            backgroundImage:
+              'radial-gradient(circle, rgba(0,0,0,0.1) 1px, transparent 1px)',
+            backgroundSize: '20px 20px',
+            backgroundColor: 'rgba(255,255,255,0.7)',
+          }}
+        >
+          <div className="flex flex-col items-center gap-2 bg-white/90 backdrop-blur-sm px-8 py-4 rounded-2xl shadow-xl border border-accent-500/20">
+            <span className="flex items-center gap-2 text-accent-600 font-bold text-base uppercase tracking-wider">
+              <span className="w-2 h-2 bg-accent-500 rounded-full animate-pulse" />
+              {t('comingSoon')}
+            </span>
+          </div>
+        </div>
       )}
 
       <div
