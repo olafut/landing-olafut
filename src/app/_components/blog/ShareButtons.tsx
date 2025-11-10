@@ -13,7 +13,7 @@ export const ShareButtons: FC<ShareButtonsProps> = ({ title, slug }) => {
   const encodedTitle = encodeURIComponent(title);
 
   const shareLinks = {
-    twitter: `https://twitter.com/intent/tweet?text=${encodedTitle}&url=${encodedUrl}&via=olafut`,
+    twitter: `https://twitter.com/intent/tweet?text=${encodedTitle}&url=${encodedUrl}&via=olafut10`,
     facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`,
     whatsapp: `https://wa.me/?text=${encodedTitle}%20${encodedUrl}`,
     linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`,
