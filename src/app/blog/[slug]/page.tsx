@@ -116,6 +116,12 @@ export async function generateMetadata(props: Params): Promise<Metadata> {
           height: 628,
           alt: post.title,
         },
+        {
+          url: smallImageUrl || '/assets/hero.webp',
+          width: 600,
+          height: 314,
+          alt: post.title,
+        },
       ],
     },
     alternates: {
