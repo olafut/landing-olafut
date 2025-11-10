@@ -8,3 +8,4 @@ export * from './PostContainer';
 export * from './PostHeader';
 export * from './PostPreview';
 export * from './PostTitle';
+export * from './ShareButtons';

@@ -3,6 +3,8 @@ import { notFound } from 'next/navigation';
 import { PostBody } from '@/app/_components/blog/PostBody';
 import { PostContainer } from '@/app/_components/blog/PostContainer';
 import { PostHeader } from '@/app/_components/blog/PostHeader';
+import { ShareButtons } from '@/app/_components/blog/ShareButtons';
+import { BASE_METADATA } from '@/constants/base-metadata';
 import markdownToHtml from '@/lib/markdownToHtml';
 import { getPost, getPostsFromCache } from '@/lib/notion';
 
@@ -29,9 +31,14 @@ export default async function PostPage({
     <main className="py-16">
       <PostContainer>
         <PostHeader post={post} />
-        <article className="mb-32">
+        <article className="mb-16">
           <PostBody content={content} />
         </article>
+
+        {/* Share Section */}
+        <div className="max-w-2xl mx-auto border-t border-gray-200 pt-12 mb-16">
+          <ShareButtons title={post.title} slug={post.slug} />
+        </div>
       </PostContainer>
     </main>
   );
@@ -51,25 +58,54 @@ export async function generateMetadata(props: Params): Promise<Metadata> {
 
   if (!post) return notFound();
 
-  const title = `${post.title} | Blog`;
+  const title = `${post.title} | Blog Olafut`;
+  const url = `https://olafut.com/blog/${post.slug}`;
+
+  // Combine tags with base keywords
+  const keywords = [
+    'Olafut',
+    'fútbol femenil México',
+    'blog fútbol femenil',
+    ...(post.tags || []),
+    ...(post.category ? [post.category] : []),
+  ];
 
   return {
+    ...BASE_METADATA,
     title,
     description: post.summary,
-    metadataBase: new URL('https://olafut.com'),
+    keywords,
+    authors: post.author?.name ? [{ name: post.author.name }] : undefined,
+    category: post.category || 'Fútbol Femenil',
     openGraph: {
+      ...BASE_METADATA.openGraph,
       title,
-      url: `https://olafut.com/blog/${post.slug}`,
-      images: [post.coverImage || ''],
+      url,
+      siteName: 'Olafut',
+      images: post.coverImage
+        ? [
+            {
+              url: post.coverImage,
+              width: 1200,
+              height: 630,
+              alt: post.title,
+            },
+          ]
+        : [],
       type: 'article',
       description: post.summary,
-      locale: 'es_MX',
+      publishedTime: post.date,
+      authors: post.author?.name ? [post.author.name] : undefined,
+      tags: post.tags,
     },
     twitter: {
+      ...BASE_METADATA.twitter,
       title,
       description: post.summary,
-      images: [post.coverImage || ''],
-      card: 'summary_large_image',
+      images: post.coverImage ? [post.coverImage] : [],
+    },
+    alternates: {
+      canonical: url,
     },
   };
 }

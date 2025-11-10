@@ -25,7 +25,7 @@ export const NavLink: FC<NavLinkProps> = ({
     >
       <Link
         href={href}
-        className="h-full w-full flex items-center justify-center text-md"
+        className="h-full w-full flex items-center justify-center text-base"
         onClick={onClick}
       >
         {children}

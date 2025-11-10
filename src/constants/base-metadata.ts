@@ -17,5 +17,7 @@ export const BASE_METADATA: Partial<Metadata> = {
     description:
       'OLAFUT es el HUB del futbol femenil: el corazón que une gradas, canchas, micrófonos y mentes creativas.',
     card: 'summary_large_image',
+    creator: '@olafut10',
+    site: '@olafut10',
   },
 };

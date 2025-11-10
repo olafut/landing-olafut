@@ -74,7 +74,7 @@ export const PostPreview: FC<PostPreviewProps> = ({ post }) => {
           {/* CTA - Hidden on mobile, visible on hover in desktop */}
           <Link
             href={`/blog/${slug}`}
-            className="text-primary-500 font-semibold text-sm opacity-0 group-hover:opacity-100 transition-opacity hidden md:inline-flex items-center gap-1"
+            className="text-primary-500 font-semibold text-sm inline-flex items-center gap-1"
             aria-label={`Leer ${title}`}
           >
             Leer
