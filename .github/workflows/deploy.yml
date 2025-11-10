@@ -56,16 +56,30 @@ jobs:
 
       - name: Update trigger file with current date
         run: |
-          # Configurar locale y timezone para Ciudad de México
-          export LC_TIME=es_ES.UTF-8
+          # Configurar timezone para Ciudad de México
           export TZ=America/Mexico_City
 
-          # Obtener fecha en formato español
-          # Convertir el nombre del mes a minúsculas
-          MONTH=$(date +%B | tr '[:upper:]' '[:lower:]')
+          # Obtener componentes de fecha
+          MONTH_NUM=$(date +%-m)
           DAY=$(date +%-d)
           YEAR=$(date +%Y)
           TIME=$(date +%H:%M)
+
+          # Traducir mes a español
+          case $MONTH_NUM in
+            1) MONTH="enero" ;;
+            2) MONTH="febrero" ;;
+            3) MONTH="marzo" ;;
+            4) MONTH="abril" ;;
+            5) MONTH="mayo" ;;
+            6) MONTH="junio" ;;
+            7) MONTH="julio" ;;
+            8) MONTH="agosto" ;;
+            9) MONTH="septiembre" ;;
+            10) MONTH="octubre" ;;
+            11) MONTH="noviembre" ;;
+            12) MONTH="diciembre" ;;
+          esac
 
           # Crear el contenido del archivo con el formato deseado
           cat > trigger.txt << EOF
