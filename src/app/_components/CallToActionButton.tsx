@@ -1,25 +1,45 @@
+import { cva } from 'class-variance-authority';
 import Link from 'next/link';
 import type { FC } from 'react';
 import { twMerge } from 'tailwind-merge';
 import type { BaseProps } from '@/interfaces/base';
-import { Button } from './ui';
 
-export const CallToActionButton: FC<BaseProps> = ({
+const variants = cva('', {
+  variants: {
+    variant: {
+      primary:
+        'from-primary-400 via-primary-500 to-primary-600 text-white shadow-primary-500/80 hover:shadow-primary-500/80',
+      accent:
+        'from-accent-400 via-accent-500 to-accent-600 text-white shadow-accent-500/40',
+      dark: 'from-foreground via-foreground to-foreground text-white shadow-foreground/30 shadow-foreground/80 hover:shadow-foreground/80',
+    },
+  },
+  defaultVariants: {
+    variant: 'primary',
+  },
+});
+
+interface CallToActionButtonProps extends BaseProps {
+  variant?: 'primary' | 'accent' | 'dark';
+}
+
+export const CallToActionButton: FC<CallToActionButtonProps> = ({
+  variant = 'primary',
   children,
   className,
   style,
 }) => {
   return (
-    <Button
+    <button
       className={twMerge(
-        'group relative py-4 bg-linear-to-br from-primary-400 via-primary-500 to-primary-600 rounded-lg font-bold text-white shadow-[0_8px_24px_rgba(234,87,127,0.25)] overflow-hidden transition-all hover:shadow-[0_12px_32px_rgba(234,87,127,0.4)] hover:scale-105 active:scale-100',
+        'relative group px-6 py-4 w-full font-alt flex items-center gap-2 justify-center cursor-pointer uppercase tracking-wider bg-linear-to-br rounded-lg font-bold overflow-hidden shadow-sm hover:shadow-md transition-all hover:scale-105 active:scale-100',
+        variants({ variant }),
         className,
       )}
       style={style}
+      type="button"
     >
       <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-linear-to-r from-transparent via-white/30 to-transparent" />
-
-      <span className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-linear-to-r from-primary-400/50 to-primary-600/50 blur-xl" />
 
       <span className="relative flex items-center justify-center gap-3">
         <Link
@@ -31,6 +51,6 @@ export const CallToActionButton: FC<BaseProps> = ({
           {children}
         </Link>
       </span>
-    </Button>
+    </button>
   );
 };
