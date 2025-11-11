@@ -6,12 +6,12 @@
 
 /* Paragraphs and lists */
 .markdown p {
-  @apply my-6 font-alt text-muted-foreground dark:text-foreground/80 leading-[1.8];
+  @apply my-6 font-alt text-muted-foreground leading-[1.8];
 }
 
 .markdown ul,
 .markdown ol {
-  @apply my-6 font-alt text-muted-foreground dark:text-foreground/80 ml-6;
+  @apply my-6 font-alt text-muted-foreground ml-6;
 }
 
 .markdown ul {
@@ -61,7 +61,7 @@
 
 /* Blockquotes */
 .markdown blockquote {
-  @apply my-8 pl-6 border-l-4 border-primary-300 italic text-muted-foreground dark:text-foreground/80 bg-primary-50/50 py-4 pr-4 rounded-r-lg;
+  @apply my-8 pl-6 border-l-4 border-primary-300 italic text-muted-foreground bg-primary-50/50 py-4 pr-4 rounded-r-lg;
 }
 
 /* Code blocks */
@@ -97,7 +97,7 @@
 }
 
 .markdown td {
-  @apply px-4 py-3 border border-gray-200 text-muted-foreground dark:text-foreground/80;
+  @apply px-4 py-3 border border-gray-200 text-muted-foreground;
 }
 
 .markdown tr:nth-child(even) {

@@ -24,8 +24,7 @@ export const MissionSection = () => {
               {t('paragraph1')}
             </Paragraph>
             <Paragraph className="text-lg leading-relaxed">
-              {rt('paragraph2')}{' '}
-              <span className="text-xs italic">{t('hubNote')}</span>
+              {rt('paragraph2')}
             </Paragraph>
           </motion.div>
 

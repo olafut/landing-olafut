@@ -187,7 +187,7 @@ export const Footer = () => {
           </motion.div>
         </div>
 
-        <div className="h-px bg-background/10 my-8" />
+        <div className="h-px bg-background/10 dark:bg-foreground/10 my-8" />
 
         <div className="flex items-center justify-center gap-4">
           <p className="text-secondary font-sans text-xs text-center">

@@ -88,8 +88,7 @@ const translations: Translations = {
       paragraph1:
         'OLAFUT nace de la pasión por el fútbol, el deporte y la convicción de que las mujeres merecen un espacio propio e independiente.',
       paragraph2:
-        'Somos un movimiento que paso a paso construye el primer <strong>HUB</strong> del fútbol femenil que busca brindar un espacio seguro, dar voz, recompensar, fomentar competencia sana, dar conocimientos y ayudar a crecer a todas las mujeres que formen parte a través de diferentes pilares y estrategias.',
-      hubNote: '(centro, núcleo)',
+        'Somos un movimiento que paso a paso construye el primer <strong>HUB</strong> <small>(centro, núcleo)</small> del fútbol femenil que busca brindar un espacio seguro, dar voz, recompensar, fomentar competencia sana, dar conocimientos y ayudar a crecer a todas las mujeres que formen parte a través de diferentes pilares y estrategias.',
     },
     Stats: {
       title: 'Olafut en Números',

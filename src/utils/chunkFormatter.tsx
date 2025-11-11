@@ -27,4 +27,7 @@ export const chunkFormatter: Record<
       />
     </div>
   ),
+  small: (chunks: ReactNode) => (
+    <span className="text-xs italic">{chunks}</span>
+  ),
 };

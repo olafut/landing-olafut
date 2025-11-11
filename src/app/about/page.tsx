@@ -9,7 +9,7 @@ import {
 
 export default function AboutPage() {
   return (
-    <main className="bg-background overflow-hidden">
+    <main>
       <HeroSection />
       <MissionSection />
       {/* <ValuesSection /> */}

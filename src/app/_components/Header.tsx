@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { type FC, useEffect, useRef, useState } from 'react';
 import { twMerge } from 'tailwind-merge';
+import { ThemeToggle } from '@/components/ThemeToggle';
 import { useTranslate } from '../hooks';
 import { NavLink } from './NavLink';
 import { MenuIcon } from './ui/MenuIcon';
@@ -140,7 +141,7 @@ export const Header: FC = () => {
               </h1>
             </Link>
 
-            <ul className="flex mx-auto w-full h-18 justify-end">
+            <ul className="flex mx-auto w-full h-18 justify-end items-center gap-2">
               <MenuIcon
                 isOpen={isMenuOpen}
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -151,6 +152,9 @@ export const Header: FC = () => {
               <NavLink className="hidden md:flex" href="/blog">
                 {t('blog')}
               </NavLink>
+              {/* <li className="flex items-center h-full">
+                <ThemeToggle />
+              </li> */}
             </ul>
           </div>
 

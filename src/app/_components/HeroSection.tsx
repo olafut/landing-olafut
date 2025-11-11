@@ -14,7 +14,7 @@ export const HeroSection = () => {
   const { t: tCta } = useTranslate('Common.Cta');
 
   return (
-    <section className="relative min-h-175 lg:min-h-[min(850px,calc(100dvh-4.5rem))] bg-background overflow-hidden flex items-center">
+    <section className="relative min-h-175 lg:min-h-[min(850px,calc(100dvh-4.5rem))] overflow-hidden flex items-center">
       <div className="container mx-auto my-16 relative z-10 px-6 xl:px-0">
         <div className="grid xl:grid-cols-12 gap-12 xl:gap-20 items-center">
           <motion.div
@@ -29,7 +29,7 @@ export const HeroSection = () => {
               transition={{ delay: 0.2, duration: 0.6 }}
               className="inline-block"
             >
-              <div className="relative inline-flex items-center gap-2 px-4 py-2 bg-background border-2 border-primary-400 rounded-full shadow-sm">
+              <div className="relative inline-flex items-center gap-2 px-4 py-2 border-2 border-primary-400 rounded-full shadow-sm">
                 <motion.div
                   animate={{ scale: [1, 1.2, 1] }}
                   transition={{ duration: 2, repeat: Infinity }}
