@@ -8,8 +8,8 @@ export const HeroSection = () => {
   const { rt, t } = useTranslate('AboutUs.Hero');
 
   return (
-    <section className="relative flex items-center justify-center overflow-hidden mt-20 bg-foreground py-20">
-      <div className="container mx-auto px-6 relative z-10 text-center text-background">
+    <section className="relative flex items-center justify-center overflow-hidden mt-20 bg-foreground dark:bg-neutral-800 py-20">
+      <div className="container mx-auto px-6 relative z-10 text-center text-background dark:text-foreground">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}

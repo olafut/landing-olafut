@@ -24,7 +24,7 @@ export const FloatingCard: FC<FloatingCardProps> = ({
       }}
       whileHover={{ scale: 1.08, y: -8 }}
       className={twMerge(
-        'backdrop-blur-xl bg-white/95 border-2 border-primary-200 rounded-2xl p-4 shadow-[0_8px_32px_rgba(234,87,127,0.15)] hover:shadow-[0_12px_40px_rgba(234,87,127,0.25)] transition-shadow',
+        'backdrop-blur-xl bg-background/95 border-2 border-primary-200 dark:border-primary-700  rounded-2xl p-4 shadow-[0_8px_32px_rgba(234,87,127,0.15)] hover:shadow-[0_12px_40px_rgba(234,87,127,0.25)] transition-shadow',
         className,
       )}
     >

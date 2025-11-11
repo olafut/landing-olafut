@@ -152,7 +152,7 @@ export const HeroSection = () => {
               transition={{ delay: 1.9, duration: 0.6 }}
               className="absolute -bottom-6 left-1/2 -translate-x-1/2 w-2xs"
             >
-              <div className="px-6 py-3 bg-white/90 backdrop-blur-md border-2 border-primary-200 rounded-full shadow-lg">
+              <div className="px-6 py-3 bg-background/90 backdrop-blur-md border-2 border-primary-200 dark:border-primary-700 rounded-full shadow-lg">
                 <p className="text-sm font-semibold text-foreground">
                   {t('buildingHistory')}
                 </p>

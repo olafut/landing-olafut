@@ -13,7 +13,7 @@ export const Important: FC<BaseProps> = ({ children, className, style }) => {
     >
       <span
         className={twMerge(
-          'bg-primary-500 bg-clip-text text-transparent drop-shadow-md',
+          'bg-primary-500 dark:bg-primary-600! bg-clip-text text-transparent drop-shadow-md',
           className,
         )}
         style={style}

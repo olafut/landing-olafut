@@ -35,7 +35,7 @@ export const HeroPost: FC<HeroPostProps> = ({ post }) => {
 
         <div className="flex flex-col gap-6 lg:col-span-3">
           {/* Metadata */}
-          <div className="flex items-center gap-3 text-sm text-muted-foreground">
+          <div className="flex items-center gap-3 text-sm text-muted-foreground dark:text-foreground/80">
             {category && (
               <>
                 <span className="font-semibold text-primary-500 uppercase tracking-wide">
@@ -58,7 +58,7 @@ export const HeroPost: FC<HeroPostProps> = ({ post }) => {
           </Title>
 
           {/* Date */}
-          <div className="text-muted-foreground flex items-center justify-between">
+          <div className="text-muted-foreground dark:text-foreground/80 flex items-center justify-between">
             <DateFormatter dateString={date} />
             <Avatar
               name={author?.name}
@@ -69,7 +69,7 @@ export const HeroPost: FC<HeroPostProps> = ({ post }) => {
           </div>
 
           {/* Summary */}
-          <Paragraph className="text-muted-foreground leading-relaxed">
+          <Paragraph className="text-muted-foreground dark:text-foreground/80 leading-relaxed">
             {summary}
           </Paragraph>
 

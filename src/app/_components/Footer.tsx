@@ -56,7 +56,7 @@ export const Footer = () => {
   };
 
   return (
-    <footer className="relative bg-foreground text-background mt-16 overflow-hidden rounded-t-5xl font-sans">
+    <footer className="relative bg-foreground dark:bg-neutral-800 text-background dark:text-foreground mt-16 overflow-hidden rounded-t-5xl font-sans">
       <div className="container mx-auto px-6 pt-16 pb-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 pb-16">
           {/* Brand Section */}
@@ -134,10 +134,10 @@ export const Footer = () => {
                     rel="noopener noreferrer"
                     aria-label={`Seguir a Olafut en ${social.name} (abre en nueva ventana)`}
                     whileTap={{ scale: 0.95 }}
-                    className="group w-11 h-11 rounded-lg bg-background/10 flex items-center justify-center text-background/70 hover:bg-background/20 transition-all duration-300 border border-background/10 hover:border-primary-500/50"
+                    className="group w-11 h-11 rounded-lg bg-background/10 dark:bg-neutral-900 flex items-center justify-center text-background/70 hover:bg-background/20 transition-all duration-300 border border-background/10 hover:border-primary-600"
                   >
                     <Icon
-                      className={`text-lg transition-colors ${social.hoverColor}`}
+                      className={`text-lg transition-colors dark:text-foreground ${social.hoverColor}`}
                       aria-hidden="true"
                     />
                   </motion.a>

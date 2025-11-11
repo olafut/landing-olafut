@@ -40,8 +40,9 @@ export const Header: FC = () => {
             'flex flex-col rounded-xl px-4 transition-all duration-300 border border-transparent h-18 gap-4',
             isMenuOpen && 'h-[calc(100dvh-2rem)] md:h-full',
             (isScrolled || isMenuOpen) &&
-              'bg-background/90 backdrop-blur-md border-neutral-300',
+              'bg-background/90 backdrop-blur-md border-neutral-300 dark:border-neutral-700',
             'md:hover:bg-background/90 md:hover:backdrop-blur-md md:hover:border-neutral-300',
+            'dark:md:hover:bg-background/90 dark:md:hover:backdrop-blur-md dark:md:hover:border-neutral-600',
           )}
         >
           <div className="flex">
@@ -121,7 +122,17 @@ export const Header: FC = () => {
                         priority
                         loading="eager"
                         decoding="sync"
-                        className="border"
+                        className="border block dark:hidden"
+                      />
+                      <Image
+                        src="/assets/olafut_white.svg"
+                        alt="Olafut Logo"
+                        width={220}
+                        height={72}
+                        priority
+                        loading="eager"
+                        decoding="sync"
+                        className="border hidden dark:block"
                       />
                     </motion.div>
                   )}

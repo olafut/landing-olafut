@@ -18,7 +18,7 @@ export const WhyOlafutSection = () => {
 
   return (
     <section
-      className="rounded-5xl text-background shadow-lg bg-foreground py-20"
+      className="rounded-5xl text-background dark:text-foreground shadow-lg bg-foreground dark:bg-neutral-800 py-20"
       aria-labelledby="why-olafut-title"
     >
       <div className="container mx-auto px-6 flex flex-col gap-12 md:gap-16">
@@ -43,7 +43,7 @@ export const WhyOlafutSection = () => {
           </div>
         </div>
 
-        <div className="p-6 md:p-8 bg-linear-to-r from-foreground via-secondary/5 to-foreground rounded-2xl border border-background/10 lg:border-none">
+        <div className="p-6 md:p-8 bg-linear-to-r from-foreground dark:from-neutral-800 via-secondary/5 to-foreground dark:to-neutral-800 rounded-2xl border border-background/10 lg:border-none">
           <Paragraph className="text-lg! md:text-xl! font-medium text-center leading-relaxed max-w-3xl mx-auto">
             {rt('paragraphs.3')}
           </Paragraph>

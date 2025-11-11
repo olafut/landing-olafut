@@ -16,13 +16,13 @@ export const MenuIcon: FC<MenuIconProps> = ({ isOpen, onClick }) => {
       >
         <div className="absolute inset-0 flex flex-col items-center justify-center">
           <span
-            className={`absolute h-0.5 w-8 bg-neutral-800 rounded-full transition-all duration-300 ease-in-out ${
+            className={`absolute h-0.5 w-8 bg-neutral-800 dark:bg-foreground rounded-full transition-all duration-300 ease-in-out ${
               isOpen ? 'rotate-45' : '-translate-y-2'
             }`}
           />
 
           <span
-            className={`absolute h-0.5 w-8 bg-neutral-800 rounded-full transition-all duration-300 ease-in-out ${
+            className={`absolute h-0.5 w-8 bg-neutral-800 dark:bg-foreground rounded-full transition-all duration-300 ease-in-out ${
               isOpen ? '-rotate-45' : 'translate-y-2'
             }`}
           />

@@ -22,7 +22,7 @@ export const PostHeader: FC<PostHeaderProps> = ({ post }) => {
   return (
     <header className="mb-12">
       {/* Category & Reading Time */}
-      <div className="flex items-center justify-center gap-3 text-sm text-muted-foreground mb-6">
+      <div className="flex items-center justify-center gap-3 text-sm text-muted-foreground dark:text-foreground/80 mb-6">
         {category && (
           <>
             <span className="font-semibold text-primary-500 uppercase tracking-wide">
@@ -56,7 +56,7 @@ export const PostHeader: FC<PostHeaderProps> = ({ post }) => {
           {tags.map((tag) => (
             <span
               key={tag}
-              className="px-3 py-1 bg-primary-50 text-primary-700 text-sm font-medium rounded-full"
+              className="px-3 py-1 bg-primary-50 text-primary-700 dark:bg-primary-700 dark:text-primary-50 text-sm font-medium rounded-full"
             >
               {tag}
             </span>

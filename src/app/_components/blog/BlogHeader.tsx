@@ -17,14 +17,14 @@ export const BlogHeader: FC<BlogHeaderProps> = ({ postsCount }) => {
         <Title level="h1" className="font-black tracking-tight">
           {t('title')}
         </Title>
-        <Paragraph className="text-muted-foreground max-w-2xl">
+        <Paragraph className="text-muted-foreground dark:text-foreground/80 max-w-2xl">
           {t('description')}
         </Paragraph>
       </div>
 
       {postsCount > 0 && (
         <div className="flex items-center gap-2">
-          <div className="flex items-center gap-2 text-sm text-muted-foreground">
+          <div className="flex items-center gap-2 text-sm text-muted-foreground dark:text-foreground/80">
             <svg
               className="w-5 h-5"
               fill="none"

@@ -31,7 +31,7 @@ export const PostPreview: FC<PostPreviewProps> = ({ post }) => {
       {/* Content */}
       <div className="flex flex-col grow gap-4">
         {/* Metadata */}
-        <div className="flex items-center gap-3 text-sm text-muted-foreground">
+        <div className="flex items-center gap-3 text-sm text-muted-foreground dark:text-foreground/80">
           {category && (
             <>
               <span className="font-semibold text-primary-500 uppercase tracking-wide">
@@ -54,12 +54,12 @@ export const PostPreview: FC<PostPreviewProps> = ({ post }) => {
         </Title>
 
         {/* Date */}
-        <div className="text-sm text-muted-foreground">
+        <div className="text-sm text-muted-foreground dark:text-foreground/80">
           <DateFormatter dateString={date} />
         </div>
 
         {/* Summary */}
-        <Paragraph className="text-muted-foreground leading-relaxed line-clamp-3">
+        <Paragraph className="text-muted-foreground dark:text-foreground/80 leading-relaxed line-clamp-3">
           {summary}
         </Paragraph>
 
