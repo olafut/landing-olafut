@@ -44,3 +44,6 @@ next-env.d.ts
 # cache
 /cache/
 posts-cache.json
+
+# generated files
+public/sitemap.xml
