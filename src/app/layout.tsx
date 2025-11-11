@@ -1,3 +1,4 @@
+import { GoogleAnalytics } from '@next/third-parties/google';
 import './globals.css';
 import type { Metadata } from 'next';
 import { Inter, Raleway } from 'next/font/google';
@@ -80,6 +81,7 @@ export default function RootLayout({ children }: Readonly<PropsWithChildren>) {
       className={`${textFont.variable} ${displayFont.variable} antialiased`}
       suppressHydrationWarning
     >
+      <GoogleAnalytics gaId="G-F06HDHE7DC" />
       <body className="bg-background text-foreground font-sans transition-colors duration-200 ease-linear">
         <NextIntlClientProvider locale="es">
           <ThemeProvider>
