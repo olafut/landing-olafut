@@ -124,7 +124,7 @@ export const HeroSection = () => {
                   sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 800px"
                 />
 
-                <div className="absolute inset-0 bg-linear-to-t from-foreground/20 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-linear-to-t from-foreground/20 dark:from-background/20 via-transparent to-transparent" />
 
                 <div className="absolute inset-0 rounded-3xl ring-1 ring-primary-300/30" />
               </motion.div>

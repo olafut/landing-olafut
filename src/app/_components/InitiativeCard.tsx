@@ -46,7 +46,7 @@ export const InitiativeCard: FC<InitiativeCardProps> = ({
         'lg:hover:shadow-md lg:hover:shadow-primary/10',
         'lg:hover:-translate-y-1',
         'lg:hover:border-primary/30',
-        'lg:hover:bg-secondary/70',
+        'lg:hover:bg-secondary/70 dark:lg:hover:bg-neutral-800/70',
         'active:scale-95',
         'lg:active:scale-100',
         'group/image',
@@ -105,7 +105,7 @@ export const InitiativeCard: FC<InitiativeCardProps> = ({
 
       {imgProps?.src && imgProps.alt && (
         <div className="relative w-full h-auto mx-auto max-w-full aspect-3/4 md:aspect-5/4 rounded-lg overflow-hidden group/image flex col-span-1 md:col-span-7 lg:col-span-1">
-          <div className="absolute inset-0 bg-linear-to-t from-foreground/80 via-transparent to-transparent opacity-0 active:group-active/image-opacity-100 lg:group-hover/image:opacity-100 transition-opacity duration-300 z-10" />
+          <div className="absolute inset-0 bg-linear-to-t from-foreground/80 dark:from-background/80 via-transparent to-transparent opacity-0 active:group-active/image-opacity-100 lg:group-hover/image:opacity-100 transition-opacity duration-300 z-10" />
 
           <Image
             className="object-cover active:group-active:image-scale-110 lg:group-hover/image:scale-110 transition-transform duration-500"
