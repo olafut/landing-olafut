@@ -7,7 +7,7 @@ interface MenuIconProps {
 
 export const MenuIcon: FC<MenuIconProps> = ({ isOpen, onClick }) => {
   return (
-    <div className="flex items-center justify-center relative md:hidden">
+    <li className="flex items-center justify-center relative md:hidden">
       <button
         onClick={onClick}
         className="relative w-16 h-16 bg-transparent rounded-lg focus:outline-none cursor-pointer"
@@ -28,6 +28,6 @@ export const MenuIcon: FC<MenuIconProps> = ({ isOpen, onClick }) => {
           />
         </div>
       </button>
-    </div>
+    </li>
   );
 };
