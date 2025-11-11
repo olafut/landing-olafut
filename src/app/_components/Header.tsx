@@ -34,7 +34,7 @@ export const Header: FC = () => {
 
   return (
     <>
-      <header className="sticky top-5 z-50 h-18 container mx-auto font-alt px-4 md:px-0">
+      <header className="sticky top-5 z-50 h-18 container mx-auto font-alt px-4 md:px-0 bg-transparent">
         <div
           className={twMerge(
             'flex flex-col rounded-xl px-4 transition-all duration-300 border border-transparent h-18 gap-4',

@@ -76,11 +76,8 @@ export default function RootLayout({ children }: Readonly<PropsWithChildren>) {
   return (
     <html
       lang="es"
-      className={`${textFont.variable}  ${displayFont.variable} antialiased`}
+      className={`${textFont.variable}  ${displayFont.variable} antialiased bg-background`}
     >
-      <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-      </head>
       <body className="bg-background text-foreground font-sans transition-colors duration-500">
         <NextIntlClientProvider locale="es">
           <Header />

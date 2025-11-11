@@ -15,7 +15,7 @@ export const HeroSection = () => {
 
   return (
     <section className="relative min-h-175 lg:min-h-[min(850px,calc(100dvh-4.5rem))] bg-background overflow-hidden flex items-center">
-      <div className="container mx-auto py-16 relative z-10 px-6 xl:px-0">
+      <div className="container mx-auto my-16 relative z-10 px-6 xl:px-0">
         <div className="grid xl:grid-cols-12 gap-12 xl:gap-20 items-center">
           <motion.div
             className="xl:col-span-5 space-y-8 text-center xl:text-left"
