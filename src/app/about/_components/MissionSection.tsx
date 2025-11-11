@@ -36,10 +36,11 @@ export const MissionSection = () => {
             className="relative aspect-4/3 rounded-2xl overflow-hidden shadow-2xl"
           >
             <Image
-              src="/assets/about.jpg"
+              src="/assets/about.webp"
               alt="Misión de Olafut"
               fill
               className="object-cover"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
           </motion.div>
         </div>
