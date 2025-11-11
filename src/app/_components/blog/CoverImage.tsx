@@ -28,7 +28,7 @@ export const CoverImage: FC<CoverImageProps> = ({
       width={1200}
       height={800}
       sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 40vw"
-      decoding="async"
+      decoding="sync"
       loading={priority ? 'eager' : 'lazy'}
       priority={priority}
     />
