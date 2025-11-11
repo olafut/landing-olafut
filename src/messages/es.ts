@@ -20,7 +20,7 @@ const translations: Translations = {
     title:
       'El <important>Fútbol</important> <important>Femenil</important> solo necesita una comunidad dispuesta <important>a TODO</important>',
     subtitle:
-      '<b>OLAFUT</b> es el <tag>HUB</tag> del futbol femenil: el corazón que une gradas, canchas, micrófonos y mentes creativas.',
+      '<b>OLAFUT</b> es el <tag>HUB</tag> del fútbol femenil: el corazón que une gradas, canchas, micrófonos y mentes creativas.',
     trustBadges: {
       activeCommunity: 'Comunidad activa',
       weeklyPodcast: 'Podcast semanal',
@@ -171,7 +171,7 @@ const translations: Translations = {
   },
   Footer: {
     description:
-      'OLAFUT es el HUB del futbol femenil: el corazón que une gradas, canchas, micrófonos y mentes creativas.',
+      'OLAFUT es el HUB del fútbol femenil: el corazón que une gradas, canchas, micrófonos y mentes creativas.',
     navigation: {
       title: 'Navega',
     },
