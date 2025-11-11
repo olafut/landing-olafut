@@ -108,7 +108,7 @@ export const HeroSection = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.3, ease: 'easeOut' }}
           >
-            <div className="relative aspect-3/4 md:aspect-8/7 rounded-xl overflow-hidden shadow-2xl max-w-2xl mx-auto">
+            <div className="relative aspect-3/4 md:aspect-8/7 rounded-3xl overflow-hidden shadow-2xl max-w-2xl mx-auto">
               <motion.div
                 whileHover={{ scale: 1.03 }}
                 transition={{ duration: 0.6 }}
@@ -126,7 +126,7 @@ export const HeroSection = () => {
 
                 <div className="absolute inset-0 bg-linear-to-t from-foreground/20 via-transparent to-transparent" />
 
-                <div className="absolute inset-0 rounded-5xl ring-1 ring-primary-300/30" />
+                <div className="absolute inset-0 rounded-3xl ring-1 ring-primary-300/30" />
               </motion.div>
 
               <FloatingCard delay={1.5} className="absolute top-8 right-8">
