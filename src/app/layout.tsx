@@ -81,7 +81,6 @@ export default function RootLayout({ children }: Readonly<PropsWithChildren>) {
       className={`${textFont.variable} ${displayFont.variable} antialiased`}
       suppressHydrationWarning
     >
-      <GoogleAnalytics gaId="G-F06HDHE7DC" />
       <body className="bg-background text-foreground font-sans transition-colors duration-200 ease-linear">
         <NextIntlClientProvider locale="es">
           <ThemeProvider>
@@ -91,6 +90,7 @@ export default function RootLayout({ children }: Readonly<PropsWithChildren>) {
           </ThemeProvider>
         </NextIntlClientProvider>
       </body>
+      <GoogleAnalytics gaId="G-F06HDHE7DC" />
     </html>
   );
 }
