@@ -5,7 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { type FC, useEffect, useRef, useState } from 'react';
 import { twMerge } from 'tailwind-merge';
-import { ThemeToggle } from '@/components/ThemeToggle';
+// import { ThemeToggle } from '@/components/ThemeToggle';
 import { useTranslate } from '../hooks';
 import { NavLink } from './NavLink';
 import { MenuIcon } from './ui/MenuIcon';
