@@ -159,7 +159,7 @@ export const Footer = () => {
             </h3>
             <ul className="space-y-4">
               <li>
-                <a
+                <Link
                   href={`mailto:${tFooter('contact.email')}`}
                   className="text-sm text-background/70 hover:text-primary-400 transition-colors flex items-start gap-3 group w-fit"
                 >
@@ -170,7 +170,7 @@ export const Footer = () => {
                   <span className="text-secondary font-alt">
                     {tFooter('contact.email')}
                   </span>
-                </a>
+                </Link>
               </li>
               <li>
                 <div className="text-sm text-background/70 flex items-start gap-3 w-fit">
