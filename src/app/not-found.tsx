@@ -17,7 +17,6 @@ export const metadata: Metadata = {
 
 export default function NotFound() {
   const t = useTranslations('NotFound');
-  const tCta = useTranslations('Common.Cta');
 
   return (
     <div className="flex flex-col items-center justify-center gap-5 py-20 lg:py-28 px-10 text-center container mx-auto min-h-[70dvh]">
@@ -28,7 +27,7 @@ export default function NotFound() {
       <Link href="/" className="mt-10 w-full">
         <Button className="w-full mx-auto max-w-md" variant="primary">
           <FaHouse />
-          {tCta('backToHome')}
+          {t('btnText')}
         </Button>
       </Link>
     </div>

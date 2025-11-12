@@ -4,7 +4,7 @@ import { motion } from 'motion/react';
 import { FaHeart, FaTrophy, FaUsers } from 'react-icons/fa6';
 import { Paragraph, Title } from '@/components/ui';
 import { useTranslate } from '@/hooks';
-import copies from '@/messages/es';
+import copies from '@/messages/es/es';
 
 const VALUE_ICONS = [FaHeart, FaUsers, FaTrophy] as const;
 

@@ -11,7 +11,7 @@ import { NavLink } from './NavLink';
 import { MenuIcon } from './ui/MenuIcon';
 
 export const Header: FC = () => {
-  const { t } = useTranslate('Common.Navigation');
+  const { t } = useTranslate('Layout.Navigation');
   const ref = useRef<HTMLDivElement>(null);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);

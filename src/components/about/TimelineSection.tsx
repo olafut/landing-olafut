@@ -3,7 +3,7 @@
 import { motion } from 'motion/react';
 import { Paragraph } from '@/components/ui';
 import { useTranslate } from '@/hooks';
-import copies from '@/messages/es';
+import copies from '../../../messages/es.translations';
 
 export const TimelineSection = () => {
   const { t } = useTranslate('AboutUs.Timeline');

@@ -1,17 +1,15 @@
 'use client';
 
 import { motion } from 'motion/react';
-import { FaFutbol, FaMicrophone, FaStar, FaUsers } from 'react-icons/fa6';
+// import { FaFutbol, FaMicrophone, FaStar, FaUsers } from 'react-icons/fa6';
 import { Paragraph, Title } from '@/components/ui';
 import { useTranslate } from '@/hooks';
 
-import copies from '@/messages/es';
-
-const STAT_ICONS = [FaUsers, FaStar, FaMicrophone, FaFutbol] as const;
+// const STAT_ICONS = [FaUsers, FaStar, FaMicrophone, FaFutbol] as const;
 
 export const StatsSection = () => {
   const { t } = useTranslate('AboutUs.Stats');
-  const stats = Array.from(copies.AboutUs.Stats.items);
+  // const stats = Array.from(copies.AboutUs.Stats.items);
 
   return (
     <section className="py-20 md:py-28 bg-foreground text-background">
@@ -28,7 +26,7 @@ export const StatsSection = () => {
         </motion.div>
 
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 max-w-5xl mx-auto">
-          {stats.map((stat, index) => {
+          {/* {stats.map((stat, index) => {
             const Icon = STAT_ICONS[index];
             return (
               <motion.div
@@ -51,7 +49,7 @@ export const StatsSection = () => {
                 </div>
               </motion.div>
             );
-          })}
+          })} */}
         </div>
       </div>
     </section>

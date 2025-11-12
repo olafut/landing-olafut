@@ -3,15 +3,32 @@
 import { motion } from 'motion/react';
 import Image from 'next/image';
 import { FaArrowRight } from 'react-icons/fa6';
-import { useTranslate } from '../../hooks';
-import { CallToActionButton } from '../CallToActionButton';
-import { FloatingCard } from '../FloatingCard';
-import { TrustBadge } from '../TrustBadge';
-import { Subtitle, Title } from '../ui';
+import { Subtitle, Title } from '@/components//ui';
+import { CallToActionButton } from '@/components/CallToActionButton';
+import { FloatingCard } from '@/components/FloatingCard';
+import { TrustBadge } from '@/components/TrustBadge';
+import { useTranslate } from '@/hooks';
+
+const TRUST_BADGES = [
+  {
+    icon: '⚡',
+    labelKey: 'trustBadges.activeCommunity',
+    delay: 1.2,
+  },
+  {
+    icon: '🎙️',
+    labelKey: 'trustBadges.weeklyPodcast',
+    delay: 1.3,
+  },
+  {
+    icon: '⚽',
+    labelKey: 'trustBadges.everyoneCounts',
+    delay: 1.4,
+  },
+];
 
 export const HeroSection = () => {
-  const { t, rt } = useTranslate('Hero');
-  const { t: tCta } = useTranslate('Common.Cta');
+  const { t, rt } = useTranslate('Home.Hero');
 
   return (
     <section className="relative min-h-175 lg:min-h-[min(850px,calc(100dvh-4.5rem))] overflow-hidden flex items-center">
@@ -73,7 +90,7 @@ export const HeroSection = () => {
               className="pt-4 flex justify-center xl:justify-start max-w-md mx-auto xl:mx-0"
             >
               <CallToActionButton>
-                {tCta('bePartOfChange')}
+                {t('ctaText')}
                 <FaArrowRight className="group-hover:translate-x-1 transition-transform" />
               </CallToActionButton>
             </motion.div>
@@ -84,21 +101,14 @@ export const HeroSection = () => {
               transition={{ delay: 1.1, duration: 0.6 }}
               className="flex flex-wrap justify-center xl:justify-start gap-6 pt-8 border-t-2 border-secondary"
             >
-              <TrustBadge
-                icon="⚡"
-                label={t('trustBadges.activeCommunity')}
-                delay={1.2}
-              />
-              <TrustBadge
-                icon="🎙️"
-                label={t('trustBadges.weeklyPodcast')}
-                delay={1.3}
-              />
-              <TrustBadge
-                icon="⚽"
-                label={t('trustBadges.everyoneCounts')}
-                delay={1.4}
-              />
+              {TRUST_BADGES.map((badge) => (
+                <TrustBadge
+                  key={badge.labelKey}
+                  icon={badge.icon}
+                  label={t(badge.labelKey)}
+                  delay={badge.delay}
+                />
+              ))}
             </motion.div>
           </motion.div>
 

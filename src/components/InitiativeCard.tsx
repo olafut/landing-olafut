@@ -27,7 +27,7 @@ export const InitiativeCard: FC<InitiativeCardProps> = ({
   rtl = false,
   icon: Icon,
 }) => {
-  const { t } = useTranslate('Features');
+  const { t } = useTranslate('Home.Initiatives');
 
   return (
     <article
@@ -72,13 +72,6 @@ export const InitiativeCard: FC<InitiativeCardProps> = ({
           }}
         />
       )} */}
-
-      {/* <div className="flex flex-col items-center gap-2 bg-white/90 backdrop-blur-sm px-8 py-4 rounded-2xl shadow-xl border border-accent-500/20">
-          <span className="flex items-center gap-2 text-accent-600 font-bold text-base uppercase tracking-wider">
-            <span className="w-2 h-2 bg-accent-500 rounded-full animate-pulse" />
-            {t('comingSoon')}
-          </span>
-        </div> */}
 
       <div
         className={twMerge(

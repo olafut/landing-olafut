@@ -1,4 +1,4 @@
-type Item = {
+type InitiativeItem = {
   title: string;
   description: string[];
 };
@@ -19,53 +19,78 @@ type Stat = {
   label: string;
 };
 
-type WhyOlafutFeatures = {
+type CtaType = {
+  ctaText: string;
+};
+
+type NavigationType = {
+  home: string;
+  about: string;
+  blog: string;
+};
+
+type FooterItemType = {
+  title: string;
+};
+
+type ContactItemType = FooterItemType & {
+  email: string;
+  location: string;
+};
+
+type FooterType = {
+  description: string;
+  navigation: FooterItemType;
+  social: FooterItemType;
+  contact: ContactItemType;
+  copyright: string;
+  logoAlt: string;
+  logoAriaLabel: string;
+};
+
+type HeroType = CtaType & {
+  badge: string;
+  title: string;
+  subtitle: string;
+  trustBadges: {
+    activeCommunity: string;
+    weeklyPodcast: string;
+    everyoneCounts: string;
+  };
+  floatingCard: {
+    title: string;
+    subtitle: string;
+  };
+  buildingHistory: string;
+};
+
+type WhyOlafutFeaturesType = {
   needsMoreThanPromises: string;
   imagineAPlace: string;
   womenAreTheProtagonists: string;
   passionAndPurpose: string;
 };
 
-type WhyOlafutType = {
+type WhyOlafutType = CtaType & {
   title: string;
-  features: WhyOlafutFeatures;
+  features: WhyOlafutFeaturesType;
+};
+
+type InitiativesType = CtaType & {
+  title: string;
+  items: Record<string, InitiativeItem>;
+  comingSoon: string;
 };
 
 export type Translations = {
-  Common: {
-    Navigation: {
-      home: string;
-      about: string;
-      blog: string;
-    };
-    Cta: {
-      join: string;
-      joinTheCommunity: string;
-      backToHome: string;
-      bePartOfChange: string;
-      dontMissOut: string;
-    };
+  Layout: {
+    Navigation: NavigationType;
+    Footer: FooterType;
   };
-  Hero: {
-    badge: string;
-    title: string;
-    subtitle: string;
-    trustBadges: {
-      activeCommunity: string;
-      weeklyPodcast: string;
-      everyoneCounts: string;
-    };
-    floatingCard: {
-      title: string;
-      subtitle: string;
-    };
-    buildingHistory: string;
-  };
-  WhyOlafut: WhyOlafutType;
-  Features: {
-    title: string;
-    items: Record<string, Item>;
-    comingSoon: string;
+  Home: {
+    Hero: HeroType;
+    WhyOlafut: WhyOlafutType;
+    Initiatives: InitiativesType;
   };
   AboutUs: {
     Hero: {
@@ -109,22 +134,6 @@ export type Translations = {
     error: string;
     title: string;
     description: string;
-  };
-  Footer: {
-    description: string;
-    navigation: {
-      title: string;
-    };
-    social: {
-      title: string;
-    };
-    contact: {
-      title: string;
-      email: string;
-      location: string;
-    };
-    copyright: string;
-    logoAlt: string;
-    logoAriaLabel: string;
+    btnText: string;
   };
 };
