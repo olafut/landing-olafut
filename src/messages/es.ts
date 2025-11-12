@@ -59,8 +59,8 @@ const translations: Translations = {
       'OLA-GAMES': {
         title: 'OLA-GAMES',
         description: [
-          'Torneos y eventos con formatos innovadores.',
-          '5x5 , 7x7, retos de habilidad que den la puntuación final del resultado.',
+          'Torneos y eventos con formatos innovadores que te sorprenderán.',
+          '¡No solamente es ganar dentro de la cancha!',
         ],
       },
       'OLA-MIND': {

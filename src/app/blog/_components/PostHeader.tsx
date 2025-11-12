@@ -4,9 +4,9 @@ import type { FC } from 'react';
 import { useTranslate } from '@/app/hooks/useTranslate';
 import type { Post } from '@/interfaces/post';
 import { getReadingTime } from '@/utils';
-import { DateFormatter } from '../DateFormatter';
 import { Avatar } from './Avatar';
 import { CoverImage } from './CoverImage';
+import { DateFormatter } from './DateFormatter';
 import { PostTitle } from './PostTitle';
 
 interface PostHeaderProps {

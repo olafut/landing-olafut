@@ -1,6 +1,7 @@
 export * from './Avatar';
 export * from './BlogHeader';
 export * from './CoverImage';
+export * from './DateFormatter';
 export * from './HeroPost';
 export * from './MoreStories';
 export * from './PostBody';

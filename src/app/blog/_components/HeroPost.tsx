@@ -2,13 +2,13 @@
 
 import Link from 'next/link';
 import type { FC } from 'react';
+import { Paragraph, Title } from '@/app/_components/ui';
 import { useTranslate } from '@/app/hooks/useTranslate';
 import type { Post } from '@/interfaces/post';
 import { getReadingTime } from '@/utils';
-import { DateFormatter } from '../DateFormatter';
-import { Paragraph, Title } from '../ui';
 import { Avatar } from './Avatar';
 import { CoverImage } from './CoverImage';
+import { DateFormatter } from './DateFormatter';
 
 interface HeroPostProps {
   post: Post;
