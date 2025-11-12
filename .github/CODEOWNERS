@@ -1,0 +1,10 @@
+# CODEOWNERS file
+# Estos usuarios deben aprobar cualquier cambio en el repositorio
+
+# Todos los archivos requieren aprobación de olafut o dorixdev
+* @olafut @dorixdev
+
+# Archivos críticos que siempre requieren revisión
+/.github/ @olafut @dorixdev
+/package.json @olafut @dorixdev
+/pnpm-lock.yaml @olafut @dorixdev
