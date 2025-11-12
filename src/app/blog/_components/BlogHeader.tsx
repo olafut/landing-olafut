@@ -1,8 +1,8 @@
 'use client';
 
 import type { FC } from 'react';
+import { Paragraph, Title } from '@/app/_components/ui';
 import { useTranslate } from '@/app/hooks/useTranslate';
-import { Paragraph, Title } from '../ui';
 
 interface BlogHeaderProps {
   postsCount: number;

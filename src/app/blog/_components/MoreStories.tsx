@@ -1,9 +1,9 @@
 'use client';
 
 import type { FC } from 'react';
+import { Title } from '@/app/_components/ui';
 import { useTranslate } from '@/app/hooks/useTranslate';
 import type { Post } from '@/interfaces/post';
-import { Title } from '../ui';
 import { PostPreview } from './PostPreview';
 
 type MoreStoriesProps = {
