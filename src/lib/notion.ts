@@ -37,6 +37,11 @@ export function getPostsFromCache(): Post[] {
       const cache = fs.readFileSync(cachePath, 'utf-8');
       const posts: Post[] = JSON.parse(cache);
       return posts;
+      // NOTE: For testing purposes to simulate a larger number of posts
+      // return posts.concat(posts, posts, posts).map((post, index) => ({
+      //   ...post,
+      //   slug: `${post.slug}-${index}`, // Ensure unique slugs
+      // }));
     } catch (error) {
       console.error('Error reading posts cache:', error);
       return [];
@@ -93,9 +98,7 @@ export async function getPostFromNotion(pageId: string): Promise<Post | null> {
 
     // Get and download cover image
     const imageUrl = properties['Featured Image'].files?.[0]?.file.url;
-    const extension = imageUrl
-      ? imageUrl.split('.').pop().split('?')[0]
-      : 'jpg';
+    const extension = 'webp';
 
     if (imageUrl) {
       downloadImage(
@@ -107,6 +110,7 @@ export async function getPostFromNotion(pageId: string): Promise<Post | null> {
           'blog',
           `${slug}.${extension}`,
         ),
+        { createSmallVersion: true },
       )
         .then((message) => console.log(message))
         .catch((error) => console.error('Error downloading image:', error));

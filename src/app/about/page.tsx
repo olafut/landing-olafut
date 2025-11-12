@@ -5,11 +5,11 @@ import {
   // StatsSection,
   // TimelineSection,
   // ValuesSection,
-} from './_components';
+} from '@/components/about';
 
 export default function AboutPage() {
   return (
-    <main className="bg-background overflow-hidden">
+    <main>
       <HeroSection />
       <MissionSection />
       {/* <ValuesSection /> */}

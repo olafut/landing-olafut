@@ -1,11 +1,13 @@
+import { GoogleAnalytics } from '@next/third-parties/google';
 import './globals.css';
 import type { Metadata } from 'next';
 import { Inter, Raleway } from 'next/font/google';
 import { NextIntlClientProvider } from 'next-intl';
 import type { PropsWithChildren } from 'react';
+import { Footer } from '@/components/Footer';
+import { Header } from '@/components/Header';
+import { ThemeProvider } from '@/components/providers/ThemeProvider';
 import { BASE_METADATA } from '@/constants/base-metadata';
-import { Footer } from './_components/Footer';
-import { Header } from './_components/Header';
 
 const displayFont = Inter({
   variable: '--font-display',
@@ -76,15 +78,19 @@ export default function RootLayout({ children }: Readonly<PropsWithChildren>) {
   return (
     <html
       lang="es"
-      className={`${textFont.variable}  ${displayFont.variable} antialiased`}
+      className={`${textFont.variable} ${displayFont.variable} antialiased`}
+      suppressHydrationWarning
     >
-      <body className="bg-background text-foreground font-sans transition-colors duration-500">
+      <body className="bg-background text-foreground font-sans transition-colors duration-200 ease-linear">
         <NextIntlClientProvider locale="es">
-          <Header />
-          {children}
-          <Footer />
+          <ThemeProvider>
+            <Header />
+            {children}
+            <Footer />
+          </ThemeProvider>
         </NextIntlClientProvider>
       </body>
+      <GoogleAnalytics gaId="G-F06HDHE7DC" />
     </html>
   );
 }

@@ -1,8 +1,17 @@
 @import "tailwindcss";
 
-:root {
-  --foreground: #111018;
-  --background: #f7f7f7;
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --foreground: #111018;
+    --background: #f7f7f7;
+  }
+
+  .dark {
+    --foreground: #f7f7f7;
+    --background: #111018;
+  }
 }
 
 @theme inline {
@@ -26,18 +35,13 @@
   --color-accent-800: #3c1a50;
   --color-accent-900: #1e0d28;
   --color-secondary: #dfdfdf;
-  --color-muted-foreground: #111018ee;
+  --color-muted-foreground: calc(var(--foreground) / 0.7);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-display);
   --font-alt: var(--font-text);
   --radius-5xl: 2.5rem;
   --animate-infinite-scroll: infinite-scroll 35s linear infinite;
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
 }
 
 @keyframes infinite-scroll {

@@ -1,17 +1,19 @@
 import Image from 'next/image';
 import type { RichTagsFunction } from 'next-intl';
 import type { ReactNode } from 'react';
-import { Strong } from '@/app/_components/ui';
-import { Description } from '@/app/_components/ui/Description';
-import { Hub } from '@/app/_components/ui/Hub';
-import { Important } from '@/app/_components/ui/Important';
+import { Strong } from '@/components/ui';
+import { Description } from '@/components/ui/Description';
+import { Hub } from '@/components/ui/Hub';
+import { Important } from '@/components/ui/Important';
 
 export const chunkFormatter: Record<
   string,
   string | number | Date | RichTagsFunction
 > = {
   important: (chunks: ReactNode) => <Important>{chunks}</Important>,
-  b: (chunks: ReactNode) => <Strong>{chunks}</Strong>,
+  b: (chunks: ReactNode) => (
+    <strong className="font-black text-foreground">{chunks}</strong>
+  ),
   strong: (chunks: ReactNode) => <Strong>{chunks}</Strong>,
   tag: (chunks: ReactNode) => <Hub>{chunks}</Hub>,
   description: (chunks: ReactNode) => <Description>{chunks}</Description>,
@@ -24,5 +26,8 @@ export const chunkFormatter: Record<
         className="absolute"
       />
     </div>
+  ),
+  small: (chunks: ReactNode) => (
+    <span className="text-xs italic">{chunks}</span>
   ),
 };

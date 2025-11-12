@@ -1,9 +1,11 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { PostBody } from '@/app/_components/blog/PostBody';
-import { PostContainer } from '@/app/_components/blog/PostContainer';
-import { PostHeader } from '@/app/_components/blog/PostHeader';
-import { ShareButtons } from '@/app/_components/blog/ShareButtons';
+import {
+  PostBody,
+  PostContainer,
+  PostHeader,
+  ShareButtons,
+} from '@/components/blog';
 import { BASE_METADATA } from '@/constants/base-metadata';
 import markdownToHtml from '@/lib/markdownToHtml';
 import { getPost, getPostsFromCache } from '@/lib/notion';
@@ -60,6 +62,9 @@ export async function generateMetadata(props: Params): Promise<Metadata> {
 
   const title = `${post.title} | Blog Olafut`;
   const url = `https://olafut.com/blog/${post.slug}`;
+  const imageUrl = post.coverImage ? post.coverImage : undefined;
+
+  const smallImageUrl = imageUrl?.replace('.webp', '-small.webp');
 
   // Combine tags with base keywords
   const keywords = [
@@ -84,9 +89,15 @@ export async function generateMetadata(props: Params): Promise<Metadata> {
       siteName: 'Olafut',
       images: [
         {
-          url: post.coverImage || '/assets/hero.webp',
+          url: imageUrl || '/assets/hero.webp',
           width: 1200,
           height: 630,
+          alt: post.title,
+        },
+        {
+          url: smallImageUrl || '/assets/hero.webp',
+          width: 600,
+          height: 315,
           alt: post.title,
         },
       ],
@@ -102,9 +113,15 @@ export async function generateMetadata(props: Params): Promise<Metadata> {
       description: post.summary,
       images: [
         {
-          url: post.coverImage || '/assets/hero.webp',
+          url: imageUrl || '/assets/hero.webp',
           width: 1200,
           height: 628,
+          alt: post.title,
+        },
+        {
+          url: smallImageUrl || '/assets/hero.webp',
+          width: 600,
+          height: 314,
           alt: post.title,
         },
       ],

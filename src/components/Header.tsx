@@ -1,0 +1,183 @@
+'use client';
+
+import { AnimatePresence, motion } from 'motion/react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { type FC, useEffect, useRef, useState } from 'react';
+import { twMerge } from 'tailwind-merge';
+// import { ThemeToggle } from '@/components/ThemeToggle';
+import { useTranslate } from '../hooks';
+import { NavLink } from './NavLink';
+import { MenuIcon } from './ui/MenuIcon';
+
+export const Header: FC = () => {
+  const { t } = useTranslate('Layout.Navigation');
+  const ref = useRef<HTMLDivElement>(null);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const handleCloseMenu = () => {
+    setIsMenuOpen(false);
+  };
+
+  useEffect(() => {
+    if (!ref.current) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => setIsScrolled(!entry.isIntersecting),
+      { root: null, threshold: 0 },
+    );
+    observer.observe(ref.current);
+    return () => {
+      observer.disconnect();
+      setIsScrolled(false);
+    };
+  }, []);
+
+  return (
+    <>
+      <header className="sticky top-5 z-50 h-18 container mx-auto font-alt px-4 md:px-0 bg-transparent">
+        <div
+          className={twMerge(
+            'flex flex-col rounded-xl px-4 transition-all duration-300 border border-transparent h-18 gap-4',
+            isMenuOpen && 'h-[calc(100dvh-2rem)] md:h-full',
+            (isScrolled || isMenuOpen) &&
+              'bg-background/90 backdrop-blur-md border-neutral-300 dark:border-neutral-700',
+            'md:hover:bg-background/90 md:hover:backdrop-blur-md md:hover:border-neutral-300',
+            'dark:md:hover:bg-background/90 dark:md:hover:backdrop-blur-md dark:md:hover:border-neutral-600',
+          )}
+        >
+          <div className="flex">
+            <Link
+              href="/"
+              onClick={handleCloseMenu}
+              className="flex h-10 items-center justify-center m-auto"
+            >
+              <h1
+                className="font-bold text-left flex items-center h-full w-full overflow-hidden"
+                title="Olafut"
+              >
+                <AnimatePresence mode="wait" initial={false}>
+                  {isScrolled ? (
+                    <motion.div
+                      key="collapsed"
+                      className="relative h-full aspect-square"
+                      initial={{
+                        left: -72,
+                        opacity: 0.5,
+                        clipPath: 'inset(0 0 0 70%)',
+                      }}
+                      animate={{
+                        left: 0,
+                        opacity: 1,
+                        clipPath: 'inset(0 0 0 0%)',
+                      }}
+                      exit={{
+                        left: -72,
+                        opacity: 0.5,
+                        clipPath: 'inset(0 0 0 70%)',
+                      }}
+                      transition={{
+                        duration: 0.3,
+                        ease: [0.4, 0, 0.2, 1],
+                      }}
+                    >
+                      <Image
+                        src="/assets/olafut_square.svg"
+                        alt="Olafut"
+                        width={72}
+                        height={72}
+                        priority
+                        loading="eager"
+                        decoding="sync"
+                      />
+                    </motion.div>
+                  ) : (
+                    <motion.div
+                      key="expanded"
+                      className="relative"
+                      initial={{
+                        opacity: 0.5,
+                        left: -220,
+                        clipPath: 'inset(0 0 0 70%)',
+                      }}
+                      animate={{
+                        opacity: 1,
+                        left: 0,
+                        clipPath: 'inset(0 0 0 0%)',
+                      }}
+                      exit={{
+                        opacity: 0.5,
+                        left: -220,
+                        clipPath: 'inset(0 0 0 70%)',
+                      }}
+                      transition={{
+                        duration: 0.3,
+                        ease: [0.4, 0, 0.2, 1],
+                      }}
+                    >
+                      <Image
+                        src="/assets/olafut.svg"
+                        alt="Olafut Logo"
+                        width={220}
+                        height={72}
+                        priority
+                        loading="eager"
+                        decoding="sync"
+                        className="border block dark:hidden"
+                      />
+                      <Image
+                        src="/assets/olafut_white.svg"
+                        alt="Olafut Logo"
+                        width={220}
+                        height={72}
+                        priority
+                        loading="eager"
+                        decoding="sync"
+                        className="border hidden dark:block"
+                      />
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </h1>
+            </Link>
+
+            <ul className="flex mx-auto w-full h-18 justify-end items-center gap-2">
+              <MenuIcon
+                isOpen={isMenuOpen}
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+              />
+              <NavLink className="hidden md:flex" href="/about">
+                {t('about')}
+              </NavLink>
+              <NavLink className="hidden md:flex" href="/blog">
+                {t('blog')}
+              </NavLink>
+              {/* <li className="flex items-center h-full">
+                <ThemeToggle />
+              </li> */}
+            </ul>
+          </div>
+
+          <ul className="h-full overflow-hidden">
+            <NavLink
+              className="w-full h-20"
+              href="/about"
+              onClick={handleCloseMenu}
+            >
+              {t('about')}
+            </NavLink>
+            <NavLink
+              className="w-full h-20"
+              href="/blog"
+              onClick={handleCloseMenu}
+            >
+              {t('blog')}
+            </NavLink>
+          </ul>
+        </div>
+      </header>
+
+      <div ref={ref} className="w-full" />
+    </>
+  );
+};
