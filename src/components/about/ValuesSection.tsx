@@ -1,16 +1,17 @@
 'use client';
 
 import { motion } from 'motion/react';
-// import { FaHeart, FaTrophy, FaUsers } from 'react-icons/fa6';
+import { FaHeart, FaTrophy, FaUsers } from 'react-icons/fa6';
 import { Paragraph, Title } from '@/components/ui';
 import { useTranslate } from '@/hooks';
-// import copies from '@/messages/es/es';
+import type { Value } from '../../../messages/types';
 
-// const VALUE_ICONS = [FaHeart, FaUsers, FaTrophy] as const;
+const VALUE_ICONS = [FaHeart, FaUsers, FaTrophy] as const;
 
 export const ValuesSection = () => {
-  const { t } = useTranslate('AboutUs.Values');
-  // const values = Array.from(copies.AboutUs.Values.items);
+  const { t, getObject } = useTranslate('AboutUs.Values');
+  const valuesItems = getObject<Value>('items');
+  const values = Object.values(valuesItems);
 
   return (
     <section className="py-20 md:py-28 bg-foreground/5">
@@ -31,8 +32,8 @@ export const ValuesSection = () => {
         </motion.div>
 
         <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-          {/* {values.map((value, index) => {
-            const Icon = VALUE_ICONS[index];
+          {values.map((value, index) => {
+            const Icon = VALUE_ICONS[index % VALUE_ICONS.length];
             return (
               <motion.div
                 key={value.title}
@@ -53,7 +54,7 @@ export const ValuesSection = () => {
                 </Paragraph>
               </motion.div>
             );
-          })} */}
+          })}
         </div>
       </div>
     </section>

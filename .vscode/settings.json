@@ -25,5 +25,6 @@
   },
   "cSpell.language": "es,en",
   "cSpell.words": ["geist", "Olafut"],
-  "material-icon-theme.activeIconPack": "react"
+  "material-icon-theme.activeIconPack": "react",
+  "exportall.config.folderListener": ["/messages/es"]
 }

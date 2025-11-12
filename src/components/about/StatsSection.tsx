@@ -1,15 +1,17 @@
 'use client';
 
 import { motion } from 'motion/react';
-// import { FaFutbol, FaMicrophone, FaStar, FaUsers } from 'react-icons/fa6';
+import { FaFutbol, FaMicrophone, FaStar, FaUsers } from 'react-icons/fa6';
 import { Paragraph, Title } from '@/components/ui';
 import { useTranslate } from '@/hooks';
+import type { Stat } from '../../../messages/types';
 
-// const STAT_ICONS = [FaUsers, FaStar, FaMicrophone, FaFutbol] as const;
+const STAT_ICONS = [FaUsers, FaStar, FaMicrophone, FaFutbol] as const;
 
 export const StatsSection = () => {
-  const { t } = useTranslate('AboutUs.Stats');
-  // const stats = Array.from(copies.AboutUs.Stats.items);
+  const { t, getObject } = useTranslate('AboutUs.Stats');
+  const statsItems = getObject<Stat>('items');
+  const stats = Object.values(statsItems);
 
   return (
     <section className="py-20 md:py-28 bg-foreground text-background">
@@ -26,8 +28,8 @@ export const StatsSection = () => {
         </motion.div>
 
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 max-w-5xl mx-auto">
-          {/* {stats.map((stat, index) => {
-            const Icon = STAT_ICONS[index];
+          {stats.map((stat, index) => {
+            const Icon = STAT_ICONS[index % STAT_ICONS.length];
             return (
               <motion.div
                 key={stat.label}
@@ -49,7 +51,7 @@ export const StatsSection = () => {
                 </div>
               </motion.div>
             );
-          })} */}
+          })}
         </div>
       </div>
     </section>

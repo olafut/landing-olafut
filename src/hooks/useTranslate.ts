@@ -20,8 +20,24 @@ export const useTranslate = (namespace?: string) => {
     return t.rich(key, { ...values, ...chunkFormatter });
   };
 
+  /**
+   * Obtiene un objeto completo de traducciones (útil para items dinámicos)
+   * @example
+   * const items = getObject('items'); // Retorna { followers: {...}, initiatives: {...} }
+   */
+  const getObject = <T = unknown>(key: string): Record<string, T> => {
+    if (!key) return {};
+    if (!t.has(key)) return {};
+    const rawValue = t.raw(key);
+    return typeof rawValue === 'object' && rawValue !== null
+      ? (rawValue as Record<string, T>)
+      : {};
+  };
+
   return {
     t: translate,
     rt: richTranslate,
+    getObject,
+    raw: t.raw, // Exponer raw para casos avanzados
   };
 };

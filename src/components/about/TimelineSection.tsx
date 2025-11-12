@@ -3,11 +3,12 @@
 import { motion } from 'motion/react';
 import { Paragraph } from '@/components/ui';
 import { useTranslate } from '@/hooks';
-import copies from '../../../messages/es.translations';
+import type { TimelineItem } from '../../../messages/types';
 
 export const TimelineSection = () => {
-  const { t } = useTranslate('AboutUs.Timeline');
-  const timeline = Array.from(copies.AboutUs.Timeline.items);
+  const { t, getObject } = useTranslate('AboutUs.Timeline');
+  const timelineItems = getObject<TimelineItem>('items');
+  const timeline = Object.values(timelineItems);
 
   return (
     <section className="py-20 md:py-28">
