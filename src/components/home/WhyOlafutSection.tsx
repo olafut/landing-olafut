@@ -7,9 +7,9 @@ import { FeaturedCard } from '../FeaturedCard';
 import { Paragraph, Title } from '../ui';
 
 const FEATURES = [
-  { id: 'trophy', icon: FaTrophy, textKey: 'paragraphs.0' },
-  { id: 'handshake', icon: FaHandshake, textKey: 'paragraphs.1' },
-  { id: 'star', icon: FaStar, textKey: 'paragraphs.2' },
+  { id: 'trophy', icon: FaTrophy, textKey: 'features.needsMoreThanPromises' },
+  { id: 'handshake', icon: FaHandshake, textKey: 'features.imagineAPlace' },
+  { id: 'star', icon: FaStar, textKey: 'features.womenAreTheProtagonists' },
 ] as const;
 
 export const WhyOlafutSection = () => {
@@ -45,7 +45,7 @@ export const WhyOlafutSection = () => {
 
         <div className="p-6 md:p-8 bg-linear-to-r from-foreground dark:from-neutral-800 via-secondary/5 to-foreground dark:to-neutral-800 rounded-2xl border border-background/10 lg:border-none">
           <Paragraph className="text-lg! md:text-xl! font-medium text-center leading-relaxed max-w-3xl mx-auto">
-            {rt('paragraphs.3')}
+            {rt('features.passionAndPurpose')}
           </Paragraph>
         </div>
 

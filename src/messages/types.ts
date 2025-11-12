@@ -19,6 +19,18 @@ type Stat = {
   label: string;
 };
 
+type WhyOlafutFeatures = {
+  needsMoreThanPromises: string;
+  imagineAPlace: string;
+  womenAreTheProtagonists: string;
+  passionAndPurpose: string;
+};
+
+type WhyOlafutType = {
+  title: string;
+  features: WhyOlafutFeatures;
+};
+
 export type Translations = {
   Common: {
     Navigation: {
@@ -49,10 +61,7 @@ export type Translations = {
     };
     buildingHistory: string;
   };
-  WhyOlafut: {
-    title: string;
-    paragraphs: string[];
-  };
+  WhyOlafut: WhyOlafutType;
   Features: {
     title: string;
     items: Record<string, Item>;

@@ -1,4 +1,5 @@
-import type { Translations } from './translations';
+import type { Translations } from './types';
+import { WhyOlafut } from './whyOlafut';
 
 const translations: Translations = {
   Common: {
@@ -32,15 +33,7 @@ const translations: Translations = {
     },
     buildingHistory: '💜 Construyendo historia juntas',
   },
-  WhyOlafut: {
-    title: '¿Por qué nace <logo>OLAFUT</logo>?',
-    paragraphs: [
-      'El Futbol Femenil necesita más que promesas.',
-      'Imagina un lugar donde el fútbol femenil no compite, sino que colabora.',
-      'Queremos un espacio donde las mujeres sean las protagonistas.',
-      '¡Unamos a todas las que viven el fútbol con <strong>PASIÓN Y PROPÓSITO!</strong>',
-    ],
-  },
+  WhyOlafut,
   Features: {
     title: '¿Cómo vamos a construir el CAMINO?',
     items: {
