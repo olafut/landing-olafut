@@ -2,8 +2,8 @@
 
 import { motion } from 'motion/react';
 import { FaHeart, FaTrophy, FaUsers } from 'react-icons/fa6';
-import { Paragraph, Title } from '@/app/_components/ui';
-import { useTranslate } from '@/app/hooks';
+import { Paragraph, Title } from '@/components/ui';
+import { useTranslate } from '@/hooks';
 import copies from '@/messages/es';
 
 const VALUE_ICONS = [FaHeart, FaUsers, FaTrophy] as const;

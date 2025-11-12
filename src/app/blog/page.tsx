@@ -1,10 +1,10 @@
-import { getPostsFromCache } from '@/lib/notion';
 import {
   BlogHeader,
   HeroPost,
   MoreStories,
   PostContainer,
-} from './_components';
+} from '@/components/blog';
+import { getPostsFromCache } from '@/lib/notion';
 
 export default function Blog() {
   const posts = getPostsFromCache();

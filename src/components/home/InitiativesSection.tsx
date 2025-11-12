@@ -10,10 +10,10 @@ import {
   FaTrophy,
 } from 'react-icons/fa6';
 import type { Initiative } from '@/interfaces';
-import { useTranslate } from '../hooks';
-import { CallToActionButton } from './CallToActionButton';
-import { InitiativeCard } from './InitiativeCard';
-import { Title } from './ui';
+import { useTranslate } from '../../hooks';
+import { CallToActionButton } from '../CallToActionButton';
+import { InitiativeCard } from '../InitiativeCard';
+import { Title } from '../ui';
 
 const INITIATIVES: Initiative[] = [
   {

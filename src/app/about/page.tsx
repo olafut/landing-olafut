@@ -5,7 +5,7 @@ import {
   // StatsSection,
   // TimelineSection,
   // ValuesSection,
-} from './_components';
+} from '@/components/about';
 
 export default function AboutPage() {
   return (

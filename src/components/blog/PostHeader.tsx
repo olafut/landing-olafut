@@ -1,7 +1,7 @@
 'use client';
 
 import type { FC } from 'react';
-import { useTranslate } from '@/app/hooks/useTranslate';
+import { useTranslate } from '@/hooks';
 import type { Post } from '@/interfaces/post';
 import { getReadingTime } from '@/utils';
 import { Avatar } from './Avatar';

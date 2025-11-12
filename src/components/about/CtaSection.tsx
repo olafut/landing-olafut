@@ -1,8 +1,8 @@
 'use client';
 
 import { motion } from 'motion/react';
-import { CallToActionButton } from '@/app/_components/CallToActionButton';
-import { useTranslate } from '@/app/hooks';
+import { CallToActionButton } from '@/components/CallToActionButton';
+import { useTranslate } from '@/hooks';
 
 export const CtaSection = () => {
   const { t } = useTranslate('AboutUs.Cta');

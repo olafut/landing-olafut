@@ -3,11 +3,11 @@
 import { motion } from 'motion/react';
 import Image from 'next/image';
 import { FaArrowRight } from 'react-icons/fa6';
-import { useTranslate } from '../hooks';
-import { CallToActionButton } from './CallToActionButton';
-import { FloatingCard } from './FloatingCard';
-import { TrustBadge } from './TrustBadge';
-import { Subtitle, Title } from './ui';
+import { useTranslate } from '../../hooks';
+import { CallToActionButton } from '../CallToActionButton';
+import { FloatingCard } from '../FloatingCard';
+import { TrustBadge } from '../TrustBadge';
+import { Subtitle, Title } from '../ui';
 
 export const HeroSection = () => {
   const { t, rt } = useTranslate('Hero');

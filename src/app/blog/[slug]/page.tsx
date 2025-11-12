@@ -1,15 +1,14 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-
-import { BASE_METADATA } from '@/constants/base-metadata';
-import markdownToHtml from '@/lib/markdownToHtml';
-import { getPost, getPostsFromCache } from '@/lib/notion';
 import {
   PostBody,
   PostContainer,
   PostHeader,
   ShareButtons,
-} from '../_components';
+} from '@/components/blog';
+import { BASE_METADATA } from '@/constants/base-metadata';
+import markdownToHtml from '@/lib/markdownToHtml';
+import { getPost, getPostsFromCache } from '@/lib/notion';
 
 type Params = {
   params: Promise<{

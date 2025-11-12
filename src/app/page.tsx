@@ -1,6 +1,8 @@
-import { HeroSection } from './_components/HeroSection';
-import { InitiativesSection } from './_components/InitiativesSection';
-import { WhyOlafutSection } from './_components/WhyOlafutSection';
+import {
+  HeroSection,
+  InitiativesSection,
+  WhyOlafutSection,
+} from '@/components/home';
 
 export default function Home() {
   return (

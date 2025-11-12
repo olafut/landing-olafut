@@ -1,8 +1,8 @@
 'use client';
 
 import type { FC } from 'react';
-import { Title } from '@/app/_components/ui';
-import { useTranslate } from '@/app/hooks/useTranslate';
+import { Title } from '@/components/ui';
+import { useTranslate } from '@/hooks';
 import type { Post } from '@/interfaces/post';
 import { PostPreview } from './PostPreview';
 

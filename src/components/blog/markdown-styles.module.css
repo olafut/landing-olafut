@@ -1,4 +1,4 @@
-@reference "../../globals.css";
+@reference "../../app/globals.css";
 
 .markdown {
   @apply text-base leading-relaxed text-foreground;

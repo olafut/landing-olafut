@@ -2,8 +2,8 @@
 
 import { motion } from 'motion/react';
 import Image from 'next/image';
-import { Paragraph, Title } from '@/app/_components/ui';
-import { useTranslate } from '@/app/hooks';
+import { Paragraph, Title } from '@/components/ui';
+import { useTranslate } from '@/hooks';
 
 export const MissionSection = () => {
   const { t, rt } = useTranslate('AboutUs.Mission');

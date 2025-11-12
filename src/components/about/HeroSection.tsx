@@ -1,8 +1,8 @@
 'use client';
 
 import { motion } from 'motion/react';
-import { Subtitle, Title } from '@/app/_components/ui';
-import { useTranslate } from '@/app/hooks';
+import { Subtitle, Title } from '@/components/ui';
+import { useTranslate } from '@/hooks';
 
 export const HeroSection = () => {
   const { rt, t } = useTranslate('AboutUs.Hero');

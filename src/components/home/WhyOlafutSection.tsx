@@ -1,10 +1,10 @@
 'use client';
 
 import { FaArrowRight, FaHandshake, FaStar, FaTrophy } from 'react-icons/fa6';
-import { useTranslate } from '../hooks/useTranslate';
-import { CallToActionButton } from './CallToActionButton';
-import { FeaturedCard } from './FeaturedCard';
-import { Paragraph, Title } from './ui';
+import { useTranslate } from '@/hooks';
+import { CallToActionButton } from '../CallToActionButton';
+import { FeaturedCard } from '../FeaturedCard';
+import { Paragraph, Title } from '../ui';
 
 const FEATURES = [
   { id: 'trophy', icon: FaTrophy, textKey: 'paragraphs.0' },

@@ -1,10 +1,10 @@
 import Image from 'next/image';
 import type { RichTagsFunction } from 'next-intl';
 import type { ReactNode } from 'react';
-import { Strong } from '@/app/_components/ui';
-import { Description } from '@/app/_components/ui/Description';
-import { Hub } from '@/app/_components/ui/Hub';
-import { Important } from '@/app/_components/ui/Important';
+import { Strong } from '@/components/ui';
+import { Description } from '@/components/ui/Description';
+import { Hub } from '@/components/ui/Hub';
+import { Important } from '@/components/ui/Important';
 
 export const chunkFormatter: Record<
   string,

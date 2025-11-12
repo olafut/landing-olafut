@@ -1,8 +1,8 @@
 'use client';
 
 import { motion } from 'motion/react';
-import { Paragraph } from '@/app/_components/ui';
-import { useTranslate } from '@/app/hooks';
+import { Paragraph } from '@/components/ui';
+import { useTranslate } from '@/hooks';
 import copies from '@/messages/es';
 
 export const TimelineSection = () => {

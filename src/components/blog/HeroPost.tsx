@@ -2,8 +2,8 @@
 
 import Link from 'next/link';
 import type { FC } from 'react';
-import { Paragraph, Title } from '@/app/_components/ui';
-import { useTranslate } from '@/app/hooks/useTranslate';
+import { Paragraph, Title } from '@/components/ui';
+import { useTranslate } from '@/hooks';
 import type { Post } from '@/interfaces/post';
 import { getReadingTime } from '@/utils';
 import { Avatar } from './Avatar';
