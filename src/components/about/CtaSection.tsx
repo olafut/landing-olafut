@@ -6,7 +6,6 @@ import { useTranslate } from '@/hooks';
 
 export const CtaSection = () => {
   const { t } = useTranslate('AboutUs.Cta');
-  const { t: tCta } = useTranslate('Common.Cta');
 
   return (
     <section className="py-20 md:py-28 text-foreground">
@@ -21,7 +20,7 @@ export const CtaSection = () => {
           <h2 className="text-3xl md:text-4xl font-black">{t('title')}</h2>
           <p className="text-lg leading-relaxed font-alt">{t('description')}</p>
           <CallToActionButton variant="primary">
-            {tCta('joinTheCommunity')}
+            {t('btnText')}
           </CallToActionButton>
         </motion.div>
       </div>

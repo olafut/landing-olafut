@@ -23,12 +23,6 @@ type CtaType = {
   ctaText: string;
 };
 
-type NavigationType = {
-  home: string;
-  about: string;
-  blog: string;
-};
-
 type FooterItemType = {
   title: string;
 };
@@ -38,102 +32,103 @@ type ContactItemType = FooterItemType & {
   location: string;
 };
 
-type FooterType = {
-  description: string;
-  navigation: FooterItemType;
-  social: FooterItemType;
-  contact: ContactItemType;
-  copyright: string;
-  logoAlt: string;
-  logoAriaLabel: string;
-};
-
-type HeroType = CtaType & {
-  badge: string;
-  title: string;
-  subtitle: string;
-  trustBadges: {
-    activeCommunity: string;
-    weeklyPodcast: string;
-    everyoneCounts: string;
-  };
-  floatingCard: {
-    title: string;
-    subtitle: string;
-  };
-  buildingHistory: string;
-};
-
-type WhyOlafutFeaturesType = {
-  needsMoreThanPromises: string;
-  imagineAPlace: string;
-  womenAreTheProtagonists: string;
-  passionAndPurpose: string;
-};
-
-type WhyOlafutType = CtaType & {
-  title: string;
-  features: WhyOlafutFeaturesType;
-};
-
 type InitiativesType = CtaType & {
   title: string;
   items: Record<string, InitiativeItem>;
   comingSoon: string;
 };
 
-export type Translations = {
-  Layout: {
-    Navigation: NavigationType;
-    Footer: FooterType;
+type LayoutType = {
+  Navigation: {
+    home: string;
+    about: string;
+    blog: string;
   };
-  Home: {
-    Hero: HeroType;
-    WhyOlafut: WhyOlafutType;
-    Initiatives: InitiativesType;
-  };
-  AboutUs: {
-    Hero: {
-      title: string;
-      subtitle: string;
-    };
-    Mission: {
-      title: string;
-      paragraph1: string;
-      paragraph2: string;
-    };
-    Stats: {
-      title: string;
-      subtitle: string;
-      items: Stat[];
-    };
-    Timeline: {
-      title: string;
-      subtitle: string;
-      items: TimelineItem[];
-    };
-    Values: {
-      title: string;
-      subtitle: string;
-      items: Value[];
-    };
-    Cta: {
-      title: string;
-      description: string;
-    };
-  };
-  Blog: {
-    title: string;
+  Footer: {
     description: string;
-    publishedArticles: string;
-    readingTime: string;
-    readArticle: string;
-    moreStories: string;
+    navigation: FooterItemType;
+    social: FooterItemType;
+    contact: ContactItemType;
+    copyright: string;
+    logoAlt: string;
+    logoAriaLabel: string;
   };
-  NotFound: {
-    error: string;
+};
+
+type HomeType = {
+  Hero: CtaType & {
+    badge: string;
+    title: string;
+    subtitle: string;
+    trustBadges: {
+      activeCommunity: string;
+      weeklyPodcast: string;
+      everyoneCounts: string;
+    };
+    floatingCard: {
+      title: string;
+      subtitle: string;
+    };
+    buildingHistory: string;
+  };
+  WhyOlafut: CtaType & {
+    title: string;
+    features: {
+      needsMoreThanPromises: string;
+      imagineAPlace: string;
+      womenAreTheProtagonists: string;
+      passionAndPurpose: string;
+    };
+  };
+  Initiatives: InitiativesType;
+};
+
+type AboutUsItemType<T = unknown> = {
+  title: string;
+  subtitle: string;
+  items: T[];
+};
+
+type AboutUsType = {
+  Hero: {
+    title: string;
+    subtitle: string;
+  };
+  Mission: {
+    title: string;
+    paragraph1: string;
+    paragraph2: string;
+  };
+  Stats: AboutUsItemType<Stat>;
+  Timeline: AboutUsItemType<TimelineItem>;
+  Values: AboutUsItemType<Value>;
+  Cta: {
     title: string;
     description: string;
     btnText: string;
   };
+};
+
+type BlogType = {
+  title: string;
+  description: string;
+  publishedArticles: string;
+  readingTime: string;
+  readArticle: string;
+  moreStories: string;
+};
+
+type NotFoundType = {
+  error: string;
+  title: string;
+  description: string;
+  btnText: string;
+};
+
+export type Translations = {
+  Layout: LayoutType;
+  Home: HomeType;
+  AboutUs: AboutUsType;
+  Blog: BlogType;
+  NotFound: NotFoundType;
 };

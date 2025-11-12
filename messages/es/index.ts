@@ -1,3 +1,5 @@
-export * from './common';
+export * from './about';
+export * from './blog';
 export * from './home';
 export * from './layout';
+export * from './notFound';
