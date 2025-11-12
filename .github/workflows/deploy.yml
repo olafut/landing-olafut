@@ -4,14 +4,16 @@ on:
   pull_request:
     branches:
       - main
-    types: [opened, synchronize, reopened]
+    types: [opened, synchronize, reopened, closed]
 
 permissions:
   contents: write
   pull-requests: write
 
 jobs:
-  build-and-deploy:
+  # Job 1: Build y validación cuando se abre o actualiza un PR
+  build-and-validate:
+    if: github.event.action != 'closed'
     runs-on: ubuntu-latest
     environment: Production
 
@@ -47,7 +49,6 @@ jobs:
       - name: Install dependencies
         run: pnpm install --no-frozen-lockfile
 
-      # ✅ CONFIGURAR GIT UNA SOLA VEZ AQUÍ, ANTES DE TODO
       - name: Configure Git
         run: |
           git config --global user.name "github-actions[bot]"
@@ -65,11 +66,11 @@ jobs:
           git add public/assets/blog/
 
           if ! git diff --staged --quiet; then
-            git commit -m "chore: update trigger file and add downloaded images from Notion"
+            git commit -m "chore: add downloaded images from Notion"
             git push origin HEAD:${{ github.head_ref }}
             echo "✅ Imágenes descargadas commiteadas a la rama del PR"
           else
-            echo "ℹ️ No hay cambios nuevos"
+            echo "ℹ️ No hay cambios nuevos en imágenes"
           fi
 
       - name: Verify build output
@@ -78,8 +79,83 @@ jobs:
             echo "❌ Error: La carpeta 'out' no existe después del build"
             exit 1
           fi
-          echo "✅ Carpeta out verificada"
+          echo "✅ Build verificado correctamente"
+          echo "📦 Contenido de out:"
           ls -lah out
+
+      - name: Comment validation success on PR
+        if: success()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: '✅ **Build y validación completados exitosamente**\n\n📦 Las imágenes de Notion han sido descargadas y commiteadas\n🚀 El sitio está listo para desplegarse cuando se cierre el PR'
+            })
+
+  # Job 2: Deploy a la rama static SOLO cuando se cierra (merge) el PR
+  deploy-to-static:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    environment: Production
+
+    steps:
+      - name: Check if user is authorized to merge
+        run: |
+          AUTHORIZED_USERS=("olafut" "dorixdev")
+          MERGER="${{ github.event.pull_request.merged_by.login }}"
+
+          if [[ " ${AUTHORIZED_USERS[@]} " =~ " ${MERGER} " ]]; then
+            echo "✅ Usuario autorizado para merge: $MERGER"
+          else
+            echo "⚠️ Usuario que hizo merge: $MERGER"
+            echo "⚠️ Este workflow continuará, pero considera configurar branch protection rules"
+          fi
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: latest
+          run_install: false
+
+      - name: Setup pnpm cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.pnpm-store
+            **/node_modules
+          key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-
+
+      - name: Install dependencies
+        run: pnpm install --no-frozen-lockfile
+
+      - name: Configure Git
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git config --global init.defaultBranch main
+
+      - name: Build Next.js app for production
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+          NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}
+        run: pnpm build
 
       - name: Deploy to static branch
         run: |
@@ -91,7 +167,7 @@ jobs:
           WORK_DIR=$(mktemp -d)
           cd "$WORK_DIR"
 
-          # Inicializar repositorio (ya no necesita configurar git aquí)
+          # Inicializar repositorio
           git init
           git remote add origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
 
@@ -109,14 +185,14 @@ jobs:
 
           # Verificar y commitear si hay cambios
           if ! git diff --staged --quiet; then
-            git commit -m "Deploy from PR #${{ github.event.pull_request.number }} (${GITHUB_SHA::7})"
+            git commit -m "Deploy from PR #${{ github.event.pull_request.number }} - Merged by @${{ github.event.pull_request.merged_by.login }}"
             git push -f origin static
             echo "✅ Desplegado exitosamente a static"
           else
             echo "ℹ️ No hay cambios para desplegar"
           fi
 
-      - name: Comment deployment info on PR
+      - name: Comment deployment success
         if: success()
         uses: actions/github-script@v7
         with:
@@ -125,5 +201,5 @@ jobs:
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: '✅ **Build completado exitosamente**\n\n🚀 Los cambios están desplegados en la rama `static`\n📦 Las imágenes de Notion han sido descargadas y commiteadas a este PR'
+              body: '🚀 **Deploy completado exitosamente**\n\n✅ Los cambios han sido desplegados a la rama `static`\n🌐 El sitio en producción ha sido actualizado'
             })
