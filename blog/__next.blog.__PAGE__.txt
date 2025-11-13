@@ -1,0 +1,52 @@
+1:"$Sreact.fragment"
+2:I[27821,["/_next/static/chunks/62966b88a07b3176.js","/_next/static/chunks/7cac37a159cecdd2.js","/_next/static/chunks/eb8dd3f19baf4412.js"],"BlogHeader"]
+3:I[63683,["/_next/static/chunks/62966b88a07b3176.js","/_next/static/chunks/7cac37a159cecdd2.js","/_next/static/chunks/eb8dd3f19baf4412.js"],"HeroPost"]
+8:I[41050,["/_next/static/chunks/ec39348990c3a291.js","/_next/static/chunks/e612c3809afb78cf.js"],"OutletBoundary"]
+9:"$Sreact.suspense"
+:HL["/_next/static/chunks/112aea9686cc66d4.css","style"]
+4:T121e,
+¡Bienvenidas/os al primer post de nuestro blog. Si estás aquí, es porque compartes esa pasión por el fútbol y en especial el fútbol femenil, ese que late en cada jugada, en cada grito de la grada y en cada historia no contada. Pero hoy queremos ir más allá: el fútbol femenil no se trata solo de goles en la cancha. Es un universo en expansión que necesita más que palabras bonitas o promesas vacías. En México y en el mundo este deporte está rompiendo barreras, pero sigue enfrentando muchos desafíos reales que demandan acción concreta. Por eso nace OLAFUT: un **HUB integral** que une todos los hilos del fútbol femenil para empoderar a las mujeres en cada rincón de este ecosistema.
+
+
+**El Fútbol Femenil: Un Gigante en Crecimiento, Pero con Raíces Inestables**
+
+
+Imagina un deporte que en solo unos años ha pasado de ser un susurro a un rugido global. En 2025, los ingresos en deportes élite femeninos alcanzarán aproximadamente **£1.88 mil millones**, un aumento del 240% en solo cuatro años. El fútbol femenil lidera esta ola: (según Nielsen) se proyecta que para 2030 llegue a **800 millones de fans en todo el mundo**, convirtiéndose en el quinto deporte más popular del planeta con un 60% de seguidoras mujeres. En Estados Unidos, la NWSL vio un crecimiento del 72% en audiencias en ABC, ESPN y ESPN2 este año, mientras que en Europa y Asia torneos como los Campeonatos Europeos de Fútbol Femenil prometen eventos masivos en 2025.
+
+
+Y en México, ¿qué pasa? La Liga MX Femenil se ha consolidado como una de las más vistas con avances importantes en audiencia y patrocinios. Nuestro orgullo reciente: la Selección Nacional Sub-17 femenil quedando en 3er lugar del Mundial de Marruecos 2025. Pero detrás de estos números brillantes hay sombras. El fútbol femenil en México llegó tarde a la profesionalización: durante décadas y en la actualidad, las jugadoras enfrentan exclusión y discriminación solo por ser mujeres en un campo "de hombres". Los salarios siguen siendo muy desiguales respecto al fútbol varonil y persisten retos como la falta de equidad en cobertura mediática en transmisiones, producción de calidad y conversión de la pasión en una industria sostenible. Es una lucha que busca: igualdad de condiciones, visibilidad y oportunidades para que cada mujer no solo juegue, sino que lidere.
+
+
+El fútbol femenil es **más grande que la cancha**. Es gradas llenas de aficionadas que inspiran, micrófonos que amplifican voces silenciadas, mentes que se fortalecen para el reto y herramientas digitales que abren puertas globales. Necesita un ecosistema completo, no parches. Y ahí entramos nosotras.
+
+
+**OLAFUT: El HUB Integral que Une las Piezas del Rompecabezas**
+
+
+En OLAFUT creemos que el cambio real no viene de promesas, sino de estructuras sólidas. Por eso estamos construyendo paso a paso el **primer HUB integral del fútbol femenil en México**, un epicentro que integra cinco pilares diseñados para elevar a las mujeres en todos los frentes: **OLA-CAST, OLA-GAMES, OLA-MIND, OLA-SCOUT y OLA-DIGITAL**.
+
+- **Ola-Cast**: Donde las historias cobran vida. Amplificamos las voces de jugadoras, entrenadoras y aficionadas a través de podcasts, narraciones en vivo y narrativas que inspiran. Porque el fútbol se vive en los micrófonos tanto como en el balón.
+- **Ola-Games**: Torneos y eventos con formatos innovadores. Buscamos promover el sentido de competencia, actividad física, convivio y recompensa.
+- **Ola-Mind**: Crecimiento personal y profesional a través de pláticas, cursos y clases impartidas por las más expertas en la industria deportiva.
+- **Ola-Scout**: El lente y lugar para dar a conocer y apoyar en el camino al próximo talento del fútbol femenil profesional.
+- **Ola-Digital**: Un espacio abierto para generar conversación, abrir debates, generar propuestas en conjunto e informa sobre todo lo relacionado con el FUT! ⚽️🚺Este HUB no es solo una idea: es una respuesta a los desafíos reales, que busca convertir las promesas en realidades.
+
+**Únete al Movimiento: El Momento Es Nuestro**
+
+
+El fútbol femenil está en su "ban to boom": de la prohibición histórica a un boom meteórico. Necesitamos tu voz, tu talento y tu fuego. En OLAFUT, no solo eres espectadora: ¡Eres parte del cambio!
+
+
+_El equipo de OLAFUT_
+
+
+**Fuentes:** 
+https://www.nielsen.com/news-center/2025/womens-football-set-to-enter-global-top-5-sports-by-2030-with-over-800m-fans-nielsen-sports-and-pepsico-report-reveals-untapped-opportunity-for-brands/
+
+https://www.deloitte.com/us/en/about/press-room/womens-elite-sports-exceed-expectations.html
+
+0:{"buildId":"lAnDLrQCDUGnJA0PIx2qy","rsc":["$","$1","c",{"children":[["$","main",null,{"children":["$","div",null,{"className":"container mx-auto px-6","children":[["$","$L2",null,{"postsCount":1}],["$","$L3",null,{"post":{"id":"2a375711-1e77-8053-9ae1-e399d7ed4f10","title":"OLAFUT: El HUB que Transforma el Fútbol Femenil Más Allá de las Promesas","slug":"olafut-el-hub-que-transforma-el-futbol-femenil-mas-alla-de-las-promesas","coverImage":"/assets/blog/olafut-el-hub-que-transforma-el-futbol-femenil-mas-alla-de-las-promesas.webp","summary":"¡Bienvenidas/os al primer post de nuestro blog. Si estás aquí, es porque compartes esa pasión por el fútbol y en especial el fútbol femenil, ese que late en cad...","date":"2025-11-10","content":"$4","author":{"name":"Patricio Mariscal","avatar":""},"tags":["futfemenil","futbol","mujeres","deporte","futbolfem","futbolfemenil"],"category":"Intro OLAFUT"}}],false]}]}],["$L5","$L6"],"$L7"]}],"loading":null,"isPartial":false}
+5:["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/112aea9686cc66d4.css","precedence":"next"}]
+6:["$","script","script-0",{"src":"/_next/static/chunks/eb8dd3f19baf4412.js","async":true}]
+7:["$","$L8",null,{"children":["$","$9",null,{"name":"Next.MetadataOutlet","children":"$@a"}]}]
+a:null
