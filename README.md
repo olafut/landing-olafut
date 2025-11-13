@@ -507,11 +507,5 @@ Si algo no funciona o tienes dudas:
 ---
 
 **Última actualización**: Noviembre 2025
-
 **Versión**: 3.0
-
 **Mantenido por**: Equipo de Desarrollo de Olafut 💜
-
----
-
-**Nota técnica**: Este proyecto está construido con Next.js y se despliega automáticamente mediante GitHub Actions.
