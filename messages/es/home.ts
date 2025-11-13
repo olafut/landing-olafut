@@ -7,7 +7,7 @@ export const Home: Translations['Home'] = {
       'El <important>Fútbol</important> <important>Femenil</important> solo necesita una comunidad dispuesta <important>a TODO</important>',
     subtitle:
       '<b>OLAFUT</b> es el <tag>HUB</tag> del fútbol femenil: el corazón que une gradas, canchas, micrófonos y mentes creativas.',
-    ctaText: '¡Se parte del cambio!',
+    ctaText: '¡Sé parte del cambio!',
     trustBadges: {
       activeCommunity: 'Comunidad activa',
       weeklyPodcast: 'Podcast semanal',
