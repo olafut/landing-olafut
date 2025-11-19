@@ -61,7 +61,7 @@ export async function generateMetadata(props: Params): Promise<Metadata> {
   if (!post) return notFound();
 
   const title = `${post.title} | Blog Olafut`;
-  const url = `https://olafut.com/blog/${post.slug}`;
+  const url = `https://olafut.com/blog/${post.slug}/`;
   const imageUrl = post.coverImage ? post.coverImage : undefined;
 
   const smallImageUrl = imageUrl?.replace('.webp', '-small.webp');

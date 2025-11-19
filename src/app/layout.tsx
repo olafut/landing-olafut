@@ -23,6 +23,7 @@ const textFont = Raleway({
 
 export const metadata: Metadata = {
   ...BASE_METADATA,
+  alternates: { canonical: 'https://olafut.com/' },
   title:
     'Olafut - El Fútbol Femenil solo necesita una comunidad dispuesta a TODO.',
   description:
