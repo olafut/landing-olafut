@@ -33,23 +33,23 @@ export const CallToActionButton: FC<CallToActionButtonProps> = ({
   style,
 }) => {
   return (
-    <button
-      className={twMerge('', variants({ variant }), className)}
-      style={style}
-      type="button"
+    <Link
+      href="https://chat.whatsapp.com/FuurwY2lP1jHETF5xchlmI"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="w-full flex items-center justify-center gap-2"
     >
-      <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-linear-to-r from-transparent via-white/30 to-transparent" />
+      <button
+        className={twMerge('', variants({ variant }), className)}
+        style={style}
+        type="button"
+      >
+        <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-linear-to-r from-transparent via-white/30 to-transparent" />
 
-      <span className="relative flex items-center justify-center gap-3">
-        <Link
-          href="https://chat.whatsapp.com/FuurwY2lP1jHETF5xchlmI"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="w-full flex items-center justify-center gap-2"
-        >
+        <span className="relative flex items-center justify-center gap-3">
           {children}
-        </Link>
-      </span>
-    </button>
+        </span>
+      </button>
+    </Link>
   );
 };
