@@ -4,6 +4,7 @@ import { BASE_METADATA } from '@/constants/base-metadata';
 
 export const metadata: Metadata = {
   ...BASE_METADATA,
+  alternates: { canonical: 'https://olafut.com/blog/' },
   title: 'Blog | OlaFut - Noticias y Artículos de Fútbol Femenil',
   description:
     'Descubre las últimas noticias, análisis y perspectivas sobre el fútbol femenil en México. Historias que inspiran, informan y celebran el talento femenino en el deporte.',

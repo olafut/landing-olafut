@@ -4,6 +4,7 @@ import { BASE_METADATA } from '@/constants/base-metadata';
 
 export const metadata: Metadata = {
   ...BASE_METADATA,
+  alternates: { canonical: 'https://olafut.com/about/' },
   title:
     'Sobre Nosotros | OlaFut - Primer Club Femenil Independiente de México',
   description:
