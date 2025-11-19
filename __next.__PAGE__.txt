@@ -1,0 +1,8 @@
+1:"$Sreact.fragment"
+2:I[48044,["/_next/static/chunks/62966b88a07b3176.js","/_next/static/chunks/37f8ddcb12ba09af.js","/_next/static/chunks/40bd61de81e56fe1.js","/_next/static/chunks/073db85cbb2562d9.js","/_next/static/chunks/3f85d7cafe028ec8.js"],"HeroSection"]
+3:I[41243,["/_next/static/chunks/62966b88a07b3176.js","/_next/static/chunks/37f8ddcb12ba09af.js","/_next/static/chunks/40bd61de81e56fe1.js","/_next/static/chunks/073db85cbb2562d9.js","/_next/static/chunks/3f85d7cafe028ec8.js"],"WhyOlafutSection"]
+4:I[72081,["/_next/static/chunks/62966b88a07b3176.js","/_next/static/chunks/37f8ddcb12ba09af.js","/_next/static/chunks/40bd61de81e56fe1.js","/_next/static/chunks/073db85cbb2562d9.js","/_next/static/chunks/3f85d7cafe028ec8.js"],"InitiativesSection"]
+5:I[41050,["/_next/static/chunks/ec39348990c3a291.js","/_next/static/chunks/b8472e29c709a9b1.js"],"OutletBoundary"]
+6:"$Sreact.suspense"
+0:{"buildId":"lUn4rTB3xonUCr_wEF-Wt","rsc":["$","$1","c",{"children":[["$","main",null,{"children":[["$","$L2",null,{}],["$","$L3",null,{}],["$","$L4",null,{}]]}],[["$","script","script-0",{"src":"/_next/static/chunks/073db85cbb2562d9.js","async":true}],["$","script","script-1",{"src":"/_next/static/chunks/3f85d7cafe028ec8.js","async":true}]],["$","$L5",null,{"children":["$","$6",null,{"name":"Next.MetadataOutlet","children":"$@7"}]}]]}],"loading":null,"isPartial":false}
+7:null
