@@ -1,3 +1,4 @@
+import { sendGAEvent } from '@next/third-parties/google';
 import { cva } from 'class-variance-authority';
 import Link from 'next/link';
 import type { FC } from 'react';
@@ -32,12 +33,23 @@ export const CallToActionButton: FC<CallToActionButtonProps> = ({
   className,
   style,
 }) => {
+  const handleClick = () => {
+    sendGAEvent({
+      event: 'cta_whatsapp_click',
+      value: {
+        button_variant: variant,
+        destination: 'whatsapp_group',
+      },
+    });
+  };
+
   return (
     <Link
       href="https://chat.whatsapp.com/FuurwY2lP1jHETF5xchlmI"
       target="_blank"
       rel="noopener noreferrer"
       className="w-full flex items-center justify-center gap-2"
+      onClick={handleClick}
     >
       <button
         className={twMerge('', variants({ variant }), className)}
