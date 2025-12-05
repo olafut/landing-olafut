@@ -34,12 +34,9 @@ export const CallToActionButton: FC<CallToActionButtonProps> = ({
   style,
 }) => {
   const handleClick = () => {
-    sendGAEvent({
-      event: 'cta_whatsapp_click',
-      value: {
-        button_variant: variant,
-        destination: 'whatsapp_group',
-      },
+    sendGAEvent('event', 'cta_whatsapp_click', {
+      button_variant: variant,
+      destination: 'whatsapp_group',
     });
   };
 
