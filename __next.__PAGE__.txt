@@ -1,0 +1,8 @@
+1:"$Sreact.fragment"
+2:I[48044,["/_next/static/chunks/ed821e0518b8959b.js","/_next/static/chunks/1c5653afce5e488f.js","/_next/static/chunks/44e012ef9de2edcc.js","/_next/static/chunks/c9750ff51653f601.js","/_next/static/chunks/23b49d25cb98e20c.js"],"HeroSection"]
+3:I[41243,["/_next/static/chunks/ed821e0518b8959b.js","/_next/static/chunks/1c5653afce5e488f.js","/_next/static/chunks/44e012ef9de2edcc.js","/_next/static/chunks/c9750ff51653f601.js","/_next/static/chunks/23b49d25cb98e20c.js"],"WhyOlafutSection"]
+4:I[72081,["/_next/static/chunks/ed821e0518b8959b.js","/_next/static/chunks/1c5653afce5e488f.js","/_next/static/chunks/44e012ef9de2edcc.js","/_next/static/chunks/c9750ff51653f601.js","/_next/static/chunks/23b49d25cb98e20c.js"],"InitiativesSection"]
+5:I[25151,["/_next/static/chunks/cc5639b053815f24.js","/_next/static/chunks/4904848246fadb45.js"],"OutletBoundary"]
+6:"$Sreact.suspense"
+0:{"buildId":"rzDKDplina81jZgTVktRP","rsc":["$","$1","c",{"children":[["$","main",null,{"children":[["$","$L2",null,{}],["$","$L3",null,{}],["$","$L4",null,{}]]}],[["$","script","script-0",{"src":"/_next/static/chunks/c9750ff51653f601.js","async":true}],["$","script","script-1",{"src":"/_next/static/chunks/23b49d25cb98e20c.js","async":true}]],["$","$L5",null,{"children":["$","$6",null,{"name":"Next.MetadataOutlet","children":"$@7"}]}]]}],"loading":null,"isPartial":false}
+7:null

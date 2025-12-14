@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200"><svg width="200" height="200" version="1.1" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+ <defs>
+  <style>.st0 {
+        fill: #231f20;
+      }
+
+      .st1 {
+        fill: #e9577f;
+      }</style>
+ </defs>
+ <path class="st1" d="m119.73 108.92 30.182 54.261h19.971c-4.4408-7.4182-46.616-82.767-50.152-90.185l-43.504 78.821-16.195 29.45h-59.912c3.324-5.8067 25.741-46.593 47.28-85.795 12.658-22.949 26.645-48.704 42.388-76.738h19.971l-41.271 74.654-38.399 69.792h19.971c27.31-50.316 44.382-79.988 69.697-126.36 1.5423 2.7784 79.669 144.22 80.122 144.45h-59.912l-30.182-54.261 9.9986-18.087z" stroke-width="2.7181"></path>
+</svg><style>@media (prefers-color-scheme: light) { :root { filter: none; } }
+@media (prefers-color-scheme: dark) { :root { filter: none; } }
+</style></svg>
